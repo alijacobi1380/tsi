@@ -1,65 +1,53 @@
 @extends('producer.layout.sidebar')
 
+@section('func')
+    @php
+        echo App\Http\Controllers\ProducerController::checklang();
+    @endphp
+@endsection
+
 @section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ __('messages.productcount') }} : {{ $products->count() }}</h4>
+                    <br>
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">جدول‌های واکنشگرا</h4>
-                <p class="card-title-desc">
-                    جدول های واکنش گرا را با قرار دادن هر <code>.table</code> داخل <code>.table-responsive</code> میتوانید ایجاد کنید تا در دستگاه های کوچک (زیر 768px) به صورت افقی اسکرول شوند.
-                </p>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>{{ __('messages.gptablenum') }}</th>
+                                    <th>{{ __('messages.gptabletitle') }}</th>
+                                    <th>{{ __('messages.gptablecategory') }}</th>
+                                    <th>{{ __('messages.gptableimg') }}</th>
+                                    <th>{{ __('messages.gptableedit') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <th scope="row">{{ $product->id }}</th>
+                                        <th scope="row">{{ $product->title }}</th>
+                                        <th scope="row">{{ $product->categoryname }}</th>
+                                        <th scope="row"><a href="{{ url('productimages') }}/{{ $product->image }}"
+                                                target="_blank">{{ __('messages.showimg') }}</a>
+                                        </th>
+                                        <th scope="row">dsa</th>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div class="table-responsive">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>لورم ایپسوم متن</th>
-                                <th>لورم ایپسوم متن</th>
-                                <th>لورم ایپسوم متن</th>
-                                <th>لورم ایپسوم متن</th>
-                                <th>لورم ایپسوم متن</th>
-                                <th>لورم ایپسوم متن</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                                <td>لورم ایپسوم</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-
             </div>
         </div>
     </div>
-</div>
-<!-- end row -->
-    
+    <!-- end row -->
+@endsection
+
+@section('pagetitle')
+    {{ __('messages.panelproductlist') }}
 @endsection
