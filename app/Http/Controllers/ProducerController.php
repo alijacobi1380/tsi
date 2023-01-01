@@ -8,15 +8,92 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Shetabit\Multipay\Invoice;
+use Shetabit\Payment\Facade\Payment;
+use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+
+use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Route;
+
 class ProducerController extends Controller
 {
+
     public function checklang()
     {
-        if ($_SESSION['lang'] == 'fa') {
+        if (!isset($_SESSION['lang'])) {
+            App::setLocale('fa');
+        } elseif ($_SESSION['lang'] == 'fa') {
             App::setLocale('fa');
         } elseif ($_SESSION['lang'] == 'en') {
             App::setLocale('en');
         }
+    }
+
+    public function dashboard()
+    {
+    }
+
+    public function payfactor()
+    {
+        return view('producer.payfactor');
+    }
+
+    public function paygo()
+    {
+        return Payment::purchase(
+            (new Invoice)->amount(500000),
+            function ($driver, $transactionId) {
+                $_SESSION['transid'] = $transactionId;
+            }
+        )->pay()->render();
+    }
+
+    public function verifypay()
+    {
+        try {
+            $receipt = Payment::amount(500000)->transactionId($_SESSION['transid'])->verify();
+
+            $prdate = new Verta;
+            $date = new Verta;
+            $date->timezone = 'Asia/Tehran';
+            $prtime = new Verta;
+            $prtime->addYear(1);
+            $time = new Verta;
+            $time->timezone = 'Asia/Tehran';
+            $time->addYear(1);
+            // You can show payment referenceId to the user.
+            DB::table('factors')->insert([
+                'transid' => $_SESSION['transid'],
+                'username' => Auth::user()->name,
+                'userid' => Auth::user()->id,
+                'price' => 500000,
+                'when' => $time->format('j    F    Y  /  H:i'),
+                'prwhen' => $prtime,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
+            session_unset($_SESSION['transid']);
+            echo $receipt->getReferenceId();
+        } catch (InvalidPaymentException $exception) {
+
+            echo $exception->getMessage();
+        }
+    }
+
+    public function payments()
+    {
+        $factor = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->first();
+        if ($factor != null) {
+            $v1 = new Verta();
+            $v2 = Verta::parse($factor->prwhen);
+            $ekhtelafzaman = $v1->diffDays($v2);
+            if ($ekhtelafzaman < 0) {
+                $ekhtelafzaman = 0;
+            }
+        } else {
+            $ekhtelafzaman = 'نامشخص';
+        }
+        $factors = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        return view('producer.payments', compact('factors', 'ekhtelafzaman'));
     }
 
     public function getproduct()
@@ -86,61 +163,6 @@ class ProducerController extends Controller
         } else {
             App::setLocale('en');
             return redirect()->back()->with('message', __('messages.productadded'));
-        }
-    }
-
-    public function addcategory()
-    {
-        return view('producer.addcategory');
-    }
-
-    public function categorylist()
-    {
-        $categorys = DB::table('categorys')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->get();
-        return view('producer.categoryslist', compact('categorys'));
-    }
-
-    public function deletecategory($id)
-    {
-        $category = DB::table('categorys')->where('id', '=', $id)->first();
-        if ($category->userid == Auth::user()->id) {
-            DB::table('categorys')->where('id', '=', $id)->delete();
-        }
-        return back();
-    }
-
-    public function addcategorycheck(Request $request)
-    {
-        if ($_SESSION['lang'] == 'fa') {
-            App::setLocale('fa');
-            $message = [
-                'title.required' => __('messages.categorytitleerror'),
-            ];
-            $val = $request->validate([
-                'title' => 'required',
-            ], $message);
-        } else {
-            App::setLocale('en');
-            $message = [
-                'title.required' => __('messages.categorytitleerror'),
-            ];
-            $val = $request->validate([
-                'title' => 'required',
-            ], $message);
-        }
-
-
-        DB::table('categorys')->insert([
-            'title' => $request->title,
-            'userid' => Auth::user()->id,
-            'username' => Auth::user()->name,
-        ]);
-        if ($_SESSION['lang'] == 'fa') {
-            App::setLocale('fa');
-            return redirect()->back()->with('message', __('messages.categoryadded'));
-        } else {
-            App::setLocale('en');
-            return redirect()->back()->with('message', __('messages.categoryadded'));
         }
     }
 }

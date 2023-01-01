@@ -29,12 +29,12 @@
                                 @foreach ($products as $product)
                                     <tr>
                                         <th scope="row">{{ $product->id }}</th>
-                                        <th scope="row">{{ $product->title }}</th>
-                                        <th scope="row">{{ $product->categoryname }}</th>
-                                        <th scope="row"><a href="{{ url('productimages') }}/{{ $product->image }}"
+                                        <th>{{ $product->title }}</th>
+                                        <th>{{ $product->categoryname }}</th>
+                                        <th><a href="{{ url('productimages') }}/{{ $product->image }}"
                                                 target="_blank">{{ __('messages.showimg') }}</a>
                                         </th>
-                                        <th scope="row">dsa</th>
+                                        <th><a href="">حذف / ویرایش</a></th>
                                     </tr>
                                 @endforeach
                             </tbody>

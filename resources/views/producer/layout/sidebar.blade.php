@@ -180,8 +180,24 @@
                             <li class="menu-title">{{ __('messages.menu') }}</li>
 
                             <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span>{{ __('messages.paneldashboard') }}</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="far fa-id-card"></i>
+                                    <span>{{ __('messages.panelvitrin') }}</span>
+                                </a>
+                            </li>
+
+
+                            <li>
                                 <a href="javascript:%20void(0);" class="waves-effect">
-                                    <i class="mdi mdi-airplay"></i>
+                                    <i class="mdi mdi-shopping-outline"></i>
                                     {{-- <span class="badge badge-pill badge-info float-right">2</span> --}}
                                     <span>{{ __('messages.panelproducttitle') }}</span>
                                 </a>
@@ -192,13 +208,43 @@
                                     <li><a
                                             href="{{ route('producer.addproduct') }}">{{ __('messages.panelproductadd') }}</a>
                                     </li>
-                                    <li><a
-                                            href="{{ route('producer.categorylist') }}">{{ __('messages.panelcategorylist') }}</a>
-                                    </li>
-                                    <li><a
-                                            href="{{ route('producer.addcategory') }}">{{ __('messages.panelcategoryadd') }}</a>
-                                    </li>
                                 </ul>
+                            </li>
+
+                            <li>
+                                <a href="{{route('producer.payments')}}" class=" waves-effect">
+                                    <i class="bx bx-dollar-circle"></i>
+                                    <span>{{ __('messages.panelhesabdari') }}</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="mdi mdi-chat-outline"></i>
+                                    <span>{{ __('messages.panelchat') }}</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="bx bx-happy-beaming"></i>
+                                    <span>{{ __('messages.panelservices') }}</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="bx bx-like"></i>
+                                    <span>{{ __('messages.panelfavorits') }}</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class=" waves-effect">
+                                    <i class="mdi mdi-ticket-outline"></i>
+                                    <span>{{ __('messages.panelsupport') }}</span>
+                                </a>
                             </li>
 
 
