@@ -21,6 +21,8 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#283D92">
 
+    @livewireStyles
+
 </head>
 
 <body data-layout="detached" data-topbar="colored">
@@ -35,15 +37,25 @@
                         <div class="float-right">
 
                             <div class="dropdown d-inline-block d-lg-none ml-2">
-                                <button type="button" class="btn header-item noti-icon waves-effect"
-                                    id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="mdi mdi-magnify"></i>
+                                <button type="button" class="btn header-item waves-effect" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <img class=""
+                                        src="@if (App::getLocale() == 'fa') {{ url('assets/images/flags/iran.jpg') }} @elseif(App::getLocale() == 'en') {{ url('assets/images/flags/us.jpg') }} @endif"
+                                        alt="Header Language" height="16">
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                                    aria-labelledby="page-header-search-dropdown">
-
-
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="@if (App::getLocale() == 'fa') {{ route('changelang', ['id' => 2]) }} @elseif (App::getLocale() == 'en') {{ route('changelang', ['id' => 1]) }} @endif"
+                                        class="dropdown-item notify-item">
+                                        <img src="@if (App::getLocale() == 'en') {{ url('assets/images/flags/iran.jpg') }} @elseif(App::getLocale() == 'fa') {{ url('assets/images/flags/us.jpg') }} @endif"
+                                            alt="user-image" class="mr-1" height="12"> <span class="align-middle">
+                                            @if (App::getLocale() == 'en')
+                                                {{ __('messages.farsi') }}
+                                            @elseif(App::getLocale() == 'fa')
+                                                {{ __('messages.english') }}
+                                            @endif
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
 
@@ -212,7 +224,7 @@
                             </li>
 
                             <li>
-                                <a href="{{route('producer.payments')}}" class=" waves-effect">
+                                <a href="{{ route('producer.payments') }}" class=" waves-effect">
                                     <i class="bx bx-dollar-circle"></i>
                                     <span>{{ __('messages.panelhesabdari') }}</span>
                                 </a>
@@ -220,7 +232,7 @@
 
 
                             <li>
-                                <a href="#" class=" waves-effect">
+                                <a href="{{ route('producer.producergetchat') }}" class=" waves-effect">
                                     <i class="mdi mdi-chat-outline"></i>
                                     <span>{{ __('messages.panelchat') }}</span>
                                 </a>
@@ -324,6 +336,9 @@
     <script src="{{ url('assets/js/app.js') }}"></script>
 
     @yield('sc')
+
+
+    @livewireScripts
 
 </body>
 

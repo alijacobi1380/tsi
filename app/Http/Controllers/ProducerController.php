@@ -35,7 +35,20 @@ class ProducerController extends Controller
 
     public function payfactor()
     {
-        return view('producer.payfactor');
+
+        $factor = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->first();
+
+        if ($factor != null) {
+            $v1 = new Verta();
+            $v2 = Verta::parse($factor->prwhen);
+            if ($v1->diffDays($v2) > 0) {
+                return redirect()->route('producer.dashboard');
+            } else {
+                return view('producer.payfactor');
+            }
+        } else {
+            return view('producer.payfactor');
+        }
     }
 
     public function paygo()
@@ -71,11 +84,12 @@ class ProducerController extends Controller
                 'prwhen' => $prtime,
                 'date' => $date->format('j    F    Y  /  H:i'),
             ]);
-            session_unset($_SESSION['transid']);
-            echo $receipt->getReferenceId();
+            $_SESSION['transid'] = "";
+            $verifymessage = __('messages.paymentverify');
+            return redirect()->route('producer.payments')->with('messageverify', __('messages.paymentverify'))->with('transid', $receipt->getReferenceId());
         } catch (InvalidPaymentException $exception) {
-
-            echo $exception->getMessage();
+            $verifyerrormessage = $exception->getMessage();
+            return redirect()->route('producer.payments')->with('messageerror', __('messages.paymenterror'))->with('messagewhy', $exception->getMessage());
         }
     }
 
@@ -106,6 +120,14 @@ class ProducerController extends Controller
     {
         $categorys = DB::table('categorys')->where('userid', '=', Auth::user()->id)->get();
         return view('producer.addproduct', compact('categorys'));
+    }
+
+    public function deleteproduct($id)
+    {
+        $n = DB::table('products')->where('id', '=', $id)->first();
+        unlink('productimages/' . $n->image);
+        DB::table('products')->where('id', '=', $id)->where('userid', '=', Auth::user()->id)->delete();
+        return back();
     }
 
     public function addproductcheck(Request $request)

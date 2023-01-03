@@ -6,13 +6,24 @@
     @endphp
 @endsection
 
+
 @section('content')
+    @if (session()->has('messageerror'))
+        <div class="alert alert-danger" role="alert">
+            {{ session()->get('messageerror') }}
+        </div>
+    @elseif(session()->has('messageverify'))
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('messageverify') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     {{-- <h4 class="card-title">{{ __('messages.pytitle') }}</h4> --}}
-                    <h6 class="card-title">{{ __('messages.pydaycount') }} : {{ $ekhtelafzaman }} {{__('messages.pyday')}}</h6>
+                    <h6 class="card-title">{{ __('messages.pydaycount') }} : {{ $ekhtelafzaman }} {{ __('messages.pyday') }}
+                    </h6>
                     <br>
 
                     <div class="table-responsive">

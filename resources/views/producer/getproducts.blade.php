@@ -34,7 +34,7 @@
                                         <th><a href="{{ url('productimages') }}/{{ $product->image }}"
                                                 target="_blank">{{ __('messages.showimg') }}</a>
                                         </th>
-                                        <th><a href="">حذف / ویرایش</a></th>
+                                        <th><a href="{{ route('producer.deleteproduct', ['id' => $product->id]) }}">حذف</a></th>
                                     </tr>
                                 @endforeach
                             </tbody>

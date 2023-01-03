@@ -35,6 +35,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //Producer routes
 Route::get('/producer/dashboard', 'App\Http\Controllers\ProducerController@dashboard')->name('producer.dashboard')->middleware('Producer');
+Route::get('/producer/deleteproduct/{id}', 'App\Http\Controllers\ProducerController@deleteproduct')->name('producer.deleteproduct')->middleware('Producer');
 Route::get('/producer/payments', 'App\Http\Controllers\ProducerController@payments')->name('producer.payments')->middleware('Producer');
 Route::get('/producer/products', 'App\Http\Controllers\ProducerController@getproduct')->name('producer.getproduct')->middleware('Producer', 'factor');
 Route::get('/producer/addproduct', 'App\Http\Controllers\ProducerController@addproduct')->name('producer.addproduct')->middleware('Producer', 'factor');
@@ -42,3 +43,4 @@ Route::post('/producer/addproductcheck', 'App\Http\Controllers\ProducerControlle
 Route::get('/producer/payfactor', 'App\Http\Controllers\ProducerController@payfactor')->name('producer.payfactor')->middleware('Producer');
 Route::get('/producer/paygo', 'App\Http\Controllers\ProducerController@paygo')->name('producer.paygo')->middleware('Producer');
 Route::get('/producer/verifypay', 'App\Http\Controllers\ProducerController@verifypay')->name('producer.verifypay')->middleware('Producer');
+Route::get('/producer/chats', 'App\Http\Controllers\ChatController@producergetchat')->name('producer.producergetchat')->middleware('Producer');

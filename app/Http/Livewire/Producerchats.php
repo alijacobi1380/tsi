@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Livewire\Component;
+use Hekmatinasser\Verta\Verta;
+
+class Producerchats extends Component
+{
+
+    public $text;
+    public $reciverid;
+    public $recivername;
+    public $users;
+    public $chats = [];
+
+    public function render()
+    {
+        $this->users = DB::table('users')->where('id','!=',Auth::user()->id)->get();
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        return view('livewire.producerchats');
+    }
+
+    public function setid($id)
+    {
+        $this->reciverid = $id;
+        $d = DB::table('users')->where('id', '=', $this->reciverid)->first();
+        $this->recivername = $d->name;
+        $this->chats = "";
+    }
+
+    public function addchat()
+    {
+        if ($this->text != "") {
+            $date = new Verta;
+            $date->timezone = 'Asia/Tehran';
+            $reciver = DB::table('users')->where('id', $this->reciverid)->first();
+            DB::table('chats')->insert([
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'reciverid' => $reciver->id,
+                'recivername' => $reciver->name,
+                'desc' => $this->text,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
+            $this->text = "";
+            $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        }
+    }
+
+    public function getchats()
+    {
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        // dd($this->chats);
+    }
+}
