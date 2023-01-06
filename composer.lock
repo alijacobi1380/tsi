@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14d4243cea74ceb1ab07a6cb8e1a3477",
+    "content-hash": "7dece9559b6062d6f3e9910b6138f99f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1927,6 +1927,64 @@
             "time": "2022-12-21T22:28:25+00:00"
         },
         {
+            "name": "majidcode/easy-jalali",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MajideND/Easy-Jalali.git",
+                "reference": "e0165786e1436ee65d98bdb5ab924a285991979b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MajideND/Easy-Jalali/zipball/e0165786e1436ee65d98bdb5ab924a285991979b",
+                "reference": "e0165786e1436ee65d98bdb5ab924a285991979b",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^2.57",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "JalaliDate": "EasyJalali\\Laravel\\Facade\\JalaliDate"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EasyJalali\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Majid Jalilian",
+                    "email": "info@majid.codes",
+                    "homepage": "https://majid.codes"
+                }
+            ],
+            "description": "Convert and format Jalali date type in PHP.",
+            "homepage": "https://majid.codes",
+            "keywords": [
+                "date",
+                "datetime",
+                "laravel",
+                "php",
+                "time"
+            ],
+            "support": {
+                "docs": "https://github.com/MajideND/easy-jalali/blob/master/README.md",
+                "issues": "https://github.com/MajideND/easy-jalali/issues",
+                "source": "https://github.com/MajideND/easy-jalali"
+            },
+            "time": "2022-03-07T08:25:32+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.8.0",
             "source": {
@@ -3384,6 +3442,86 @@
                 "source": "https://github.com/shetabit/payment/tree/v4.3.2"
             },
             "time": "2022-12-25T12:30:46+00:00"
+        },
+        {
+            "name": "stichoza/google-translate-php",
+            "version": "v4.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stichoza/google-translate-php.git",
+                "reference": "14f6a9c84cd860910706ee3a668fba8a0a1aac0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/14f6a9c84cd860910706ee3a668fba8a0a1aac0f",
+                "reference": "14f6a9c84cd860910706ee3a668fba8a0a1aac0f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "~6.0|~7.0",
+                "php": "^7.1|^8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stichoza\\GoogleTranslate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levan Velijanashvili",
+                    "email": "me@stichoza.com"
+                }
+            ],
+            "description": "Free Google Translate API PHP Package",
+            "homepage": "https://github.com/Stichoza/google-translate-php",
+            "keywords": [
+                "google",
+                "php",
+                "translate",
+                "translating",
+                "translator"
+            ],
+            "support": {
+                "issues": "https://github.com/Stichoza/google-translate-php/issues",
+                "source": "https://github.com/Stichoza/google-translate-php/tree/v4.1.7"
+            },
+            "funding": [
+                {
+                    "url": "https://btc.com/bc1qc25j4x7yahghm8nnn6lypnw59nptylsw32nkfl",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/stichoza",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/stichoza",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/stichoza",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://opencollective.com/stichoza",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/stichoza",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-11-25T11:17:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -14,9 +14,21 @@ use Shetabit\Multipay\Exceptions\InvalidPaymentException;
 
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Facades\Route;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class ProducerController extends Controller
 {
+
+    public function showname($name)
+    {
+        if (!isset($_SESSION['lang'])) {
+            echo GoogleTranslate::trans(strval($name), 'fa');
+        } elseif ($_SESSION['lang'] == 'fa') {
+            echo GoogleTranslate::trans(strval($name), 'fa');
+        } elseif ($_SESSION['lang'] == 'en') {
+            echo GoogleTranslate::trans(strval($name), 'en');
+        }
+    }
 
     public function checklang()
     {

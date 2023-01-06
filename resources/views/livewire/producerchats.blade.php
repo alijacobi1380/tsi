@@ -12,7 +12,7 @@
                     <div wire:click="setid({{ $user->id }})" class="hv" style="cursor: pointer;">
                         <img style="width: 50px;height: 50px;border-radius: 100%;margin: 20px"
                             src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="">
-                        <span>{{ $user->name }}</span>
+                        <span>{{ $this->showtext($user->name) }}</span>
                         <br>
                     </div>
                 @endforeach
@@ -31,7 +31,7 @@
                                 class="card-header justify-content-between align-items-center p-3">
                                 <h5 class="mb-0">
                                     @if ($reciverid != null)
-                                        {{ $recivername }}
+                                        {{ $this->showtext($recivername) }}
                                     @endif
                                 </h5>
 
@@ -51,11 +51,20 @@
                                                 <div>
                                                     <p class="small p-2 ms-3 mb-1 rounded-3"
                                                         style="background-color: #f5f6f7;font-size: 16px;border-radius:10px;">
-                                                        {{ $chat->desc }}
+                                                        @php
+                                                            if (!isset($_SESSION['lang'])) {
+                                                                echo $chat->desc;
+                                                            } elseif ($_SESSION['lang'] == 'fa') {
+                                                                echo $chat->desc;
+                                                            } elseif ($_SESSION['lang'] == 'en') {
+                                                                echo $chat->endesc;
+                                                            }
+                                                        @endphp
                                                     </p>
 
 
-                                                    <p class="small ms-3 mb-3 rounded-3 text-muted">{{ $chat->date }}
+                                                    <p class="small ms-3 mb-3 rounded-3 text-muted">
+                                                        {{ $this->showdate($chat->date, $chat->prdate) }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -64,11 +73,11 @@
                                                 <div>
                                                     <p style="font-size: 16px;border-radius:10px;"
                                                         class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                                                        {{ $chat->desc }}
+                                                        {{ $this->showtext($chat->desc) }}
                                                     </p>
                                                     <p
                                                         class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
-                                                        {{ $chat->date }}
+                                                        {{ $this->showdate($chat->date, $chat->prdate) }}
                                                     </p>
                                                 </div>
                                                 <img src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="avatar 1"
@@ -80,9 +89,10 @@
                                             objDiv.scrollTop = objDiv.scrollHeight;
                                         </script>
                                     @endforeach
-                                    @else
-                                    <h6>{{__('messages.nochat')}}</h6>
+                                @else
+                                    <h6>{{ __('messages.nochat') }}</h6>
                                 @endif
+
 
 
 
@@ -90,7 +100,7 @@
                             </div>
                             <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
 
-                                
+
 
 
                                 <input wire:keydown.enter="addchat" wire:model.lazy="text" type="text"

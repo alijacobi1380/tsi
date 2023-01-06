@@ -97,7 +97,11 @@
                                     aria-expanded="false">
                                     <img class="rounded-circle header-profile-user"
                                         src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="Header Avatar">
-                                    <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->name }}</span>
+                                    <span class="d-none d-xl-inline-block ml-1">
+                                        @php
+                                            echo App\Http\Controllers\ProducerController::showname(Auth::user()->name);
+                                        @endphp
+                                    </span>
                                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -167,8 +171,11 @@
 
                         <div class="mt-3">
 
-                            <a href="#"
-                                class="text-dark font-weight-medium font-size-16 line-height-h">{{ Auth::user()->name }}</a>
+                            <a href="#" class="text-dark font-weight-medium font-size-16 line-height-h">
+                                @php
+                                    echo App\Http\Controllers\ProducerController::showname(Auth::user()->name);
+                                @endphp
+                            </a>
                             <p class="text-body mt-1 mb-0 font-size-13">
                                 @switch(Auth::user()->rule)
                                     @case(1)
