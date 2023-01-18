@@ -19,7 +19,25 @@
     <!-- App Css -->
     <link href="{{ url('assets/css/app.css') }}" id="app-style" rel="stylesheet" type="text/css">
     <!-- Theme Color -->
+
+
+    <link href="{{ url('assets/css/hover.css') }}" rel="stylesheet" type="text/css">
+
+
     <meta name="theme-color" content="#283D92">
+
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 
     @livewireStyles
 
@@ -98,9 +116,7 @@
                                     <img class="rounded-circle header-profile-user"
                                         src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="Header Avatar">
                                     <span class="d-none d-xl-inline-block ml-1">
-                                        @php
-                                            echo App\Http\Controllers\ProducerController::showname(Auth::user()->name);
-                                        @endphp
+                                        {{ Auth::user()->name }}
                                     </span>
                                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                                 </button>
@@ -172,9 +188,7 @@
                         <div class="mt-3">
 
                             <a href="#" class="text-dark font-weight-medium font-size-16 line-height-h">
-                                @php
-                                    echo App\Http\Controllers\ProducerController::showname(Auth::user()->name);
-                                @endphp
+                                {{ Auth::user()->name }}
                             </a>
                             <p class="text-body mt-1 mb-0 font-size-13">
                                 @switch(Auth::user()->rule)
@@ -246,10 +260,37 @@
                             </li>
 
                             <li>
-                                <a href="#" class=" waves-effect">
+                                <a href="javascript:%20void(0);" class="waves-effect">
                                     <i class="bx bx-happy-beaming"></i>
+                                    {{-- <span class="badge badge-pill badge-info float-right">2</span> --}}
                                     <span>{{ __('messages.panelservices') }}</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 1]) }}">{{ __('messages.serviceonepagetitle') }}</a>
+                                    </li>
+
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 2]) }}">{{ __('messages.servicetwopagetitle') }}</a>
+                                    </li>
+
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 3]) }}">{{ __('messages.servicethreepagetitle') }}</a>
+                                    </li>
+
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 4]) }}">{{ __('messages.servicefourpagetitle') }}</a>
+                                    </li>
+
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 5]) }}">{{ __('messages.servicefivepagetitle') }}</a>
+                                    </li>
+
+                                    <li><a
+                                            href="{{ route('producer.services', ['id' => 6]) }}">{{ __('messages.servicesixpagetitle') }}</a>
+                                    </li>
+
+                                </ul>
                             </li>
 
                             <li>

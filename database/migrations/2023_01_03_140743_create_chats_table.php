@@ -20,9 +20,7 @@ class CreateChatsTable extends Migration
             $table->integer('reciverid');
             $table->text('recivername');
             $table->text('desc');
-            $table->text('endesc');
             $table->text('date');
-            $table->text('prdate');
             $table->timestamps();
         });
     }

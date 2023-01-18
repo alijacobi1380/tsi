@@ -46,8 +46,20 @@
                                         <th>{{ $factor->transid }}</th>
                                         <th>{{ number_format($factor->price) }}</th>
                                         <th>{{ $factor->username }}</th>
-                                        <th>{{ $factor->date }}</th>
-                                        <th>{{ $factor->when }}</th>
+                                        <th>
+                                            @if (App::getLocale() == 'en')
+                                                {{ Verta::parse($factor->prdate)->datetime()->format('Y-m-d') }}
+                                            @else
+                                                {{ $factor->date }}
+                                            @endif
+                                        </th>
+                                        <th>
+                                            @if (App::getLocale() == 'en')
+                                                {{ Verta::parse($factor->prwhen)->datetime()->format('Y-m-d') }}
+                                            @else
+                                                {{ $factor->when }}
+                                            @endif
+                                        </th>
                                     </tr>
                                 @endforeach
 

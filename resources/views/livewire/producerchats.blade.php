@@ -12,7 +12,7 @@
                     <div wire:click="setid({{ $user->id }})" class="hv" style="cursor: pointer;">
                         <img style="width: 50px;height: 50px;border-radius: 100%;margin: 20px"
                             src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="">
-                        <span>{{ $this->showtext($user->name) }}</span>
+                        <span>{{ $user->name }}</span>
                         <br>
                     </div>
                 @endforeach
@@ -31,7 +31,7 @@
                                 class="card-header justify-content-between align-items-center p-3">
                                 <h5 class="mb-0">
                                     @if ($reciverid != null)
-                                        {{ $this->showtext($recivername) }}
+                                        {{ $recivername }}
                                     @endif
                                 </h5>
 
@@ -51,20 +51,12 @@
                                                 <div>
                                                     <p class="small p-2 ms-3 mb-1 rounded-3"
                                                         style="background-color: #f5f6f7;font-size: 16px;border-radius:10px;">
-                                                        @php
-                                                            if (!isset($_SESSION['lang'])) {
-                                                                echo $chat->desc;
-                                                            } elseif ($_SESSION['lang'] == 'fa') {
-                                                                echo $chat->desc;
-                                                            } elseif ($_SESSION['lang'] == 'en') {
-                                                                echo $chat->endesc;
-                                                            }
-                                                        @endphp
+                                                        {{ $chat->desc }}
                                                     </p>
 
 
                                                     <p class="small ms-3 mb-3 rounded-3 text-muted">
-                                                        {{ $this->showdate($chat->date, $chat->prdate) }}
+                                                        {{ $chat->date }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -73,11 +65,11 @@
                                                 <div>
                                                     <p style="font-size: 16px;border-radius:10px;"
                                                         class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                                                        {{ $this->showtext($chat->desc) }}
+                                                        {{ $chat->desc }}
                                                     </p>
                                                     <p
                                                         class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
-                                                        {{ $this->showdate($chat->date, $chat->prdate) }}
+                                                        {{ $chat->date }}
                                                     </p>
                                                 </div>
                                                 <img src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="avatar 1"

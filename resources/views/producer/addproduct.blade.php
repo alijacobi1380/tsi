@@ -7,6 +7,14 @@
 @endsection
 
 @section('content')
+    @if ($factorstatus == false)
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <a href="{{ route('producer.payfactor') }}">{{ __('messages.factorpayerror') }}</a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -27,11 +35,26 @@
 
                         <div class="form-group row">
                             <label for="example-text-input"
+                                class="col-md-2 col-form-label">{{ __('messages.enapproductname') }}</label>
+                            <div class="col-md-10">
+                                <input placeholder="{{ __('messages.ekhtiari') }}" value="{{ old('enproductname') }}"
+                                    name="enproductname" class="form-control" type="text" id="example-text-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.approductcategory') }}</label>
                             <div class="col-md-10">
                                 <select class="col-12 form-control" name="productcategory" id="">
                                     @foreach ($categorys as $category)
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        <option value="{{ $category->id }}">
+                                            @if (App::getLocale() == 'en')
+                                                {{ $category->entitle }}
+                                            @else
+                                                {{ $category->title }}
+                                            @endif
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -45,6 +68,7 @@
                                     type="text" disabled id="example-text-input">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.approductdesc') }}</label>
@@ -52,6 +76,20 @@
                                 <textarea id="summernote" name="productdesc">
                                     {{ old('productdesc') }}
                                 </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-text-input"
+                                class="col-md-2 col-form-label">{{ __('messages.enapproductdesc') }}</label>
+                            <div class="col-md-10">
+                                <textarea id="summernote2" name="enproductdesc">
+                                    @if (old('enproductdesc') == '')
+{{ __('messages.ekhtiari') }}
+@else
+{{ old('enproductdesc') }}
+@endif
+</textarea>
                             </div>
                         </div>
 
@@ -93,6 +131,7 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote();
+            $('#summernote2').summernote();
         });
     </script>
 @endsection

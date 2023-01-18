@@ -37,34 +37,11 @@ class Producerchats extends Component
         $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
     }
 
-    public function showtext($t)
-    {
-        if (!isset($_SESSION['lang'])) {
-            return GoogleTranslate::trans(strval($t), 'fa');
-        } elseif ($_SESSION['lang'] == 'fa') {
-            return GoogleTranslate::trans(strval($t), 'fa');
-        } elseif ($_SESSION['lang'] == 'en') {
-            return GoogleTranslate::trans(strval($t), 'en');
-        }
-    }
 
-    public function showdate($d, $pd)
-    {
-        if (!isset($_SESSION['lang'])) {
-            echo $d;
-        } elseif ($_SESSION['lang'] == 'fa') {
-            echo $d;
-        } elseif ($_SESSION['lang'] == 'en') {
-            echo Verta::parse($pd)->datetime()->format('d - m - Y  /  H:i');
-        }
-    }
 
     public function addchat()
     {
         if ($this->text != "") {
-            $fatxt = GoogleTranslate::trans(strval($this->text), 'fa');
-            $entxt = GoogleTranslate::trans(strval($this->text), 'en');
-            $this->text = "";
             $date = new Verta;
             $date->timezone('Asia/Tehran');
             $reciver = DB::table('users')->where('id', $this->reciverid)->first();
@@ -73,11 +50,10 @@ class Producerchats extends Component
                 'sendername' => Auth::user()->name,
                 'reciverid' => $reciver->id,
                 'recivername' => $reciver->name,
-                'desc' => $fatxt,
-                'endesc' => $entxt,
+                'desc' => $this->text,
                 'date' => $date->format('j    F    Y  /  H:i'),
-                'prdate' => $date
             ]);
+            $this->text = "";
             $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
         }
     }

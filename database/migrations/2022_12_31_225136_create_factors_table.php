@@ -22,6 +22,7 @@ class CreateFactorsTable extends Migration
             $table->text('when');
             $table->text('prwhen');
             $table->text('date');
+            $table->text('prdate');
             $table->timestamps();
         });
     }

@@ -19,16 +19,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 class ProducerController extends Controller
 {
 
-    public function showname($name)
-    {
-        if (!isset($_SESSION['lang'])) {
-            echo GoogleTranslate::trans(strval($name), 'fa');
-        } elseif ($_SESSION['lang'] == 'fa') {
-            echo GoogleTranslate::trans(strval($name), 'fa');
-        } elseif ($_SESSION['lang'] == 'en') {
-            echo GoogleTranslate::trans(strval($name), 'en');
-        }
-    }
+
 
     public function checklang()
     {
@@ -45,6 +36,13 @@ class ProducerController extends Controller
     {
     }
 
+    public function service($id)
+    {
+        $serviceid = $id;
+        $order = DB::table('orders')->where('userid', '=', Auth::user()->id)->where('serviceid', '=', $serviceid)->orderBy('id', 'DESC')->first();
+        return view('producer.service', compact('serviceid', 'order'));
+    }
+
     public function payfactor()
     {
 
@@ -54,7 +52,7 @@ class ProducerController extends Controller
             $v1 = new Verta();
             $v2 = Verta::parse($factor->prwhen);
             if ($v1->diffDays($v2) > 0) {
-                return redirect()->route('producer.dashboard');
+                return back();
             } else {
                 return view('producer.payfactor');
             }
@@ -95,6 +93,10 @@ class ProducerController extends Controller
                 'when' => $time->format('j    F    Y  /  H:i'),
                 'prwhen' => $prtime,
                 'date' => $date->format('j    F    Y  /  H:i'),
+                'prdate' => $prdate,
+            ]);
+            DB::table('products')->where('userid', '=', Auth::user()->id)->where('publish', '=', 0)->update([
+                'publish' => 1,
             ]);
             $_SESSION['transid'] = "";
             $verifymessage = __('messages.paymentverify');
@@ -124,14 +126,41 @@ class ProducerController extends Controller
 
     public function getproduct()
     {
+        $factor = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->first();
+        if ($factor != null) {
+            $v1 = new Verta();
+            $v2 = Verta::parse($factor->prwhen);
+
+            if ($v1->diffDays($v2) > 0) {
+                $factorstatus = true;
+            } else {
+                $factorstatus = false;
+            }
+        } else {
+            $factorstatus = false;
+        }
+
         $products = DB::table('products')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->get();
-        return view('producer.getproducts', compact('products'));
+        return view('producer.getproducts', compact('products', 'factorstatus'));
     }
 
     public function addproduct()
     {
-        $categorys = DB::table('categorys')->where('userid', '=', Auth::user()->id)->get();
-        return view('producer.addproduct', compact('categorys'));
+        $factor = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->first();
+        if ($factor != null) {
+            $v1 = new Verta();
+            $v2 = Verta::parse($factor->prwhen);
+
+            if ($v1->diffDays($v2) > 0) {
+                $factorstatus = true;
+            } else {
+                $factorstatus = false;
+            }
+        } else {
+            $factorstatus = false;
+        }
+        $categorys = DB::table('categorys')->get();
+        return view('producer.addproduct', compact('categorys', 'factorstatus'));
     }
 
     public function deleteproduct($id)
@@ -182,13 +211,32 @@ class ProducerController extends Controller
 
         $category = DB::table('categorys')->where('id', '=', $request->productcategory)->first();
 
+        $factor = DB::table('factors')->where('userid', '=', Auth::user()->id)->orderBy('id', 'DESC')->first();
+        if ($factor != null) {
+            $v1 = new Verta();
+            $v2 = Verta::parse($factor->prwhen);
+
+            if ($v1->diffDays($v2) > 0) {
+                $publish = 1;
+            } else {
+                $publish = 0;
+            }
+        } else {
+            $publish = 0;
+        }
+
+
         DB::table('products')->insert([
             'title' => $request->productname,
+            'entitle' => $request->enproductname,
             'userid' => Auth::user()->id,
             'username' => Auth::user()->name,
             'categoryid' => $request->productcategory,
             'categoryname' => $category->title,
+            'encategoryname' => $category->entitle,
             'desc' => $request->productdesc,
+            'endesc' => $request->enproductdesc,
+            'publish' => $publish,
             'image' => $filename . "." . $extension,
         ]);
         if ($_SESSION['lang'] == 'fa') {
