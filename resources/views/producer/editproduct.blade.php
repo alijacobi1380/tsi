@@ -19,17 +19,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('producer.addproductcheck') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('producer.editproductcheck', ['id' => $id]) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
-                        <h4 class="card-title">{{ __('messages.aptitle') }}</h4>
+                        <h4 class="card-title">{{ __('messages.aptitleedit') }}</h4>
                         <br>
 
                         <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.approductname') }}</label>
                             <div class="col-md-10">
-                                <input value="{{ old('productname') }}" name="productname" class="form-control"
-                                    type="text" id="example-text-input">
+                                <input value="{{ $product->title }}" name="productname" class="form-control" type="text"
+                                    id="example-text-input">
                             </div>
                         </div>
 
@@ -37,7 +38,7 @@
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductname') }}</label>
                             <div class="col-md-10">
-                                <input placeholder="{{ __('messages.ekhtiari') }}" value="{{ old('enproductname') }}"
+                                <input placeholder="{{ __('messages.ekhtiari') }}" value="{{ $product->entitle }}"
                                     name="enproductname" class="form-control" type="text" id="example-text-input">
                             </div>
                         </div>
@@ -47,6 +48,12 @@
                                 class="col-md-2 col-form-label">{{ __('messages.approductcategory') }}</label>
                             <div class="col-md-10">
                                 <select class="col-12 form-control" name="productcategory" id="">
+                                    <p>{{ __('messages.productnowcategory') }} : @if (App::getLocale() == 'en')
+                                            {{ $product->encategoryname }}
+                                        @else
+                                            {{ $product->categoryname }}
+                                        @endif
+                                    </p>
                                     @foreach ($categorys as $category)
                                         <option value="{{ $category->id }}">
                                             @if (App::getLocale() == 'en')
@@ -64,7 +71,7 @@
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.approductusername') }}</label>
                             <div class="col-md-10">
-                                <input style="cursor: not-allowed" value="{{ Auth::user()->name }}" class="form-control"
+                                <input style="cursor: not-allowed" value="{{ $product->username }}" class="form-control"
                                     type="text" disabled id="example-text-input">
                             </div>
                         </div>
@@ -74,7 +81,7 @@
                                 class="col-md-2 col-form-label">{{ __('messages.approductdesc') }}</label>
                             <div class="col-md-10">
                                 <textarea id="summernote" name="productdesc">
-                                    {{ old('productdesc') }}
+                                    {{ $product->desc }}
                                 </textarea>
                             </div>
                         </div>
@@ -87,7 +94,7 @@
                                     @if (old('enproductdesc') == '')
 {{ __('messages.ekhtiari') }}
 @else
-{{ old('enproductdesc') }}
+{{ $product->endesc }}
 @endif
 </textarea>
                             </div>
@@ -108,14 +115,13 @@
                         </h4>
                         <br>
 
-
                         <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.approductcolor') }}</label>
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductcolorplaceholder') }}" class="form-control"
                                     id="example-text-input" type="text" name="productcolor"
-                                    value="{{ old('productcolor') }}">
+                                    value="{{ $product->productcolor }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -124,7 +130,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductcolor"
-                                    value="{{ old('enproductcolor') }}">
+                                    value="{{ $product->enproductcolor }}">
                             </div>
                         </div>
 
@@ -135,7 +141,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductvaznplaceholder') }}" class="form-control"
                                     id="example-text-input" type="text" name="productvazn"
-                                    value="{{ old('productvazn') }}">
+                                    value="{{ $product->productvazn }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -144,7 +150,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductvazn"
-                                    value="{{ old('enproductvazn') }}">
+                                    value="{{ $product->enproductvazn }}">
                             </div>
                         </div>
 
@@ -155,7 +161,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductjensplaceholder') }}" class="form-control"
                                     id="example-text-input" type="text" name="productjens"
-                                    value="{{ old('productjens') }}">
+                                    value="{{ $product->productjens }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -164,7 +170,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductjens"
-                                    value="{{ old('enproductjens') }}">
+                                    value="{{ $product->enproductjens }}">
                             </div>
                         </div>
 
@@ -175,7 +181,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductpackplaceholder') }}" class="form-control"
                                     id="example-text-input" type="text" name="productpack"
-                                    value="{{ old('productpack') }}">
+                                    value="{{ $product->productpack }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -184,7 +190,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductpack"
-                                    value="{{ old('enproductpack') }}">
+                                    value="{{ $product->enproductpack }}">
                             </div>
                         </div>
 
@@ -194,7 +200,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductcustomplaceholder') }}"
                                     class="form-control" id="example-text-input" type="text" name="productcustom"
-                                    value="{{ old('productcustom') }}">
+                                    value="{{ $product->productcustom }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -203,7 +209,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductcustom"
-                                    value="{{ old('enproductcustom') }}">
+                                    value="{{ $product->enproductcustom }}">
                             </div>
                         </div>
 
@@ -214,7 +220,7 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.addproductdeliverplaceholder') }}"
                                     class="form-control" id="example-text-input" type="text" name="productdeliver"
-                                    value="{{ old('productdeliver') }}">
+                                    value="{{ $product->productdeliver }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -223,14 +229,14 @@
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" class="form-control"
                                     id="example-text-input" type="text" name="enproductdeliver"
-                                    value="{{ old('enproductdeliver') }}">
+                                    value="{{ $product->enproductdeliver }}">
                             </div>
                         </div>
 
 
 
                         <button type="submit"
-                            class="btn btn-outline-info waves-effect waves-light col-12">{{ __('messages.apbtntitle') }}</button>
+                            class="btn btn-outline-info waves-effect waves-light col-12">{{ __('messages.apbtntitleedit') }}</button>
 
                 </div>
                 </form>
@@ -250,7 +256,7 @@
 @endsection
 
 @section('pagetitle')
-    {{ __('messages.panelproductadd') }}
+    {{ __('messages.panelproductedit') }}
 @endsection
 
 @section('sc')

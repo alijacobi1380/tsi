@@ -17,7 +17,7 @@ class Service extends Component
     public $smsinputcheck;
     public $inputrandomnumber;
     public $randomnumber = 0;
-    public $time = 60;
+    public $time = 30;
     public $error = false;
 
     public function mount($id)
@@ -52,7 +52,7 @@ class Service extends Component
         $client = new SoapClient("http://ippanel.com/class/sms/wsdlservice/server.php?wsdl");
         $user = "09221314764";
         $pass = "Modir47@64";
-        $fromNum = "+9810004223";
+        $fromNum = "+9890000145";
         $toNum = array("$this->phonenumber");
         $pattern_code = "fb6wwhvkgq";
         $input_data = array("date" => $this->randomnumber);
@@ -63,7 +63,7 @@ class Service extends Component
 
     public function sendsmsagan()
     {
-        $this->time = 60;
+        $this->time = 30;
         $this->error = false;
         $this->randomnumber = rand(1000, 9999);
         $client = new SoapClient("http://ippanel.com/class/sms/wsdlservice/server.php?wsdl");

@@ -43,6 +43,7 @@ class Producerchats extends Component
     {
         if ($this->text != "") {
             $date = new Verta;
+            $prdate = new Verta();
             $date->timezone('Asia/Tehran');
             $reciver = DB::table('users')->where('id', $this->reciverid)->first();
             DB::table('chats')->insert([
@@ -52,10 +53,11 @@ class Producerchats extends Component
                 'recivername' => $reciver->name,
                 'desc' => $this->text,
                 'date' => $date->format('j    F    Y  /  H:i'),
+                'prdate' => $prdate->toCarbon(),
             ]);
             $this->text = "";
-            $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
         }
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
     }
 
     public function getchats()

@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('paystatus')->default(0);
             $table->text('servicename');
             $table->integer('serviceid');
             $table->bigInteger('phonenumber');

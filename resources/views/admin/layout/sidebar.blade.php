@@ -197,6 +197,7 @@
                                     @break
 
                                     @case(2)
+                                        {{ __('messages.modir') }}
                                     @break
 
                                     @default
@@ -212,26 +213,26 @@
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title">{{ __('messages.menu') }}</li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="#" class=" waves-effect">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span>{{ __('messages.paneldashboard') }}</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
 
-                            <li>
-                                <a href="{{ route('producer.addvitrin') }}" class=" waves-effect">
+                            {{-- <li>
+                                <a href="#" class=" waves-effect">
                                     <i class="far fa-id-card"></i>
                                     <span>{{ __('messages.panelvitrin') }}</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
 
-                            <li>
+                            {{-- <li>
                                 <a href="javascript:%20void(0);" class="waves-effect">
                                     <i class="mdi mdi-shopping-outline"></i>
-                                    {{-- <span class="badge badge-pill badge-info float-right">2</span> --}}
+                                    <span class="badge badge-pill badge-info float-right">2</span>
                                     <span>{{ __('messages.panelproducttitle') }}</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
@@ -242,17 +243,17 @@
                                             href="{{ route('producer.addproduct') }}">{{ __('messages.panelproductadd') }}</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('producer.payments') }}" class=" waves-effect">
                                     <i class="bx bx-dollar-circle"></i>
                                     <span>{{ __('messages.panelhesabdari') }}</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
 
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('producer.producergetchat') }}" class=" waves-effect">
                                     <i class="mdi mdi-chat-outline"></i>
                                     <span>{{ __('messages.panelchat') }}</span>
@@ -263,7 +264,7 @@
                                 <a href="javascript:%20void(0);" class="waves-effect">
                                     <i class="bx bx-happy-beaming"></i>
                                     {{-- <span class="badge badge-pill badge-info float-right">2</span> --}}
-                                    <span>{{ __('messages.panelservices') }}</span>
+                            {{-- <span>{{ __('messages.panelservices') }}</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a
@@ -298,12 +299,12 @@
                                     <i class="bx bx-like"></i>
                                     <span>{{ __('messages.panelfavorits') }}</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li>
-                                <a href="{{ route('producer.tickets') }}" class=" waves-effect">
-                                    <i class="mdi mdi-ticket-outline"></i>
-                                    <span>{{ __('messages.panelsupport') }}</span>
+                                <a href="{{route('admin.orders')}}" class=" waves-effect">
+                                    <i class="bx bx-list-ul"></i>
+                                    <span>{{ __('messages.adminsidebarorderstitle') }}</span>
                                 </a>
                             </li>
 
@@ -329,7 +330,7 @@
                             <div class="page-title-box d-flex align-items-center justify-content-between">
                                 <h4 class="page-title mb-0 font-size-18">@yield('pagetitle')</h4>
 
-                                @yield('pagetitleright')
+
 
                             </div>
                         </div>

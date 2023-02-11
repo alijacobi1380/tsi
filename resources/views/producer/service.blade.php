@@ -165,16 +165,30 @@
         <div class="card">
             <div class="card-body">
 
-
-                @if ($order)
-                    <div class="alert alert-info mb-0" role="alerdiv">شما در تاریخ {{ $order->date }} و با شماره تلفن
-                        {{ $order->phonenumber }} یک درخواست برای این سرویس ثبت
-                        کرده اید .
-                        <div>لطفا تا تماس کارشناسان صبور باشید</div>
-                            </div>
+                @if ($factorstatus == false)
+                    @if ($order)
+                        @if ($factor && $factor->paystatus == 1)
+                            <a href="{{ route('producer.payments') }}">
+                                <h5>{{ __('messages.servicefactorpay') }} .</h5>
+                            </a>
+                            <br>
+                            <h5>{{ __('messages.servicefactorpaycode') }}
+                                {{ $factor->id }}</h5>
                         @else
-                            @livewire('service', ['id' => $serviceid])
+                            <div class="alert alert-info mb-0" role="alerdiv">{{ __('messages.ord1') }}{{ $order->date }}
+                                {{ __('messages.ord2') }}
+                                {{ $order->phonenumber }} {{ __('messages.ord3') }}
+                                <div>{{ __('messages.waittosuportcallyou') }}</div>
+                            </div>
+                        @endif
+                    @else
+                        @livewire('service', ['id' => $serviceid])
+                    @endif
+                @else
+                    <h3>به زودی کامل میشود</h3>
                 @endif
+
+
 
 
 
@@ -219,4 +233,11 @@
 
         @default
     @endswitch
+@endsection
+
+@section('pagetitleright')
+    <div class="page-title-right">
+        <a title="{{ __('messages.question') }}" href="{{ route('producer.questionservice', ['id' => $serviceid]) }}"><i
+                style="color: white;font-size: 25px" class="bx bx-help-circle"></i></a>
+    </div>
 @endsection

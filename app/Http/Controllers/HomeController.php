@@ -27,5 +27,8 @@ class HomeController extends Controller
         if (Auth::user()->rule == 1) {
             return redirect()->route('producer.getproduct');
         }
+        if (Auth::user()->rule == 2) {
+            return redirect()->route('admin.orders');
+        }
     }
 }

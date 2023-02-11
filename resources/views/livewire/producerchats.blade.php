@@ -56,7 +56,11 @@
 
 
                                                     <p class="small ms-3 mb-3 rounded-3 text-muted">
-                                                        {{ $chat->date }}
+                                                        @if (App::getLocale() == 'fa')
+                                                            {{ $chat->date }}
+                                                        @else
+                                                            {{ $chat->prdate }}
+                                                        @endif
                                                     </p>
                                                 </div>
                                             </div>
@@ -69,7 +73,11 @@
                                                     </p>
                                                     <p
                                                         class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
-                                                        {{ $chat->date }}
+                                                        @if (App::getLocale() == 'fa')
+                                                            {{ $chat->date }}
+                                                        @else
+                                                            {{ $chat->prdate }}
+                                                        @endif
                                                     </p>
                                                 </div>
                                                 <img src="{{ url('assets/images/users/avatar-2.jpg') }}" alt="avatar 1"

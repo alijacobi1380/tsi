@@ -15,6 +15,9 @@ class CreateFactorsTable extends Migration
     {
         Schema::create('factors', function (Blueprint $table) {
             $table->id();
+            $table->integer('paystatus')->default(0);
+            $table->integer('orderid');
+            $table->integer('serviceid');
             $table->integer('transid');
             $table->integer('userid');
             $table->text('username');

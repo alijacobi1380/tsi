@@ -9,7 +9,7 @@
 @section('content')
     @if ($factorstatus == false)
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <a href="{{ route('producer.payfactor') }}">{{ __('messages.factorpayerror') }}</a>
+            <a href="{{ route('producer.services', ['id' => 1]) }}">{{ __('messages.factorpayerror') }}</a>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
@@ -69,7 +69,11 @@
                                         <th><a href="{{ url('productimages') }}/{{ $product->image }}"
                                                 target="_blank">{{ __('messages.showimg') }}</a>
                                         </th>
-                                        <th><a
+                                        <th>
+                                            <a
+                                                href="{{ route('producer.editproduct', ['id' => $product->id]) }}">{{ __('messages.editproduct') }}</a>
+                                            /
+                                            <a
                                                 href="{{ route('producer.deleteproduct', ['id' => $product->id]) }}">{{ __('messages.deleteproduct') }}</a>
                                         </th>
                                     </tr>

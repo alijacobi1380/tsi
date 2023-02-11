@@ -26,6 +26,18 @@ class CreateProductsTable extends Migration
             $table->text('desc');
             $table->text('endesc')->nullable();
             $table->text('image');
+            $table->text('productcolor');
+            $table->text('enproductcolor');
+            $table->text('productvazn');
+            $table->text('enproductvazn');
+            $table->text('productjens');
+            $table->text('enproductjens');
+            $table->text('productpack');
+            $table->text('enproductpack');
+            $table->text('productcustom');
+            $table->text('enproductcustom');
+            $table->text('productdeliver');
+            $table->text('enproductdeliver');
             $table->timestamps();
         });
     }
