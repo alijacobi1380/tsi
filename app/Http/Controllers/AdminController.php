@@ -41,10 +41,10 @@ class AdminController extends Controller
         $date = new Verta;
         $date->timezone = 'Asia/Tehran';
         $prtime = new Verta;
-        $prtime->addYear(1);
+        $prtime->addDays($request->day);
         $time = new Verta;
         $time->timezone = 'Asia/Tehran';
-        $time->addYear(1);
+        $time->addDay($request->day);
         // You can show payment referenceId to the user.
         DB::table('orders')->where('id', '=', $id)->update([
             'paystatus' => 1,

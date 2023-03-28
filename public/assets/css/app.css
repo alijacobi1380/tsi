@@ -2057,10 +2057,6 @@ select.form-control {
   padding-bottom: 0;
 }
 
-.custom-file-label::after {
-  content: "مرور";
-}
-
 .popover {
   font-family: inherit;
 }

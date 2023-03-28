@@ -21,7 +21,7 @@
 
                 <div class="card-body">
 
-                    <h4 class="card-title">{{ __('messages.vitrintitle') }}</h4>
+                    {{-- <h4 class="card-title">{{ __('messages.vitrintitle') }}</h4> --}}
                     {{-- <p class="card-title-desc">از تب های بوت استرپ برای ایجاد محتوای دارای سربرگ استفاده کنید.</p> --}}
                     <br><br>
                     <!-- Nav tabs -->
@@ -29,19 +29,19 @@
                         <li class="nav-item waves-effect waves-light">
                             <a class="nav-link active" data-toggle="tab" href="#home-1" role="tab" aria-selected="true">
                                 <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                <span class="d-none d-sm-block">خانه</span>
+                                <span class="d-none d-sm-block">{{ __('messages.vttitle1') }}</span>
                             </a>
                         </li>
                         <li class="nav-item waves-effect waves-light">
                             <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab" aria-selected="false">
                                 <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
-                                <span class="d-none d-sm-block">پروفایل</span>
+                                <span class="d-none d-sm-block">{{ __('messages.vtaddres') }}</span>
                             </a>
                         </li>
                         <li class="nav-item waves-effect waves-light">
                             <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">
                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                <span class="d-none d-sm-block">پیام ها</span>
+                                <span class="d-none d-sm-block">{{ __('messages.vtcert') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -50,49 +50,451 @@
                     <div class="tab-content p-3 text-muted">
                         <div class="tab-pane active" id="home-1" role="tabpanel">
                             <p class="mb-0">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                                شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-                                شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <form id="form" action="{{ route('producer.addvitrincheck') }}"
+                                                method="POST" enctype="multipart/form-data">
+                                                @csrf
+
+                                                <div class="form-group row">
+                                                    <label for="example-text-input"
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtcompanyname') }}</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" value="{{ old('brandname') }}"
+                                                            name="brandname" type="text" id="example-text-input">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="example-text-input"
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtcompanynameen') }}</label>
+                                                    <div class="col-md-10">
+                                                        <input placeholder="{{ __('messages.ekhtiari') }}"
+                                                            class="form-control" value="{{ old('brandname') }}"
+                                                            name="brandnameen" type="text" id="example-text-input">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="example-text-input"
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtdesc') }}</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" value="{{ old('desc') }}"
+                                                            name="desc" type="text" id="example-text-input">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="example-text-input"
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtdescen') }}</label>
+                                                    <div class="col-md-10">
+                                                        <input placeholder="{{ __('messages.ekhtiari') }}"
+                                                            class="form-control" value="{{ old('descen') }}" name="descen"
+                                                            type="text" id="example-text-input">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                    <label
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtsize') }}</label>
+                                                    <div class="col-md-10">
+                                                        <select name="size" class="form-control">
+                                                            <option value="1">{{ __('messages.vtsize1') }}</option>
+                                                            <option value="2">{{ __('messages.vtsize2') }}</option>
+                                                            <option value="3">{{ __('messages.vtsize3') }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                    <label
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtimage') }}</label>
+                                                    <div class="col-md-10">
+                                                        <div class="custom-file">
+                                                            <input value="{{ old('logo') }}" name="logo"
+                                                                type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label"
+                                                                for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtbaner') }}</label>
+                                                    <div class="col-md-10">
+                                                        <div class="custom-file">
+                                                            <input value="{{ old('baner') }}" name="baner"
+                                                                type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label"
+                                                                for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+                            </div>
                             </p>
                         </div>
                         <div class="tab-pane" id="profile-1" role="tabpanel">
                             <p class="mb-0">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                                شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-                                شناخت بیشتری را برای طراحان رایانه
+                                <br>
+
+                            <h4>{{ __('messages.farsi') }}</h4>
+                            <br>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtcountry') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtcountry" value="{{ old('vtcountry') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtstate') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtstate" value="{{ old('vtstate') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtcity') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtcity" value="{{ old('vtcity') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp1') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp1" value="{{ old('vtprp1') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp2') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp2" value="{{ old('vtprp2') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp3') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp3" value="{{ old('vtprp3') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp4') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp4" value="{{ old('vtprp4') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp5') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp5" value="{{ old('vtprp5') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+                            <br><br>
+
+                            <h4>{{ __('messages.english') }}</h4>
+                            <br>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtcountry') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtcountryen" value="{{ old('vtcountryen') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtstate') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtstateen" value="{{ old('vtstateen') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtcity') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtcityen" value="{{ old('vtcityen') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp1') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp1en" value="{{ old('vtprp1en') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp2') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp2en" value="{{ old('vtprp2en') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp3') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp3en" value="{{ old('vtprp3en') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp4') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp4en" value="{{ old('vtprp4en') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtprp5') }}</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" name="vtprp5en" value="{{ old('vtprp5en') }}"
+                                        type="text" id="example-text-input">
+                                </div>
+                            </div>
+
+
                             </p>
                         </div>
                         <div class="tab-pane" id="messages-1" role="tabpanel">
                             <p class="mb-0">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                                شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-                                شناخت بیشتری را برای طراحان
+                                <br>
+
+                            <h4>{{ __('messages.farsi') }}</h4>
+                            <br>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert1') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert1" value="{{ old('vtcert1') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert2') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert2" value="{{ old('vtcert2') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert3') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert3" value="{{ old('vtcert3') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert4') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert4" value="{{ old('vtcert4') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert5') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert5" value="{{ old('vtcert5') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtaboutus') }}</label>
+                                <div class="col-md-10">
+                                    <textarea id="summernote" name="aboutus">
+                                        {{ old('aboutus') }}
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <br>
+                            <h4>{{ __('messages.english') }}</h4>
+                            <br>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert1') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert1en" value="{{ old('vtcert1en') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert2') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert2en" value="{{ old('vtcert2en') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert3') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert3en" value="{{ old('vtcert3en') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert4') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert4en" value="{{ old('vtcert4en') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">{{ __('messages.vtcert5') }}</label>
+                                <div class="col-md-10">
+                                    <div class="custom-file">
+                                        <input name="vtcert5en" value="{{ old('vtcert5en') }}" type="file"
+                                            class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group row">
+                                <label for="example-text-input"
+                                    class="col-md-2 col-form-label">{{ __('messages.vtaboutus') }}</label>
+                                <div class="col-md-10">
+                                    <textarea id="summernote2" name="aboutusen">
+                                        {{ old('aboutusen') }}
+                                    </textarea>
+                                </div>
+                            </div>
+
+
                             </p>
                         </div>
-                        
+
+                        </form>
+
+
                     </div>
+                    <button id="btn" type="button"
+                        class="col-12 btn btn-primary waves-effect waves-light">{{ __('messages.vtbtn') }}</button>
 
                 </div>
 
 
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger" role="alert">{{ $error }}</div>
-                    @endforeach
-                @elseif(session()->has('message'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session()->get('message') }}
-                    </div>
-                @endif
             </div>
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">{{ $error }}</div>
+                @endforeach
+            @elseif(session()->has('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             <!-- end col -->
         </div>
+
     @endsection
 
     @section('pagetitle')
@@ -105,6 +507,12 @@
             $(document).ready(function() {
                 $('#summernote').summernote();
                 $('#summernote2').summernote();
+            });
+        </script>
+
+        <script>
+            document.getElementById('btn').addEventListener('click', function() {
+                document.getElementById('form').submit();
             });
         </script>
     @endsection

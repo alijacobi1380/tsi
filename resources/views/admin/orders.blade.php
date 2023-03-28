@@ -62,7 +62,11 @@
                                                                 <div class="modal-body">
                                                                     {{ __('messages.pyprice') }} : <input
                                                                         style="text-align: center" type="number"
-                                                                        name="price" id="">
+                                                                        name="price" id="" required>
+                                                                    <br><br>
+                                                                    {{ __('messages.pydays') }} : <input required
+                                                                        style="text-align: center" type="number"
+                                                                        name="day" id="">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"

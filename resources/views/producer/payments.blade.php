@@ -45,11 +45,15 @@
                                     <tr>
                                         <th scope="row">{{ $factor->id }}</th>
                                         <th>
-                                            @if ($factor->paystatus == 1 || $ekhtelafzaman == 0)
-                                                <a
-                                                    href="{{ route('producer.paygo', ['id' => $factor->id]) }}">{{ __('messages.payfactorbtn') }}</a>
-                                            @elseif($factor->paystatus == 2)
-                                                {{ __('messages.transid') }} ( {{ $factor->transid }} )
+                                            @if ($ekhtelafzaman == 0)
+                                                به اتمام رسیده
+                                            @else
+                                                @if ($factor->paystatus == 1)
+                                                    <a
+                                                        href="{{ route('producer.paygo', ['id' => $factor->id]) }}">{{ __('messages.payfactorbtn') }}</a>
+                                                @elseif($factor->paystatus == 2)
+                                                    {{ __('messages.transid') }} ( {{ $factor->transid }} )
+                                                @endif
                                             @endif
                                         </th>
                                         <th>{{ number_format($factor->price) }}</th>
