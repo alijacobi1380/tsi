@@ -23,7 +23,7 @@ class Producerchats extends Component
     public function render()
     {
         // dd(strval($this->text));
-        $this->users = DB::table('users')->where('id', '!=', Auth::user()->id)->get();
+        $this->users = DB::table('users')->where('id', '!=', Auth::user()->id)->where('rule', '=', '2')->get();
         // $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
         return view('livewire.producerchats');
     }

@@ -213,7 +213,7 @@
                             <li class="menu-title">{{ __('messages.menu') }}</li>
 
                             <li>
-                                <a href="#" class=" waves-effect">
+                                <a href="{{route('producer.dashboard')}}" class=" waves-effect">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span>{{ __('messages.paneldashboard') }}</span>
                                 </a>

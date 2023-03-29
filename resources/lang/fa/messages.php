@@ -1,12 +1,14 @@
 <?php
 
 return [
+    // producer panel
     'panelproducttitle' => 'محصولات',
     'panelproductlist' => 'لیست محصولات',
     'panelproductadd' => 'افزودن محصول',
     'panelproductedit' => 'ویرایش محصول',
     'paneldashboard' => 'داشبورد',
     'panelvitrin' => ' ویترین',
+    'panelnotfi' => ' اعلانات',
     'panelhesabdari' => ' حسابداری',
     'panelchat' => ' پیام ها',
     'panelservices' => 'سرویس ها',
@@ -547,4 +549,12 @@ return [
     'vtaboutus' => 'درباره ما',
     'vtaboutusen' => 'درباره ما ( انگلیسی )',
     'vitrinadded' => 'ویترین با موفقیت ثبت شد',
+    'vitrinstatuswait' => 'ویترین شما در انتظار بررسی کارشناسان است .',
+    'vitrinstatusok' => 'ویترین شما تایید شده است . در صورت ویرایش باید منتظر تایید کارشناسان بمانید.',
+    'dashbordproduct' => 'تعداد محصولات شما',
+    'dashboardticket' => 'تعداد تیکت های شما',
+    'dashboardhesabdari' => 'تعداد فاکتور های شما',
+    'nonotifi' => 'اعلانی وجود ندارد',
+    // producer panel end
+    
 ];

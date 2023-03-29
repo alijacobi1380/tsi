@@ -40,6 +40,11 @@ class ProducerController extends Controller
 
     public function dashboard()
     {
+        $products = DB::table('products')->where('userid', '=', Auth::user()->id)->count();
+        $tickets = DB::table('tickets')->where('senderid', '=', Auth::user()->id)->distinct('tid')->count();
+        $factors = DB::table('factors')->where('userid', '=', Auth::user()->id)->count();
+        $notfications = DB::table('notfications')->get();
+        return view('producer.dashboard', compact('products', 'tickets', 'factors','notfications'));
     }
 
     public function showticket($id)
@@ -341,7 +346,9 @@ class ProducerController extends Controller
             $factorstatus = false;
         }
 
-        return view('producer.addvitrin', compact('factorstatus'));
+        $vitrin = DB::table('vitrins')->where('userid', '=', Auth::user()->id)->first();
+
+        return view('producer.addvitrin', compact('factorstatus', 'vitrin'));
     }
 
     public function addvitrincheck(Request $request)
@@ -358,6 +365,163 @@ class ProducerController extends Controller
         $vitrin = DB::table('vitrins')->where('userid', '=', Auth::user()->id)->first();
 
         if ($vitrin) {
+            $arr = [
+                'userid' => Auth::user()->id,
+                'username' => Auth::user()->name,
+                'brandname' => $request->brandname,
+                'brandnameen' => $request->brandnameen,
+                'desc' => $request->desc,
+                'descen' => $request->descen,
+                'size' => $request->size,
+                'country' => $request->vtcountry,
+                'countryen' => $request->vtcountryen,
+                'state' => $request->vtstate,
+                'stateen' => $request->vtstateen,
+                'city' => $request->vtcity,
+                'cityen' => $request->vtcityen,
+                'prop1' => $request->vtprp1,
+                'prop1en' => $request->vtprp1en,
+                'prop2' => $request->vtprp2,
+                'prop2en' => $request->vtprp2en,
+                'prop3' => $request->vtprp3,
+                'prop3en' => $request->vtprp3en,
+                'prop4' => $request->vtprp4,
+                'prop4en' => $request->vtprp4en,
+                'prop5' => $request->vtprp5,
+                'prop5en' => $request->vtprp5en,
+                'aboutus' => $request->aboutus,
+                'aboutusen' => $request->aboutusen,
+            ];
+            $random = rand(1, 1000);
+            $vt = DB::table('vitrins')->where('userid', '=', Auth::user()->id)->first();
+
+            if ($request->file('logo')) {
+                unlink('vitrinimg/' . $vt->logo);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('logo');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $logo = $filename . '.' . $extension;
+                $arr['logo'] = $logo;
+            }
+
+            if ($request->file('baner')) {
+                unlink('vitrinimg/' . $vt->baner);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('baner');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $baner = $filename . '.' . $extension;
+                $arr['baner'] = $baner;
+            }
+
+            if ($request->file('vtcert1')) {
+                unlink('vitrinimg/' . $vt->cert1);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert1');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert1 = $filename . '.' . $extension;
+                $arr['cert1'] = $vtcert1;
+            }
+
+            if ($request->file('vtcert2')) {
+                unlink('vitrinimg/' . $vt->cert2);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert2');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert2 = $filename . '.' . $extension;
+                $arr['cert2'] = $vtcert2;
+            }
+
+
+            if ($request->file('vtcert3')) {
+                unlink('vitrinimg/' . $vt->cert3);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert3');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert3 = $filename . '.' . $extension;
+                $arr['cert3'] = $vtcert3;
+            }
+
+
+            if ($request->file('vtcert4')) {
+                unlink('vitrinimg/' . $vt->cert4);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert4');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert4 = $filename . '.' . $extension;
+                $arr['cert4'] = $vtcert4;
+            }
+            if ($request->file('vtcert5')) {
+                unlink('vitrinimg/' . $vt->cert5);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert5');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert5 = $filename . '.' . $extension;
+                $arr['cert5'] = $vtcert5;
+            }
+
+
+            if ($request->file('vtcert1en')) {
+                unlink('vitrinimg/' . $vt->cert1en);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert1en');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert1en = $filename . '.' . $extension;
+                $arr['cert1en'] = $vtcert1en;
+            }
+
+            if ($request->file('vtcert2en')) {
+                unlink('vitrinimg/' . $vt->cert2en);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert2en');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert2en = $filename . '.' . $extension;
+                $arr['cert2en'] = $vtcert2en;
+            }
+
+
+            if ($request->file('vtcert3en')) {
+                unlink('vitrinimg/' . $vt->cert3en);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert3en');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert3en = $filename . '.' . $extension;
+                $arr['cert3en'] = $vtcert3en;
+            }
+
+
+            if ($request->file('vtcert4en')) {
+                unlink('vitrinimg/' . $vt->cert4en);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert4en');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert4en = $filename . '.' . $extension;
+                $arr['cert4en'] = $vtcert4en;
+            }
+            if ($request->file('vtcert5en')) {
+                unlink('vitrinimg/' . $vt->cert5en);
+                $filename = sha1(time() + $random++);
+                $file = $request->file('vtcert5en');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $vtcert5en = $filename . '.' . $extension;
+                $arr['cert5en'] = $vtcert5en;
+            }
+
+
+            DB::table('vitrins')->where('userid', '=', Auth::user()->id)->update($arr);
+
+            return redirect()->back()->with('message', __('messages.vitrinadded'));
         } else {
 
             $arr = [
