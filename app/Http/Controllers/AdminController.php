@@ -18,12 +18,6 @@ class AdminController extends Controller
         }
     }
 
-
-    public function addserviceprice(Request $request, $id)
-    {
-        dd($id);
-    }
-
     public function checklang()
     {
         if (!isset($_SESSION['lang'])) {
@@ -33,6 +27,54 @@ class AdminController extends Controller
         } elseif ($_SESSION['lang'] == 'en') {
             App::setLocale('en');
         }
+    }
+
+    public function dashboard()
+    {
+        $products = DB::table('products')->count();
+        $users = DB::table('users')->count();
+        $tickets = DB::table('tickets')->where('tid', '=', 0)->count();
+        $factors = DB::table('factors')->count();
+        $vitrins = DB::table('vitrins')->count();
+        $orders = DB::table('orders')->count();
+        return view('admin.dashboard', compact('products', 'users', 'tickets', 'factors', 'vitrins', 'orders'));
+    }
+
+    public function notfications()
+    {
+        $notfications = DB::table('notfications')->get();
+        return view('admin.notfications', compact('notfications'));
+    }
+
+    public function deletenotfication($id)
+    {
+        DB::table('notfications')->where('id', '=', $id)->delete();
+        return back();
+    }
+
+    public function addnotif()
+    {
+        return view('admin.addnotif');
+    }
+
+    public function addnotifcheck(Request $request)
+    {
+        $message = [
+            'title.required' => __('messages.adaddnofiffarsierror'),
+            'titleen.required' => __('messages.adaddnofifenglisherror'),
+        ];
+        $val = $request->validate([
+            'title' => 'required',
+            'titleen' => 'required',
+        ], $message);
+
+
+        DB::table('notfications')->insert([
+            'title' => $request->title,
+            'titleen' => $request->titleen,
+        ]);
+
+        return redirect()->back()->with('message', __('messages.adnotifadded'));
     }
 
     public function addfactor(Request $request, $id, $userid, $username, $serviceid)

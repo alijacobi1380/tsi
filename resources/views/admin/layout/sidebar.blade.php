@@ -302,7 +302,19 @@
                             </li> --}}
 
                             <li>
-                                <a href="{{route('admin.orders')}}" class=" waves-effect">
+                                <a href="{{ route('admin.dashboard') }}" class=" waves-effect">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span>{{ __('messages.paneldashboard') }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.notfications') }}" class=" waves-effect">
+                                    <i class="bx bx-notification"></i>
+                                    <span>{{ __('messages.adsidebarnotiftitle') }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.orders') }}" class=" waves-effect">
                                     <i class="bx bx-list-ul"></i>
                                     <span>{{ __('messages.adminsidebarorderstitle') }}</span>
                                 </a>

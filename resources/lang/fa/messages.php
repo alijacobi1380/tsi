@@ -556,5 +556,30 @@ return [
     'dashboardhesabdari' => 'تعداد فاکتور های شما',
     'nonotifi' => 'اعلانی وجود ندارد',
     // producer panel end
-    
+
+
+    // admin panel
+
+
+    'admindashboardtitle' => 'داشبورد مدیریت',
+    'addashbordproduct' => 'تعداد تمام محصولات',
+    'addashboardticket' => 'تعداد تمام تیکت ها',
+    'addashboardhesabdari' => 'تعداد تمام فاکتورها',
+    'addashboardvitrins' => 'تعداد تمام ویترین ها',
+    'addashboardorderstitle' => 'درخواست سرویس',
+    'addashboardorders' => 'تعداد تمام درخواست های سرویس',
+    'addashboarduserstitle' => 'کاربران',
+    'addashboardusers' => 'تعداد تمام کاربرها',
+    'adsidebarnotiftitle' => 'اعلانات',
+    'adaddnotifbtn' => 'افزودن اعلان',
+    'adnotiftabletitle' => 'متن اعلان',
+    'adnotiftabledelete' => 'تغییرات',
+    'adnotifdelete' => 'حذف',
+    'adaddnotifbtnform' => 'افزون اعلان',
+    'adaddnofiffarsierror' => 'لطفا متن فارسی اعلان را وارد نمایید',
+    'adaddnofifenglisherror' => 'لطفا متن انگلیسی اعلان را وارد نمایید',
+    'adnotifadded' => 'اعلان با موفقیت ثبت شد',
+
+
+    // end admin panel
 ];

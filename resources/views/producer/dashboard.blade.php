@@ -44,9 +44,12 @@
                     @if ($notfications->count() > 0)
                         @foreach ($notfications as $notfication)
                             @if (App::getLocale() == 'en')
-                                <div class="alert alert-info mb-0" role="alert"> {{ $notfication->titleen }}</div>
+                                <div class="alert alert-info mb-0" role="alert"><i class="bx bx-badge-check"></i>
+                                    {{ $notfication->titleen }}</div>
                             @else
-                                <div class="alert alert-info mb-0" role="alert"> {{ $notfication->title }}</div>
+                                <div class="alert alert-info mb-0" role="alert"><i class="bx bx-badge-check"></i>
+                                    {{ $notfication->title }}</div>
+                                <br>
                             @endif
                         @endforeach
                     @else

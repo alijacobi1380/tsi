@@ -35,6 +35,10 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //admin routes
 Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('admin.dashboard')->middleware('Admin');
+Route::get('/admin/notfications', 'App\Http\Controllers\AdminController@notfications')->name('admin.notfications')->middleware('Admin');
+Route::get('/admin/deletenotfication/{id}', 'App\Http\Controllers\AdminController@deletenotfication')->name('admin.deletenotfication')->middleware('Admin');
+Route::get('/admin/addnotif', 'App\Http\Controllers\AdminController@addnotif')->name('admin.addnotif')->middleware('Admin');
+Route::post('/admin/addnotifcheck', 'App\Http\Controllers\AdminController@addnotifcheck')->name('admin.addnotifcheck')->middleware('Admin');
 Route::get('/admin/orders', 'App\Http\Controllers\AdminController@orders')->name('admin.orders')->middleware('Admin');
 Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\Controllers\AdminController@addfactor')->name('admin.addfactor')->middleware('Admin');
 // Route::post('/admin/addserviceprice/{id}', 'App\Http\Controllers\AdminController@addserviceprice')->name('admin.addserviceprice')->middleware('Admin');

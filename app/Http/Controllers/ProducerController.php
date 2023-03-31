@@ -132,6 +132,7 @@ class ProducerController extends Controller
 
 
 
+
         $prdate = new Verta;
         $date = new Verta;
         $date->timezone = 'Asia/Tehran';
@@ -142,9 +143,8 @@ class ProducerController extends Controller
             $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
             $file->move('ticketsfile', $filename . "." . $extension);
 
-
             DB::table('tickets')->insert([
-                'title' => $request->title,
+                'title' => $request->title,                
                 'senderid' => Auth::user()->id,
                 'sendername' => Auth::user()->name,
                 'force' => $request->force,
