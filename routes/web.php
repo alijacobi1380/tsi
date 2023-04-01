@@ -39,6 +39,14 @@ Route::get('/admin/notfications', 'App\Http\Controllers\AdminController@notficat
 Route::get('/admin/deletenotfication/{id}', 'App\Http\Controllers\AdminController@deletenotfication')->name('admin.deletenotfication')->middleware('Admin');
 Route::get('/admin/addnotif', 'App\Http\Controllers\AdminController@addnotif')->name('admin.addnotif')->middleware('Admin');
 Route::post('/admin/addnotifcheck', 'App\Http\Controllers\AdminController@addnotifcheck')->name('admin.addnotifcheck')->middleware('Admin');
+Route::get('/admin/vitrins', 'App\Http\Controllers\AdminController@vitrins')->name('admin.vitrins')->middleware('Admin');
+Route::get('/admin/changevitrinstatus/{id}/{status}', 'App\Http\Controllers\AdminController@changevitrinstatus')->name('admin.changevitrinstatus')->middleware('Admin');
+Route::get('/admin/editvitrin/{id}', 'App\Http\Controllers\AdminController@editvitrin')->name('admin.editvitrin')->middleware('Admin');
+Route::post('/admin/editvitrincheck/{id}', 'App\Http\Controllers\AdminController@editvitrincheck')->name('admin.editvitrincheck')->middleware('Admin');
+Route::get('/admin/users', 'App\Http\Controllers\AdminController@users')->name('admin.users')->middleware('Admin');
+Route::get('/admin/edituser/{id}', 'App\Http\Controllers\AdminController@edituser')->name('admin.edituser')->middleware('Admin');
+Route::post('/admin/editusercheck/{id}', 'App\Http\Controllers\AdminController@editusercheck')->name('admin.editusercheck')->middleware('Admin');
+Route::get('/admin/deleteuser/{id}', 'App\Http\Controllers\AdminController@deleteuser')->name('admin.deleteuser')->middleware('Admin');
 Route::get('/admin/orders', 'App\Http\Controllers\AdminController@orders')->name('admin.orders')->middleware('Admin');
 Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\Controllers\AdminController@addfactor')->name('admin.addfactor')->middleware('Admin');
 // Route::post('/admin/addserviceprice/{id}', 'App\Http\Controllers\AdminController@addserviceprice')->name('admin.addserviceprice')->middleware('Admin');

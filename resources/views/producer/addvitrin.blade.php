@@ -1014,29 +1014,29 @@
             @endif
             <!-- end col -->
         </div>
+    </div>
+@endsection
 
-    @endsection
+@section('pagetitle')
+    {{ __('messages.panelvitrin') }}
+@endsection
 
-    @section('pagetitle')
-        {{ __('messages.panelvitrin') }}
-    @endsection
+@section('sc')
+    <script src="{{ url('assets/libs/summernote/summernote.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+            $('#summernote2').summernote();
+        });
+    </script>
 
-    @section('sc')
-        <script src="{{ url('assets/libs/summernote/summernote.min.js') }}"></script>
-        <script>
-            $(document).ready(function() {
-                $('#summernote').summernote();
-                $('#summernote2').summernote();
-            });
-        </script>
+    <script>
+        document.getElementById('btn').addEventListener('click', function() {
+            document.getElementById('form').submit();
+        });
+    </script>
+@endsection
 
-        <script>
-            document.getElementById('btn').addEventListener('click', function() {
-                document.getElementById('form').submit();
-            });
-        </script>
-    @endsection
-
-    @section('cs')
-        <link href="{{ url('assets/libs/summernote/summernote.min.css') }}" rel="stylesheet">
-    @endsection
+@section('cs')
+    <link href="{{ url('assets/libs/summernote/summernote.min.css') }}" rel="stylesheet">
+@endsection

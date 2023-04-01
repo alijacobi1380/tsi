@@ -28,7 +28,7 @@ class HomeController extends Controller
             return redirect()->route('producer.dashboard');
         }
         if (Auth::user()->rule == 2) {
-            return redirect()->route('admin.orders');
+            return redirect()->route('admin.dashboard');
         }
     }
 }

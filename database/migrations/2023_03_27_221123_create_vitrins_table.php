@@ -18,6 +18,10 @@ class CreateVitrinsTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('userid');
             $table->string('username');
+            $table->integer('danesh')->default(0);
+            $table->integer('taeed')->default(0);
+            $table->integer('konsers')->default(0);
+            $table->integer('esalat')->default(0);
             $table->string('brandname');
             $table->string('brandnameen')->nullable();
             $table->string('desc');

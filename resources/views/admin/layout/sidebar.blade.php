@@ -314,6 +314,18 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.vitrins') }}" class=" waves-effect">
+                                    <i class="far fa-id-card"></i>
+                                    <span>{{ __('messages.panelvitrin') }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.users') }}" class=" waves-effect">
+                                    <i class="fas fa-users"></i>
+                                    <span>{{ __('messages.adsidebarusers') }}</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.orders') }}" class=" waves-effect">
                                     <i class="bx bx-list-ul"></i>
                                     <span>{{ __('messages.adminsidebarorderstitle') }}</span>

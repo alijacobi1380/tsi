@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
@@ -44,7 +45,7 @@ class ProducerController extends Controller
         $tickets = DB::table('tickets')->where('senderid', '=', Auth::user()->id)->distinct('tid')->count();
         $factors = DB::table('factors')->where('userid', '=', Auth::user()->id)->count();
         $notfications = DB::table('notfications')->get();
-        return view('producer.dashboard', compact('products', 'tickets', 'factors','notfications'));
+        return view('producer.dashboard', compact('products', 'tickets', 'factors', 'notfications'));
     }
 
     public function showticket($id)
@@ -144,7 +145,7 @@ class ProducerController extends Controller
             $file->move('ticketsfile', $filename . "." . $extension);
 
             DB::table('tickets')->insert([
-                'title' => $request->title,                
+                'title' => $request->title,
                 'senderid' => Auth::user()->id,
                 'sendername' => Auth::user()->name,
                 'force' => $request->force,
@@ -368,6 +369,7 @@ class ProducerController extends Controller
             $arr = [
                 'userid' => Auth::user()->id,
                 'username' => Auth::user()->name,
+                'status' => 0,
                 'brandname' => $request->brandname,
                 'brandnameen' => $request->brandnameen,
                 'desc' => $request->desc,
@@ -396,7 +398,9 @@ class ProducerController extends Controller
             $vt = DB::table('vitrins')->where('userid', '=', Auth::user()->id)->first();
 
             if ($request->file('logo')) {
-                unlink('vitrinimg/' . $vt->logo);
+                if (file_exists(public_path('vitrinimg/' . $vt->logo))) {
+                    unlink('vitrinimg/' . $vt->logo);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('logo');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -406,7 +410,9 @@ class ProducerController extends Controller
             }
 
             if ($request->file('baner')) {
-                unlink('vitrinimg/' . $vt->baner);
+                if (file_exists(public_path('vitrinimg/' . $vt->baner))) {
+                    unlink('vitrinimg/' . $vt->baner);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('baner');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -416,7 +422,9 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert1')) {
-                unlink('vitrinimg/' . $vt->cert1);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert1))) {
+                    unlink('vitrinimg/' . $vt->cert1);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert1');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -426,7 +434,9 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert2')) {
-                unlink('vitrinimg/' . $vt->cert2);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert2))) {
+                    unlink('vitrinimg/' . $vt->cert2);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert2');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -437,7 +447,9 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert3')) {
-                unlink('vitrinimg/' . $vt->cert3);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert3))) {
+                    unlink('vitrinimg/' . $vt->cert3);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert3');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -448,7 +460,9 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert4')) {
-                unlink('vitrinimg/' . $vt->cert4);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert4))) {
+                    unlink('vitrinimg/' . $vt->cert4);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert4');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -457,7 +471,9 @@ class ProducerController extends Controller
                 $arr['cert4'] = $vtcert4;
             }
             if ($request->file('vtcert5')) {
-                unlink('vitrinimg/' . $vt->cert5);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert5))) {
+                    unlink('vitrinimg/' . $vt->cert5);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert5');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -468,7 +484,9 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert1en')) {
-                unlink('vitrinimg/' . $vt->cert1en);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert1en))) {
+                    unlink('vitrinimg/' . $vt->cert1en);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert1en');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -478,7 +496,9 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert2en')) {
-                unlink('vitrinimg/' . $vt->cert2en);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert2en))) {
+                    unlink('vitrinimg/' . $vt->cert2en);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert2en');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -489,7 +509,9 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert3en')) {
-                unlink('vitrinimg/' . $vt->cert3en);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert3en))) {
+                    unlink('vitrinimg/' . $vt->cert3en);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert3en');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -500,7 +522,9 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert4en')) {
-                unlink('vitrinimg/' . $vt->cert4en);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert4en))) {
+                    unlink('vitrinimg/' . $vt->cert4en);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert4en');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -509,7 +533,9 @@ class ProducerController extends Controller
                 $arr['cert4en'] = $vtcert4en;
             }
             if ($request->file('vtcert5en')) {
-                unlink('vitrinimg/' . $vt->cert5en);
+                if (file_exists(public_path('vitrinimg/' . $vt->cert5en))) {
+                    unlink('vitrinimg/' . $vt->cert5en);
+                }
                 $filename = sha1(time() + $random++);
                 $file = $request->file('vtcert5en');
                 $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
@@ -527,6 +553,7 @@ class ProducerController extends Controller
             $arr = [
                 'userid' => Auth::user()->id,
                 'username' => Auth::user()->name,
+                'status' => 0,
                 'brandname' => $request->brandname,
                 'brandnameen' => $request->brandnameen,
                 'desc' => $request->desc,
