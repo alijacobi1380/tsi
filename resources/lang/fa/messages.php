@@ -612,6 +612,14 @@ return [
     'adedituserpassworderrormin' => 'رمزعبور باید حداقل ۸ کاراکتر باشد',
     'adedituserpassworderrorconfmin' => 'رمزعبور و تکرار آن باهم متفاوت است',
     'adedituserok' => 'رمزعبور با موفقیت تغییر یافت',
+    'adeditproductlist' => 'مدیریت محصولات',
+    'adeditproducttableprname' => 'نام محصول',
+    'adeditproducttableusername' => 'نام تامین کننده',
+    'adeditproducttablecategory' => 'دسته بندی',
+    'adeditproducttablestatus' => 'وضعیت',
+    'adeditproducttablestatusno' => 'در انتظار تایید',
+    'adeditproducttablestatusok' => 'تایید شده',
+    'adminsidebaproductstitle' => 'محصولات',
 
     // end admin panel
 ];

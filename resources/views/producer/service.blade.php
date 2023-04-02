@@ -165,7 +165,7 @@
         <div class="card">
             <div class="card-body">
 
-                @if ($factorstatus == false)
+                @if ($factorstatus != 0)
                     @if ($order)
                         @if ($factor && $factor->paystatus == 1)
                             <a href="{{ route('producer.payments') }}">

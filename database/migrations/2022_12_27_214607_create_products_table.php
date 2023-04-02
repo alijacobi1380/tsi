@@ -27,17 +27,17 @@ class CreateProductsTable extends Migration
             $table->text('endesc')->nullable();
             $table->text('image');
             $table->text('productcolor');
-            $table->text('enproductcolor');
+            $table->text('enproductcolor')->nullable();
             $table->text('productvazn');
-            $table->text('enproductvazn');
+            $table->text('enproductvazn')->nullable();
             $table->text('productjens');
-            $table->text('enproductjens');
+            $table->text('enproductjens')->nullable();
             $table->text('productpack');
-            $table->text('enproductpack');
+            $table->text('enproductpack')->nullable();
             $table->text('productcustom');
-            $table->text('enproductcustom');
+            $table->text('enproductcustom')->nullable();
             $table->text('productdeliver');
-            $table->text('enproductdeliver');
+            $table->text('enproductdeliver')->nullable();
             $table->timestamps();
         });
     }

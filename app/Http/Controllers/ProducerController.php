@@ -188,7 +188,7 @@ class ProducerController extends Controller
             $v2 = Verta::parse($factor->prwhen);
 
             if ($v1->diffDays($v2) > 0) {
-                $factorstatus = true;
+                $factorstatus = 0;
             } else {
                 $factorstatus = 1;
             }
@@ -847,8 +847,12 @@ class ProducerController extends Controller
             'productdeliver' => 'required',
         ], $message);
 
-
+        $pr = DB::table('products')->where('id', '=', $id)->first();
         if ($request->file('productimage')) {
+            if (file_exists(public_path('productimages/' . $this->$pr->image))) {
+                unlink('productimages/' . $this->$pr->image);
+            }
+
             $filename = sha1(time());
             $file = $request->file('productimage');
             $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);

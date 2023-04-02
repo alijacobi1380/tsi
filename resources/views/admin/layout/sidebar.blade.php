@@ -326,6 +326,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.products') }}" class=" waves-effect">
+                                    <i class="mdi mdi-shopping-outline"></i>
+                                    <span>{{ __('messages.adminsidebaproductstitle') }}</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.orders') }}" class=" waves-effect">
                                     <i class="bx bx-list-ul"></i>
                                     <span>{{ __('messages.adminsidebarorderstitle') }}</span>

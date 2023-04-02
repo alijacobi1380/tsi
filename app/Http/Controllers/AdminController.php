@@ -60,6 +60,111 @@ class AdminController extends Controller
         return view('admin.addnotif');
     }
 
+    public function products()
+    {
+        $products = DB::table('products')->get();
+        return view('admin.products', compact('products'));
+    }
+
+    public function changeproductstatus($id, $status)
+    {
+        DB::table('products')->where('id', '=', $id)->update([
+            'publish' => $status
+        ]);
+        return back();
+    }
+
+    public function editproduct($id)
+    {
+        $product = DB::table('products')->where('id', '=', $id)->first();
+        $categorys = DB::table('categorys')->get();
+        return view('admin.editproduct', compact('product', 'categorys'));
+    }
+
+    public function editproductcheck($id, Request $request)
+    {
+        if ($_SESSION['lang'] == 'fa') {
+            App::setLocale('fa');
+        } else {
+            App::setLocale('en');
+        }
+
+        $message = [
+            'productname.required' => __('messages.productnameerror'),
+            'productcategory.required' => __('messages.productcategoryerror'),
+            'productdesc.required' => __('messages.productdescerror'),
+            'productcolor.required' => __('messages.productcolorerror'),
+            'productvazn.required' => __('messages.productvaznerror'),
+            'productjens.required' => __('messages.productjenserror'),
+            'productpack.required' => __('messages.productpackerror'),
+            'productcustom.required' => __('messages.productcustomerror'),
+            'productdeliver.required' => __('messages.productdelivererror'),
+        ];
+        $val = $request->validate([
+            'productname' => 'required',
+            'productcategory' => 'required',
+            'productdesc' => 'required',
+            'productcolor' => 'required',
+            'productvazn' => 'required',
+            'productjens' => 'required',
+            'productpack' => 'required',
+            'productcustom' => 'required',
+            'productdeliver' => 'required',
+        ], $message);
+
+        if ($request->file('productimage')) {
+            $pr = DB::table('products')->where('id', '=', $id)->first();
+
+            if (file_exists(public_path('productimages/' . $pr->image))) {
+                unlink('productimages/' . $pr->image);
+            }
+
+            $filename = sha1(time());
+            $file = $request->file('productimage');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('productimages', $filename . "." . $extension);
+            DB::table('products')->where('id', '=', $id)->update([
+                'image' => $filename . "." . $extension,
+            ]);
+        }
+
+        $category = DB::table('categorys')->where('id', '=', $request->productcategory)->first();
+
+
+
+
+        DB::table('products')->where('id', '=', $id)->update([
+            'title' => $request->productname,
+            'entitle' => $request->enproductname,
+            'userid' => Auth::user()->id,
+            'username' => Auth::user()->name,
+            'categoryid' => $request->productcategory,
+            'categoryname' => $category->title,
+            'encategoryname' => $category->entitle,
+            'desc' => $request->productdesc,
+            'endesc' => $request->enproductdesc,
+            'productcolor' => $request->productcolor,
+            'productvazn' => $request->productvazn,
+            'productjens' => $request->productjens,
+            'productpack' => $request->productpack,
+            'productcustom' => $request->productcustom,
+            'productdeliver' => $request->productdeliver,
+            'enproductcolor' => $request->enproductcolor,
+            'enproductvazn' => $request->enproductvazn,
+            'enproductjens' => $request->enproductjens,
+            'enproductpack' => $request->enproductpack,
+            'enproductcustom' => $request->enproductcustom,
+            'enproductdeliver' => $request->enproductdeliver,
+        ]);
+        if ($_SESSION['lang'] == 'fa') {
+            App::setLocale('fa');
+            return redirect()->back()->with('message', __('messages.productaddededit'));
+        } else {
+            App::setLocale('en');
+            return redirect()->back()->with('message', __('messages.productaddededit'));
+        }
+    }
+
     public function addnotifcheck(Request $request)
     {
         $message = [
@@ -358,10 +463,13 @@ class AdminController extends Controller
             DB::table('vitrins')->where('userid', '=', $id)->delete();
         }
 
-        $product = DB::table('products')->where('userid', '=', $id)->first();
-        if ($product) {
-            $this->deleteimagevitrin($product->image, 2);
-            $product = DB::table('products')->where('userid', '=', $id)->delete();
+
+        $products = DB::table('products')->where('userid', '=', $id)->get();
+        if ($products) {
+            foreach ($products as $product) {
+                $this->deleteimagevitrin($product->image, 2);
+                DB::table('products')->where('id', '=', $product->id)->delete();
+            }
         }
 
         $tickets = DB::table('tickets')->where('senderid', '=', $id)->get();
@@ -372,6 +480,8 @@ class AdminController extends Controller
             }
         }
 
+        DB::table('factors')->where('userid', '=', $id)->delete();
+        DB::table('orders')->where('userid', '=', $id)->delete();
         DB::table('users')->where('id', '=', $id)->delete();
 
         return back();
