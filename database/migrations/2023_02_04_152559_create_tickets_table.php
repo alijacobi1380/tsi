@@ -22,7 +22,7 @@ class CreateTicketsTable extends Migration
             $table->integer('status')->default(1);
             $table->integer('force');
             $table->integer('category');
-            $table->text('desc');
+            $table->longText('desc');
             $table->text('file')->nullable();
             $table->text('date');
             $table->text('prdate');

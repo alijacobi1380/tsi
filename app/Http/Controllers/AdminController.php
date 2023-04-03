@@ -537,6 +537,77 @@ class AdminController extends Controller
     public function orders()
     {
         $orders = DB::table('orders')->orderBy('id', 'DESC')->get();
-        return view('admin.orders', compact('orders'));
+        $factors = DB::table('factors')->orderBy('id', 'DESC')->get();
+        return view('admin.orders', compact('orders', 'factors'));
+    }
+
+    public function tickets()
+    {
+        $tickets = DB::table('tickets')->where('tid', '=', 0)->get();
+        return view('admin.tickets', compact('tickets'));
+    }
+
+    public function showticket($id)
+    {
+        $ticket = DB::table('tickets')->where('id', '=', $id)->first();
+        $tanwsers = DB::table('tickets')->where('tid', '=', $id)->orderBy('id', 'DESC')->get();
+        return view('admin.showticket', compact('ticket', 'tanwsers', 'id'));
+    }
+
+    public function addticketcheckid($id, Request $request)
+    {
+        $message = [
+            'desc.required' => __('messages.ticketdescerror'),
+        ];
+        $val = $request->validate([
+            'desc' => 'required',
+        ], $message);
+
+
+
+        $prdate = new Verta;
+        $date = new Verta;
+        $date->timezone = 'Asia/Tehran';
+
+        if ($request->file('file')) {
+            $filename = sha1(time());
+            $file = $request->file('file');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('ticketsfile', $filename . "." . $extension);
+
+
+            DB::table('tickets')->insert([
+                'title' => '',
+                'tid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'force' => 0,
+                'category' => 0,
+                'desc' => $request->desc,
+                'file' => $filename . "." . $extension,
+                'date' => $date->format('j    F    Y  /  H:i'),
+                'prdate' => $prdate->toCarbon(),
+            ]);
+        } else {
+
+            DB::table('tickets')->insert([
+                'title' => '',
+                'tid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'force' => 0,
+                'category' => 0,
+                'desc' => $request->desc,
+                'date' => $date->format('j    F    Y  /  H:i'),
+                'prdate' => $prdate->toCarbon(),
+            ]);
+        }
+
+        DB::table('tickets')->where('id', '=', $id)->update([
+            'status' => $request->status
+        ]);
+
+
+        return redirect()->back()->with('message', __('messages.ticketadded'));
     }
 }

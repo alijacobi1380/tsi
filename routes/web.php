@@ -50,6 +50,9 @@ Route::get('/admin/products', 'App\Http\Controllers\AdminController@products')->
 Route::get('/admin/changeproductstatus/{id}/{status}', 'App\Http\Controllers\AdminController@changeproductstatus')->name('admin.changeproductstatus')->middleware('Admin');
 Route::get('/admin/editproduct/{id}', 'App\Http\Controllers\AdminController@editproduct')->name('admin.editproduct')->middleware('Admin');
 Route::post('/admin/editproductcheck/{id}', 'App\Http\Controllers\AdminController@editproductcheck')->name('admin.editproductcheck')->middleware('Admin');
+Route::get('/admin/tickets', 'App\Http\Controllers\AdminController@tickets')->name('admin.tickets')->middleware('Admin');
+Route::get('/admin/showticket/{id}', 'App\Http\Controllers\AdminController@showticket')->name('admin.showticket')->middleware('Admin');
+Route::post('/admin/addticketcheckid/{id}', 'App\Http\Controllers\AdminController@addticketcheckid')->name('admin.addticketcheckid')->middleware('Admin');
 Route::get('/admin/deleteuser/{id}', 'App\Http\Controllers\AdminController@deleteuser')->name('admin.deleteuser')->middleware('Admin');
 Route::get('/admin/orders', 'App\Http\Controllers\AdminController@orders')->name('admin.orders')->middleware('Admin');
 Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\Controllers\AdminController@addfactor')->name('admin.addfactor')->middleware('Admin');

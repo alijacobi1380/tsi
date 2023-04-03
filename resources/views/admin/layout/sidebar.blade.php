@@ -332,6 +332,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.tickets') }}" class=" waves-effect">
+                                    <i class="mdi mdi-ticket-outline"></i>
+                                    <span>{{ __('messages.adminticketssidebar') }}</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.orders') }}" class=" waves-effect">
                                     <i class="bx bx-list-ul"></i>
                                     <span>{{ __('messages.adminsidebarorderstitle') }}</span>

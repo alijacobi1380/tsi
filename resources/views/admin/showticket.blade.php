@@ -1,4 +1,4 @@
-@extends('producer.layout.sidebar')
+@extends('admin.layout.sidebar')
 
 @section('func')
     @php
@@ -33,10 +33,19 @@
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion"
                         style="">
                         <div class="card-body line-height-p">
-                            <form action="{{ route('producer.addticketcheckid', ['id' => $id]) }}"
+                            <form action="{{ route('admin.addticketcheckid', ['id' => $id]) }}"
                                 enctype="multipart/form-data" method="POST">
                                 @csrf
 
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">{{__('messages.advitrintablestatus')}}</label>
+                                    <div class="col-md-10">
+                                        <select name="status" class="form-control">
+                                            <option value="2">{{ __('messages.tstatus2') }}</option>
+                                            <option value="3">{{ __('messages.tstatus3') }}</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="form-group row">
                                     <label for="example-text-input"

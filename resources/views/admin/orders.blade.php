@@ -24,6 +24,8 @@
                                     <th>{{ __('messages.adminordertableusername') }}</th>
                                     <th>{{ __('messages.adminordertableservicename') }}</th>
                                     <th>{{ __('messages.adminordertabledate') }}</th>
+                                    <th>{{ __('messages.adminordertableenddate') }}</th>
+                                    <th>{{ __('messages.adminordertablesprice') }}</th>
                                     <th>{{ __('messages.adminordertablefactor') }}</th>
                                 </tr>
                             </thead>
@@ -35,6 +37,16 @@
                                         <td>{{ $order->username }}</td>
                                         <td>{{ $order->servicename }}</td>
                                         <td>{{ $order->date }}</td>
+                                        @foreach ($factors as $factor)
+                                            @if ($order->id == $factor->orderid)
+                                                <td>
+                                                    {{ $factor->when }}
+                                                </td>
+                                                <td>
+                                                    {{ number_format($factor->price) }}
+                                                </td>
+                                            @endif
+                                        @endforeach
                                         <td>
                                             @if ($order->paystatus == 0)
                                                 <!-- Button trigger modal -->

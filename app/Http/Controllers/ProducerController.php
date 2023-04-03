@@ -115,6 +115,9 @@ class ProducerController extends Controller
             ]);
         }
 
+        DB::table('tickets')->where('id', '=', $id)->update([
+            'status' => 1
+        ]);
 
         return redirect()->back()->with('message', __('messages.ticketadded'));
     }

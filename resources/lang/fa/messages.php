@@ -485,7 +485,10 @@ return [
     'adminordertablephone' => 'شماره تماس',
     'adminordertableusername' => 'نام کاربر',
     'adminordertableservicename' => 'نام سرویس',
+    'adminordertablesprice' => 'مبلغ ( تومان ) ',
     'adminordertabledate' => 'تاریخ',
+    'adminordertableenddate' => 'تاریخ اتمام',
+    'adminordertableenddateerror' => 'مشخص نشده',
     'adminordertablefactor' => 'وضعیت پرداخت',
     'adminsidebarorderstitle' => 'لیست سفارشات',
     'adminsodorfactor' => 'صدور فاکتور',
@@ -507,7 +510,7 @@ return [
     'tcategory2' => 'سرویس ها',
     'tcategory3' => 'مشکلات سایت',
     'tstatus1' => 'در انتظار مشاهده',
-    'tstatus2' => 'در انتظار پاسخ',
+    'tstatus2' => 'درحال بررسی',
     'tstatus3' => 'پاسخ داده شده',
     'tdesc' => 'توضیحات',
     'tfile' => 'فایل',
@@ -598,7 +601,7 @@ return [
     'aduserstablename' => 'نام',
     'aduserstablerule' => 'نقش',
     'aduserstableemail' => 'ایمیل',
-    'aduserspagetitle' => 'مدیریرت کاربران',
+    'aduserspagetitle' => 'مدیریت کاربران',
     'adusersmodaltitle' => 'اخطار',
     'adusersmodaldesc' => 'در صورت حذف کاربر اطلاعاتی مانند محصولات , ویترین و تیکت ها نیز پاک خواهند شد.',
     'adusersmodalbtnok' => 'حذف',
@@ -620,6 +623,8 @@ return [
     'adeditproducttablestatusno' => 'در انتظار تایید',
     'adeditproducttablestatusok' => 'تایید شده',
     'adminsidebaproductstitle' => 'محصولات',
+    'adminticketssidebar' => 'تیکت ها',
+    'adminticketspagetitle' => 'مدیریت تیکت ها',
 
     // end admin panel
 ];
