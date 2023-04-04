@@ -12,4 +12,9 @@ class ChatController extends Controller
         // $users = DB::table('users')->get();
         return view('producer.chats');
     }
+
+    public function adminchats()
+    {
+        return view('admin.chats');
+    }
 }

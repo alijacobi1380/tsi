@@ -338,6 +338,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.adminchats') }}" class=" waves-effect">
+                                    <i class="mdi mdi-chat-outline"></i>
+                                    <span>{{ __('messages.panelchat') }}</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.orders') }}" class=" waves-effect">
                                     <i class="bx bx-list-ul"></i>
                                     <span>{{ __('messages.adminsidebarorderstitle') }}</span>

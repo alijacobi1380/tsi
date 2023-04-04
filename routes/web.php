@@ -56,6 +56,8 @@ Route::post('/admin/addticketcheckid/{id}', 'App\Http\Controllers\AdminControlle
 Route::get('/admin/deleteuser/{id}', 'App\Http\Controllers\AdminController@deleteuser')->name('admin.deleteuser')->middleware('Admin');
 Route::get('/admin/orders', 'App\Http\Controllers\AdminController@orders')->name('admin.orders')->middleware('Admin');
 Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\Controllers\AdminController@addfactor')->name('admin.addfactor')->middleware('Admin');
+Route::get('/admin/chats', 'App\Http\Controllers\ChatController@adminchats')->name('admin.adminchats')->middleware('Admin');
+
 // Route::post('/admin/addserviceprice/{id}', 'App\Http\Controllers\AdminController@addserviceprice')->name('admin.addserviceprice')->middleware('Admin');
 
 
