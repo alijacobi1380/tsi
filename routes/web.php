@@ -40,6 +40,7 @@ Route::get('/admin/deletenotfication/{id}', 'App\Http\Controllers\AdminControlle
 Route::get('/admin/addnotif', 'App\Http\Controllers\AdminController@addnotif')->name('admin.addnotif')->middleware('Admin');
 Route::post('/admin/addnotifcheck', 'App\Http\Controllers\AdminController@addnotifcheck')->name('admin.addnotifcheck')->middleware('Admin');
 Route::get('/admin/vitrins', 'App\Http\Controllers\AdminController@vitrins')->name('admin.vitrins')->middleware('Admin');
+Route::get('/admin/filtervitrins', 'App\Http\Controllers\AdminController@filtervitrins')->name('admin.filtervitrins')->middleware('Admin');
 Route::get('/admin/changevitrinstatus/{id}/{status}', 'App\Http\Controllers\AdminController@changevitrinstatus')->name('admin.changevitrinstatus')->middleware('Admin');
 Route::get('/admin/editvitrin/{id}', 'App\Http\Controllers\AdminController@editvitrin')->name('admin.editvitrin')->middleware('Admin');
 Route::post('/admin/editvitrincheck/{id}', 'App\Http\Controllers\AdminController@editvitrincheck')->name('admin.editvitrincheck')->middleware('Admin');
@@ -47,10 +48,12 @@ Route::get('/admin/users', 'App\Http\Controllers\AdminController@users')->name('
 Route::get('/admin/edituser/{id}', 'App\Http\Controllers\AdminController@edituser')->name('admin.edituser')->middleware('Admin');
 Route::post('/admin/editusercheck/{id}', 'App\Http\Controllers\AdminController@editusercheck')->name('admin.editusercheck')->middleware('Admin');
 Route::get('/admin/products', 'App\Http\Controllers\AdminController@products')->name('admin.products')->middleware('Admin');
+Route::get('/admin/filterproducts', 'App\Http\Controllers\AdminController@filterproducts')->name('admin.filterproducts')->middleware('Admin');
 Route::get('/admin/changeproductstatus/{id}/{status}', 'App\Http\Controllers\AdminController@changeproductstatus')->name('admin.changeproductstatus')->middleware('Admin');
 Route::get('/admin/editproduct/{id}', 'App\Http\Controllers\AdminController@editproduct')->name('admin.editproduct')->middleware('Admin');
 Route::post('/admin/editproductcheck/{id}', 'App\Http\Controllers\AdminController@editproductcheck')->name('admin.editproductcheck')->middleware('Admin');
 Route::get('/admin/tickets', 'App\Http\Controllers\AdminController@tickets')->name('admin.tickets')->middleware('Admin');
+Route::get('/admin/filtertickets', 'App\Http\Controllers\AdminController@filtertickets')->name('admin.filtertickets')->middleware('Admin');
 Route::get('/admin/showticket/{id}', 'App\Http\Controllers\AdminController@showticket')->name('admin.showticket')->middleware('Admin');
 Route::post('/admin/addticketcheckid/{id}', 'App\Http\Controllers\AdminController@addticketcheckid')->name('admin.addticketcheckid')->middleware('Admin');
 Route::get('/admin/deleteuser/{id}', 'App\Http\Controllers\AdminController@deleteuser')->name('admin.deleteuser')->middleware('Admin');
@@ -89,3 +92,5 @@ Route::get('/producer/addticket', 'App\Http\Controllers\ProducerController@addti
 Route::post('/producer/addticketcheck', 'App\Http\Controllers\ProducerController@addticketcheck')->name('producer.addticketcheck')->middleware('Producer');
 Route::post('/producer/addticketcheck/{id}', 'App\Http\Controllers\ProducerController@addticketcheckid')->name('producer.addticketcheckid')->middleware('Producer');
 Route::get('/producer/showticket/{id}', 'App\Http\Controllers\ProducerController@showticket')->name('producer.showticket')->middleware('Producer');
+Route::get('/producer/editprofile', 'App\Http\Controllers\ProducerController@editprofile')->name('producer.editprofile')->middleware('Producer');
+Route::post('/producer/editprofilecheck', 'App\Http\Controllers\ProducerController@editprofilecheck')->name('producer.editprofilecheck')->middleware('Producer');

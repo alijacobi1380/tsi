@@ -14,6 +14,7 @@ use Shetabit\Payment\Facade\Payment;
 use Shetabit\Multipay\Exceptions\InvalidPaymentException;
 
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
@@ -120,6 +121,40 @@ class ProducerController extends Controller
         ]);
 
         return redirect()->back()->with('message', __('messages.ticketadded'));
+    }
+
+    public function editprofile()
+    {
+        return view('producer.profile');
+    }
+
+    public function editprofilecheck(Request $request)
+    {
+
+        $message = [
+            'currentpassword.required' => __('messages.adeditusercureentpassworderror'),
+            'password.required' => __('messages.adedituserpassworderror'),
+            'password.confirmed' => __('messages.adedituserpassworderrorconfmin'),
+            'password_confirmation.required' => __('messages.adedituserpassworderrorconf'),
+            'password.min' => __('messages.adedituserpassworderrormin'),
+        ];
+        $val = $request->validate([
+            'currentpassword' => 'required',
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required',
+        ], $message);
+
+
+        $user = DB::table('users')->where('id', '=', Auth::user()->id)->first();
+        if (Hash::check($request->currentpassword, $user->password)) {
+            DB::table('users')->where('id', '=', Auth::user()->id)->update([
+                'password' => Hash::make($request->password),
+            ]);
+            return redirect()->back()->with('message', __('messages.adedituserok'));
+        } else {
+            return redirect()->back()->with('error', __('messages.adedituserno'));
+        }
+
     }
 
 

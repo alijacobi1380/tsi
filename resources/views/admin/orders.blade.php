@@ -99,7 +99,11 @@
                                             @endif
 
                                             @if ($order->paystatus == 2)
-                                                {{ __('messages.transid') }}
+                                                {{ __('messages.transid') }} @foreach ($factors as $factor)
+                                                    @if ($order->id == $factor->orderid)
+                                                        ( {{ $factor->transid }} )
+                                                    @endif
+                                                @endforeach
                                             @endif
 
                                         </td>

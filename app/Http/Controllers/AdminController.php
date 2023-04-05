@@ -63,7 +63,18 @@ class AdminController extends Controller
     public function products()
     {
         $products = DB::table('products')->get();
-        return view('admin.products', compact('products'));
+        $users = DB::table('users')->where('rule', '!=', 2)->orderBy('id', 'DESC')->get();
+        return view('admin.products', compact('products', 'users'));
+    }
+
+    public function filterproducts(Request $request)
+    {
+        if ($request->name == 'all') {
+            $products = DB::table('products')->where('publish', '=', $request->status)->orderBy('id', 'DESC')->get();
+        } else {
+            $products = DB::table('products')->where('userid', '=', $request->name)->where('publish', '=', $request->status)->orderBy('id', 'DESC')->get();
+        }
+        return view('admin.filterproducts', compact('products'));
     }
 
     public function changeproductstatus($id, $status)
@@ -188,7 +199,18 @@ class AdminController extends Controller
     public function vitrins()
     {
         $vitrins = DB::table('vitrins')->orderBy('id', 'DESC')->get();
-        return view('admin.vitrins', compact('vitrins'));
+        $users = DB::table('users')->where('rule', '!=', '2')->orderBy('id', 'DESC')->get();
+        return view('admin.vitrins', compact('vitrins', 'users'));
+    }
+
+    public function filtervitrins(Request $request)
+    {
+        if ($request->name == 'all') {
+            $vitrins = DB::table('vitrins')->where('status', '=', $request->status)->get();
+        } else {
+            $vitrins = DB::table('vitrins')->where('userid', '=', $request->name)->where('status', '=', $request->status)->get();
+        }
+        return view('admin.filtervitrins', compact('vitrins'));
     }
 
     public function changevitrinstatus($id, $status)
@@ -538,13 +560,25 @@ class AdminController extends Controller
     {
         $orders = DB::table('orders')->orderBy('id', 'DESC')->get();
         $factors = DB::table('factors')->orderBy('id', 'DESC')->get();
-        return view('admin.orders', compact('orders', 'factors'));
+        $users = DB::table('users')->where('rule', '!=', '2')->orderBy('id', 'DESC')->get();
+        return view('admin.orders', compact('orders', 'factors','users'));
     }
 
     public function tickets()
     {
         $tickets = DB::table('tickets')->where('tid', '=', 0)->get();
-        return view('admin.tickets', compact('tickets'));
+        $users = DB::table('users')->where('rule', '!=', '2')->orderBy('id', 'DESC')->get();
+        return view('admin.tickets', compact('tickets','users'));
+    }
+
+    public function filtertickets(Request $request)
+    {
+        if ($request->name == 'all') {
+            $tickets = DB::table('tickets')->where('tid', '=', 0)->where('status', '=', $request->status)->get();
+        } else {
+            $tickets = DB::table('tickets')->where('tid', '=', 0)->where('senderid', '=', $request->name)->where('status', '=', $request->status)->get();
+        }
+        return view('admin.filtertickets', compact('tickets'));
     }
 
     public function showticket($id)

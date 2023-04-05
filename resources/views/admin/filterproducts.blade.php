@@ -13,31 +13,6 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{ route('admin.filterproducts') }}" method="GET">
-                        <div class="form-group row">
-                            <label class=" col-form-label">{{ __('messages.adminordertableusername') }}</label>
-                            <div class="col-md-4">
-                                <select name="name" class="form-control">
-                                    <option value="all">{{ __('messages.panelallusers') }}</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <label class=" col-form-label">{{ __('messages.gttablestatus') }}</label>
-                            <div class="col-md-4">
-                                <select name="status" class="form-control">
-                                    {{-- <option value="0">{{ __('messages.advtwaitforsee') }}</option> --}}
-                                    <option value="2">{{ __('messages.advtaccepted') }}</option>
-                                    <option value="1">{{ __('messages.advtignore') }}</option>
-                                </select>
-                            </div>
-                            <button type="submit"
-                                class="btn btn-info waves-effect waves-light">{{ __('messages.panelsearch') }}</button>
-                        </div>
-                    </form>
-                    <br><br>
-
 
                     {{-- <h4 class="card-title">{{ __('messages.adminordertitle') }}</h4> --}}
                     <br>

@@ -122,8 +122,8 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!-- item-->
-                                    <a class="dropdown-item" href="#"><i
-                                            class="bx bx-user font-size-16 align-middle mr-1"></i>{{ __('messages.showprofile') }}</a>
+                                    {{-- <a class="dropdown-item" href="#"><i
+                                            class="bx bx-user font-size-16 align-middle mr-1"></i>{{ __('messages.showprofile') }}</a> --}}
                                     {{-- <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> کیف پول من</a>
                                     <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> تنظیمات</a>
                                     <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle mr-1"></i> قفل صفحه</a>
