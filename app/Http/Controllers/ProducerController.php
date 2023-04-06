@@ -154,7 +154,6 @@ class ProducerController extends Controller
         } else {
             return redirect()->back()->with('error', __('messages.adedituserno'));
         }
-
     }
 
 
@@ -233,7 +232,14 @@ class ProducerController extends Controller
         } else {
             $factorstatus = 2;
         }
-        return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor'));
+
+        if ($order) {
+            $reports = DB::table('reports')->where('serviceid', '=', $order->id)->get();
+            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor', 'reports'));
+        }
+        else{
+            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor'));
+        }
     }
 
     public function questionservice($id)

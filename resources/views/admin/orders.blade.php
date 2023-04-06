@@ -27,6 +27,7 @@
                                     <th>{{ __('messages.adminordertableenddate') }}</th>
                                     <th>{{ __('messages.adminordertablesprice') }}</th>
                                     <th>{{ __('messages.adminordertablefactor') }}</th>
+                                    <th>{{ __('messages.adminorderstableadddesctitle') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,11 +102,16 @@
                                             @if ($order->paystatus == 2)
                                                 {{ __('messages.transid') }} @foreach ($factors as $factor)
                                                     @if ($order->id == $factor->orderid)
-                                                        ( {{ $factor->transid }} )
+                                                        ({{ $factor->transid }})
                                                     @endif
                                                 @endforeach
                                             @endif
 
+                                        </td>
+
+                                        <td>
+                                            <a
+                                                href="{{ route('admin.showserviereport', ['id' => $order->id]) }}">{{ __('messages.adminorderstableadddesc') }}</a>
                                         </td>
 
                                     </tr>

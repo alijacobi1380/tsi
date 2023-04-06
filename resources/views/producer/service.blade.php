@@ -8,6 +8,13 @@
 
 @section('cs')
     <style>
+        .excel,
+        .pdf {
+            cursor: pointer;
+            font-size: 15px;
+            margin: 5px;
+        }
+
         .button-container-2 {
             position: relative;
             width: 100%;
@@ -185,7 +192,97 @@
                         @livewire('service', ['id' => $serviceid])
                     @endif
                 @else
-                    <h3>به زودی کامل میشود</h3>
+                    <div class="col-12 row" style="text-align: left">
+                        <div style="text-align: right" class="col-lg-6 col-md-12">
+                            <h4>{{ __('messages.adminorderstableadddesctitle') }}</h4>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <i title="excel" id="export_button" class="excel far fa-file-excel"></i>
+                            <i title="pdf" onclick="printDiv()" id="pdf" class="pdf far fa-file-pdf"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table id="table" class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ __('messages.gttablenum') }}</th>
+                                                    <th>{{ __('messages.adminaddreportstabletitle') }}</th>
+                                                    <th>{{ __('messages.adminaddreportstabledate') }}</th>
+                                                    <th>{{ __('messages.adminaddreportstablestatus') }}</th>
+                                                    <th>{{ __('messages.adminaddreportstabledesc') }}</th>
+                                                    <th>{{ __('messages.adminaddreportstablefile') }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    @foreach ($reports as $report)
+                                                        <th>
+                                                            {{ $report->id }}
+                                                        </th>
+                                                        <th>
+
+                                                            @if (App::getLocale() == 'en')
+                                                                {{ $report->titleen }}
+                                                            @else
+                                                                {{ $report->title }}
+                                                            @endif
+                                                        </th>
+                                                        <th>
+
+                                                            @if (App::getLocale() == 'en')
+                                                                {{ $report->dateen }}
+                                                            @else
+                                                                {{ $report->date }}
+                                                            @endif
+                                                        </th>
+
+                                                        <th>
+                                                            @switch($report->status)
+                                                                @case(1)
+                                                                    {{ __('messages.adminreportstatu1') }}
+                                                                @break
+
+                                                                @case(2)
+                                                                    {{ __('messages.adminreportstatu2') }}
+                                                                @break
+
+                                                                @case(3)
+                                                                    {{ __('messages.adminreportstatu3') }}
+                                                                @break
+
+                                                                @default
+                                                            @endswitch
+                                                        </th>
+
+                                                        <th>
+
+                                                            @if (App::getLocale() == 'en')
+                                                                {{ $report->descen }}
+                                                            @else
+                                                                {{ $report->desc }}
+                                                            @endif
+                                                        </th>
+                                                        <th>
+                                                            @if ($report->file != '')
+                                                                <a href="{{ url('reports') }}/{{ $report->file }}"
+                                                                    target="_blank">{{ __('messages.gttableshow') }}</a>
+                                                            @endif
+                                                        </th>
+                                                    @endforeach
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
 
 
@@ -240,4 +337,49 @@
         <a title="{{ __('messages.question') }}" href="{{ route('producer.questionservice', ['id' => $serviceid]) }}"><i
                 style="color: white;font-size: 25px" class="bx bx-help-circle"></i></a>
     </div>
+@endsection
+
+@section('sc')
+    <script src="{{ url('js/excel.js') }}"></script>
+    <script>
+        function html_table_to_excel(type) {
+            var data = document.getElementById('table');
+
+            var file = XLSX.utils.table_to_book(data, {
+                sheet: "sheet1"
+            });
+
+            XLSX.write(file, {
+                bookType: type,
+                bookSST: true,
+                type: 'base64'
+            });
+
+            XLSX.writeFile(file, 'file.' + type);
+        }
+
+        const export_button = document.getElementById('export_button');
+
+        export_button.addEventListener('click', () => {
+            html_table_to_excel('xlsx');
+        });
+
+
+        function printDiv() {
+            var divToPrint = document.getElementById('table');
+            var htmlToPrint = '' +
+                '<style type="text/css">' +
+                'table th, table td {' +
+                'border:1px solid grey;' +
+                'padding:0.5em;' +
+                'direction:ltr !important;' +
+                '}' +
+                '</style>';
+            htmlToPrint += divToPrint.outerHTML;
+            newWin = window.open("");
+            newWin.document.write(htmlToPrint);
+            newWin.print();
+            newWin.close();
+        }
+    </script>
 @endsection

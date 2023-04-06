@@ -561,14 +561,14 @@ class AdminController extends Controller
         $orders = DB::table('orders')->orderBy('id', 'DESC')->get();
         $factors = DB::table('factors')->orderBy('id', 'DESC')->get();
         $users = DB::table('users')->where('rule', '!=', '2')->orderBy('id', 'DESC')->get();
-        return view('admin.orders', compact('orders', 'factors','users'));
+        return view('admin.orders', compact('orders', 'factors', 'users'));
     }
 
     public function tickets()
     {
         $tickets = DB::table('tickets')->where('tid', '=', 0)->get();
         $users = DB::table('users')->where('rule', '!=', '2')->orderBy('id', 'DESC')->get();
-        return view('admin.tickets', compact('tickets','users'));
+        return view('admin.tickets', compact('tickets', 'users'));
     }
 
     public function filtertickets(Request $request)
@@ -643,5 +643,86 @@ class AdminController extends Controller
 
 
         return redirect()->back()->with('message', __('messages.ticketadded'));
+    }
+
+    public function showserviereport($id)
+    {
+        $reports = DB::table('reports')->where('serviceid', '=', $id)->orderBy('id', 'DESC')->get();
+        $order = DB::table('orders')->where('id', '=', $id)->first();
+        return view('admin.reports', compact('reports', 'id', 'order'));
+    }
+
+    public function addreport($id)
+    {
+        $order = DB::table('orders')->where('id', '=', $id)->first();
+        return view('admin.addreport', compact('order', 'id'));
+    }
+
+    public function addreportcheck($id, Request $request)
+    {
+
+        $message = [
+            'title.required' => __('messages.addreporttitleerror'),
+            'titleen.required' => __('messages.addreporttitleenerror'),
+            'desc.required' => __('messages.addreportdescerror'),
+            'descen.required' => __('messages.addreportdescenerror'),
+            'date.required' => __('messages.addreportdateerror'),
+            'dateen.required' => __('messages.addreportdateenerror'),
+        ];
+        $val = $request->validate([
+            'title' => 'required',
+            'titleen' => 'required',
+            'desc' => 'required',
+            'descen' => 'required',
+            'date' => 'required',
+            'dateen' => 'required',
+        ], $message);
+
+
+        if ($request->file('file')) {
+            $filename = sha1(time());
+            $file = $request->file('file');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('reports', $filename . "." . $extension);
+
+
+            DB::table('reports')->insert([
+                'serviceid' => $id,
+                'title' => $request->title,
+                'titleen' => $request->titleen,
+                'desc' => $request->desc,
+                'descen' => $request->descen,
+                'date' => $request->date,
+                'dateen' => $request->dateen,
+                'status' => $request->status,
+                'file' => $filename . "." . $extension,
+            ]);
+        } else {
+
+            DB::table('reports')->insert([
+                'serviceid' => $id,
+                'title' => $request->title,
+                'titleen' => $request->titleen,
+                'desc' => $request->desc,
+                'descen' => $request->descen,
+                'date' => $request->date,
+                'dateen' => $request->dateen,
+                'status' => $request->status,
+            ]);
+        }
+
+
+
+        return redirect()->back()->with('message', __('messages.addreportok'));
+    }
+
+    public function deletereport($id)
+    {
+        $report = DB::table('reports')->where('id', '=', $id)->first();
+        if (file_exists(public_path('reports/' . $report->file))) {
+            unlink('reports/' . $report->file);
+        }
+        DB::table('reports')->where('id', '=', $id)->delete();
+        return back();
     }
 }

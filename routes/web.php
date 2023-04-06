@@ -60,6 +60,10 @@ Route::get('/admin/deleteuser/{id}', 'App\Http\Controllers\AdminController@delet
 Route::get('/admin/orders', 'App\Http\Controllers\AdminController@orders')->name('admin.orders')->middleware('Admin');
 Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\Controllers\AdminController@addfactor')->name('admin.addfactor')->middleware('Admin');
 Route::get('/admin/chats', 'App\Http\Controllers\ChatController@adminchats')->name('admin.adminchats')->middleware('Admin');
+Route::get('/admin/showserviereport/{id}', 'App\Http\Controllers\AdminController@showserviereport')->name('admin.showserviereport')->middleware('Admin');
+Route::get('/admin/addreport/{id}', 'App\Http\Controllers\AdminController@addreport')->name('admin.addreport')->middleware('Admin');
+Route::post('/admin/addreportcheck/{id}', 'App\Http\Controllers\AdminController@addreportcheck')->name('admin.addreportcheck')->middleware('Admin');
+Route::get('/admin/deletereport/{id}', 'App\Http\Controllers\AdminController@deletereport')->name('admin.deletereport')->middleware('Admin');
 
 // Route::post('/admin/addserviceprice/{id}', 'App\Http\Controllers\AdminController@addserviceprice')->name('admin.addserviceprice')->middleware('Admin');
 

@@ -12,7 +12,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    {{-- @dd($product->id) --}}
                     <form action="{{ route('admin.editproductcheck', ['id' => $product->id]) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
