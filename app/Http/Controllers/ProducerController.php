@@ -400,10 +400,14 @@ class ProducerController extends Controller
     {
         $message = [
             'brandname.required' => __('messages.vtcompanynameerror'),
+            'phonenumber.required' => __('messages.phonenumbererror1'),
+            'phonenumber.digits' => __('messages.phonenumbererror2'),
+            'phonenumber.numeric' => __('messages.phonenumbererror3'),
             'desc.required' => __('messages.vtdescerror'),
         ];
         $val = $request->validate([
             'brandname' => 'required',
+            'phonenumber' => 'required|digits:11|numeric',
             'desc' => 'required',
         ], $message);
 
@@ -414,6 +418,7 @@ class ProducerController extends Controller
                 'userid' => Auth::user()->id,
                 'username' => Auth::user()->name,
                 'status' => 0,
+                'phonenumber' => $request->phonenumber,
                 'brandname' => $request->brandname,
                 'brandnameen' => $request->brandnameen,
                 'desc' => $request->desc,
@@ -598,6 +603,7 @@ class ProducerController extends Controller
                 'userid' => Auth::user()->id,
                 'username' => Auth::user()->name,
                 'status' => 0,
+                'phonenumber' => $request->phonenumber,
                 'brandname' => $request->brandname,
                 'brandnameen' => $request->brandnameen,
                 'desc' => $request->desc,

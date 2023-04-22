@@ -42,6 +42,9 @@
 
                                 @if ($chats)
 
+                                @php
+                                    set_time_limit(100);
+                                @endphp
 
                                     @foreach ($chats as $chat)
                                         @if ($chat->senderid == Auth::user()->id)

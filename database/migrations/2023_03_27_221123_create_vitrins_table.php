@@ -22,6 +22,7 @@ class CreateVitrinsTable extends Migration
             $table->integer('taeed')->default(0);
             $table->integer('konsers')->default(0);
             $table->integer('esalat')->default(0);
+            $table->bigInteger('phonenumber');
             $table->string('brandname');
             $table->string('brandnameen')->nullable();
             $table->string('desc');

@@ -22,6 +22,8 @@ class Adminchats extends Component
         // dd(strval($this->text));
         $this->users = DB::table('users')->where('id', '!=', Auth::user()->id)->where('rule', '=', '1')->get();
         // $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+
         return view('livewire.producerchats');
     }
 

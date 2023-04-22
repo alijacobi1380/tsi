@@ -99,6 +99,16 @@
 
                                                     <div class="form-group row">
                                                         <label for="example-text-input"
+                                                            class="col-md-2 col-form-label">{{ __('messages.phonenumber') }}</label>
+                                                        <div class="col-md-10">
+                                                            <input
+                                                                class="form-control" value="{{ $vitrin->phonenumber }}"
+                                                                name="phonenumber" type="number" id="example-text-input">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.vtdesc') }}</label>
                                                         <div class="col-md-10">
                                                             <input class="form-control" value="{{ $vitrin->desc }}"
@@ -589,6 +599,17 @@
                                                                 class="form-control" value="{{ old('brandname') }}"
                                                                 name="brandnameen" type="text"
                                                                 id="example-text-input">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                        <label for="example-text-input"
+                                                            class="col-md-2 col-form-label">{{ __('messages.phonenumber') }}</label>
+                                                        <div class="col-md-10">
+                                                            <input
+                                                                class="form-control"
+                                                                name="phonenumber" type="number" id="example-text-input">
                                                         </div>
                                                     </div>
 

@@ -17,7 +17,7 @@ class Producerchats extends Component
     public $reciverid;
     public $recivername;
     public $users;
-    public $chats = [];
+    public $chats;
     public $f;
 
     public function render()
@@ -25,6 +25,7 @@ class Producerchats extends Component
         // dd(strval($this->text));
         $this->users = DB::table('users')->where('id', '!=', Auth::user()->id)->where('rule', '=', '2')->get();
         // $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get();
         return view('livewire.producerchats');
     }
 
@@ -34,7 +35,7 @@ class Producerchats extends Component
         $d = DB::table('users')->where('id', '=', $this->reciverid)->first();
         $this->recivername = $d->name;
         $this->chats = "";
-        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get();
     }
 
 
@@ -56,12 +57,12 @@ class Producerchats extends Component
                 'prdate' => $prdate->toCarbon(),
             ]);
             $this->text = "";
+            
         }
-        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
     }
 
     public function getchats()
     {
-        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get()->toArray();
+        $this->chats = DB::table('chats')->where('senderid', '=', Auth::user()->id)->where('reciverid', '=', $this->reciverid)->orWhere('senderid', '=', $this->reciverid)->where('reciverid', '=', Auth::user()->id)->get();
     }
 }
