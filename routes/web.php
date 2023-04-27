@@ -62,6 +62,7 @@ Route::post('/admin/addfactor/{id}/{userid}/{username}/{serviceid}', 'App\Http\C
 Route::get('/admin/chats', 'App\Http\Controllers\ChatController@adminchats')->name('admin.adminchats')->middleware('Admin');
 Route::get('/admin/showserviereport/{id}', 'App\Http\Controllers\AdminController@showserviereport')->name('admin.showserviereport')->middleware('Admin');
 Route::get('/admin/addreport/{id}', 'App\Http\Controllers\AdminController@addreport')->name('admin.addreport')->middleware('Admin');
+Route::post('/admin/addserviceticketcheck/{id}', 'App\Http\Controllers\AdminController@addserviceticketcheck')->name('admin.addserviceticketcheck')->middleware('Admin');
 Route::post('/admin/addreportcheck/{id}', 'App\Http\Controllers\AdminController@addreportcheck')->name('admin.addreportcheck')->middleware('Admin');
 Route::get('/admin/deletereport/{id}', 'App\Http\Controllers\AdminController@deletereport')->name('admin.deletereport')->middleware('Admin');
 
@@ -96,5 +97,6 @@ Route::get('/producer/addticket', 'App\Http\Controllers\ProducerController@addti
 Route::post('/producer/addticketcheck', 'App\Http\Controllers\ProducerController@addticketcheck')->name('producer.addticketcheck')->middleware('Producer');
 Route::post('/producer/addticketcheck/{id}', 'App\Http\Controllers\ProducerController@addticketcheckid')->name('producer.addticketcheckid')->middleware('Producer');
 Route::get('/producer/showticket/{id}', 'App\Http\Controllers\ProducerController@showticket')->name('producer.showticket')->middleware('Producer');
+Route::post('/producer/addserviceticketcheck/{id}', 'App\Http\Controllers\ProducerController@addserviceticketcheck')->name('producer.addserviceticketcheck')->middleware('Producer');
 Route::get('/producer/editprofile', 'App\Http\Controllers\ProducerController@editprofile')->name('producer.editprofile')->middleware('Producer');
 Route::post('/producer/editprofilecheck', 'App\Http\Controllers\ProducerController@editprofilecheck')->name('producer.editprofilecheck')->middleware('Producer');

@@ -652,6 +652,7 @@ return [
     'addreportdateerror' => 'لطفا تاریخ را وارد نمایید',
     'addreportdateenerror' => 'لطفا تاریخ ( انگلیسی ) را وارد نمایید',
     'addreportok' => 'گزارش با موفقیت ثبت شد',
+    'servicestatusok' => 'سرویس شما فعال است .',
 
     // end admin panel
 ];

@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('paystatus')->default(0);
             $table->text('servicename');
             $table->integer('serviceid');
-            $table->bigInteger('phonenumber');
+            // $table->bigInteger('phonenumber');
             $table->text('username');
             $table->integer('userid');
             $table->text('date');

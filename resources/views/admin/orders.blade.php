@@ -20,7 +20,6 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('messages.adminordertableid') }}</th>
-                                    <th>{{ __('messages.adminordertablephone') }}</th>
                                     <th>{{ __('messages.adminordertableusername') }}</th>
                                     <th>{{ __('messages.adminordertableservicename') }}</th>
                                     <th>{{ __('messages.adminordertabledate') }}</th>
@@ -34,10 +33,12 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <th scope="row">{{ $order->id }}</th>
-                                        <td>{{ $order->phonenumber }}</td>
                                         <td>{{ $order->username }}</td>
                                         <td>{{ $order->servicename }}</td>
                                         <td>{{ $order->date }}</td>
+                                            @php
+                                                $nm = true;
+                                            @endphp
                                         @foreach ($factors as $factor)
                                             @if ($order->id == $factor->orderid)
                                                 <td>
@@ -46,8 +47,15 @@
                                                 <td>
                                                     {{ number_format($factor->price) }}
                                                 </td>
+                                                @php
+                                                    $nm = false;
+                                                @endphp
                                             @endif
                                         @endforeach
+                                        @if ($nm == true)
+                                            <td>{{ __('messages.adminordertableenddateerror') }}</td>
+                                            <td>{{ __('messages.adminordertableenddateerror') }}</td>
+                                        @endif
                                         <td>
                                             @if ($order->paystatus == 0)
                                                 <!-- Button trigger modal -->

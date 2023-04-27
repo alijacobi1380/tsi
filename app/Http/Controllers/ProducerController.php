@@ -215,6 +215,7 @@ class ProducerController extends Controller
     {
         $serviceid = $id;
         $order = DB::table('orders')->where('userid', '=', Auth::user()->id)->where('serviceid', '=', $serviceid)->orderBy('id', 'DESC')->first();
+        $tanwsers = DB::table('servicetickets')->where('sid', '=', $order->id)->orderBy('id', 'DESC')->get();
         if ($order != null) {
             $factor = DB::table('factors')->where('orderid', '=', $order->id)->where('serviceid', '=', $serviceid)->first();
         } else {
@@ -235,11 +236,56 @@ class ProducerController extends Controller
 
         if ($order) {
             $reports = DB::table('reports')->where('serviceid', '=', $order->id)->get();
-            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor', 'reports'));
+            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor', 'reports', 'tanwsers'));
+        } else {
+            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor', 'tanwsers'));
         }
-        else{
-            return view('producer.service', compact('serviceid', 'order', 'factorstatus', 'factor'));
+    }
+
+    public function addserviceticketcheck($id, Request $request)
+    {
+        $message = [
+            'desc.required' => __('messages.ticketdescerror'),
+        ];
+        $val = $request->validate([
+            'desc' => 'required',
+        ], $message);
+
+
+
+        $prdate = new Verta;
+        $date = new Verta;
+        $date->timezone = 'Asia/Tehran';
+
+        if ($request->file('file')) {
+            $filename = sha1(time());
+            $file = $request->file('file');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('ticketsfile', $filename . "." . $extension);
+
+
+            DB::table('servicetickets')->insert([
+                'title' => '',
+                'sid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'desc' => $request->desc,
+                'file' => $filename . "." . $extension,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
+        } else {
+
+            DB::table('servicetickets')->insert([
+                'title' => '',
+                'sid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'desc' => $request->desc,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
         }
+
+        return redirect()->back()->with('message', __('messages.ticketadded'));
     }
 
     public function questionservice($id)

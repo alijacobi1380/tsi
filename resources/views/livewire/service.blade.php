@@ -1516,76 +1516,11 @@
 
         <div class="button-container-2">
             <span class="mas">{{ __('messages.needservicehelp') }}</span>
-            <button wire:click="addphonenumber" type="button"
+            <button wire:click="verifyorder" type="button"
                 name="Hover">{{ __('messages.orderservice') }}</button>
         </div>
     @endif
-    @if ($check == 1)
-        <div style="text-align: center">
-            <h5> {{ __('messages.addphonenumberservice') }}</h5>
-
-        </div>
-        <br><br>
-        <div class="form-group row">
-            <label for="example-text-input" class="col-md-2 col-form-label">{{ __('messages.phonenumbertext') }} :
-            </label>
-            <div class="col-md-10">
-                <input wire:model="phonenumber" style="text-align: center" class="form-control" type="number"
-                    id="example-text-input">
-            </div>
-        </div>
-
-        @if (strlen($phonenumber) == 11)
-            <button wire:click="sendsms" type="button"
-                class="col-12 btn btn-primary btn-sm waves-effect waves-light">{{ __('messages.sendsmstophoneverify') }}</button>
-        @endif
-
-    @endif
-    @if ($check == 2)
-        <div style="text-align: center">
-            <h5> {{ __('messages.addrandomnumber') }}</h5>
-
-        </div>
-        <br><br>
-        <div class="form-group row">
-            <label for="example-text-input" class="col-md-2 col-form-label">{{ __('messages.addrandom') }} :
-            </label>
-            <div class="col-md-10">
-                <input wire:model="inputrandomnumber" style="text-align: center" class="form-control"
-                    type="number" id="example-text-input">
-            </div>
-        </div>
-
-
-        <button wire:click="verifyorder" type="button"
-            class="col-12 btn btn-primary btn-sm waves-effect waves-light">{{ __('messages.randomnumberbtn') }}</button>
-        <br><br>
-        @if ($time == 0)
-
-            <div wire:click="sendsmsagan">
-                <button class="btn btn-primary waves-effect"
-                    type="button">{{ __('messages.sendsmstophoneverify2') }}
-                </button>
-            </div>
-        @else
-            <button class="btn btn-light waves-effect"
-                type="button">{{ __('messages.sendsmstophoneverify2') }}<span wire:poll="time">
-                    @if ($time != 0)
-                        {{ $time }}
-                    @endif
-                </span>
-            </button>
-        @endif
-
-        <br><br>
-
-        @if ($error == true)
-            <div class="alert alert-danger" role="alert">
-                {{ __('messages.ordererror') }}
-            </div>
-        @endif
-
-    @endif
+    
 
     @if ($check == 3)
         <div class="col-12 alert alert-success" role="alert">

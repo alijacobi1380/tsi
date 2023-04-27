@@ -80,7 +80,7 @@ class Service extends Component
 
     public function verifyorder()
     {
-        if ($this->inputrandomnumber == $this->randomnumber) {
+        // if ($this->inputrandomnumber == $this->randomnumber) {
             $servicename = "";
             switch ($this->serviceid) {
                 case '1':
@@ -108,14 +108,13 @@ class Service extends Component
             DB::table('orders')->insert([
                 'servicename' => $servicename,
                 'serviceid' => $this->serviceid,
-                'phonenumber' => $this->phonenumber,
                 'username' => Auth::user()->name,
                 'userid' => Auth::user()->id,
                 'date' => $date->format('j    F    Y  /  H:i')
             ]);
             $this->check = 3;
-        } else {
-            $this->error = true;
-        }
+        // } else {
+            // $this->error = true;
+        // }
     }
 }

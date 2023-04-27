@@ -647,9 +647,56 @@ class AdminController extends Controller
 
     public function showserviereport($id)
     {
+        $tanwsers = DB::table('servicetickets')->where('sid', '=', $id)->orderBy('id', 'DESC')->get();
         $reports = DB::table('reports')->where('serviceid', '=', $id)->orderBy('id', 'DESC')->get();
         $order = DB::table('orders')->where('id', '=', $id)->first();
-        return view('admin.reports', compact('reports', 'id', 'order'));
+        return view('admin.reports', compact('reports', 'id', 'order', 'tanwsers'));
+    }
+
+    public function addserviceticketcheck($id, Request $request)
+    {
+        $message = [
+            'desc.required' => __('messages.ticketdescerror'),
+        ];
+        $val = $request->validate([
+            'desc' => 'required',
+        ], $message);
+
+
+
+        $prdate = new Verta;
+        $date = new Verta;
+        $date->timezone = 'Asia/Tehran';
+
+        if ($request->file('file')) {
+            $filename = sha1(time());
+            $file = $request->file('file');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('ticketsfile', $filename . "." . $extension);
+
+
+            DB::table('servicetickets')->insert([
+                'title' => '',
+                'sid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'desc' => $request->desc,
+                'file' => $filename . "." . $extension,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
+        } else {
+
+            DB::table('servicetickets')->insert([
+                'title' => '',
+                'sid' => $id,
+                'senderid' => Auth::user()->id,
+                'sendername' => Auth::user()->name,
+                'desc' => $request->desc,
+                'date' => $date->format('j    F    Y  /  H:i'),
+            ]);
+        }
+
+        return redirect()->back()->with('message', __('messages.ticketadded'));
     }
 
     public function addreport($id)
