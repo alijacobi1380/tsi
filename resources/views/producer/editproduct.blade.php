@@ -34,14 +34,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductname') }}</label>
                             <div class="col-md-10">
                                 <input placeholder="{{ __('messages.ekhtiari') }}" value="{{ $product->entitle }}"
                                     name="enproductname" class="form-control" type="text" id="example-text-input">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="example-text-input"
@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductdesc') }}</label>
                             <div class="col-md-10">
@@ -98,7 +98,7 @@
 @endif
 </textarea>
                             </div>
-                        </div>
+                        </div> --}}
 
 
 
@@ -124,7 +124,7 @@
                                     value="{{ $product->productcolor }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductcolor') }}</label>
                             <div class="col-md-10">
@@ -132,7 +132,7 @@
                                     id="example-text-input" type="text" name="enproductcolor"
                                     value="{{ $product->enproductcolor }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group row">
@@ -144,7 +144,7 @@
                                     value="{{ $product->productvazn }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductvazn') }}</label>
                             <div class="col-md-10">
@@ -152,7 +152,7 @@
                                     id="example-text-input" type="text" name="enproductvazn"
                                     value="{{ $product->enproductvazn }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group row">
@@ -164,7 +164,7 @@
                                     value="{{ $product->productjens }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductjens') }}</label>
                             <div class="col-md-10">
@@ -172,7 +172,7 @@
                                     id="example-text-input" type="text" name="enproductjens"
                                     value="{{ $product->enproductjens }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group row">
@@ -184,7 +184,7 @@
                                     value="{{ $product->productpack }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductpack') }}</label>
                             <div class="col-md-10">
@@ -192,7 +192,7 @@
                                     id="example-text-input" type="text" name="enproductpack"
                                     value="{{ $product->enproductpack }}">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="example-text-input"
@@ -203,7 +203,7 @@
                                     value="{{ $product->productcustom }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductcustom') }}</label>
                             <div class="col-md-10">
@@ -211,7 +211,7 @@
                                     id="example-text-input" type="text" name="enproductcustom"
                                     value="{{ $product->enproductcustom }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group row">
@@ -223,7 +223,7 @@
                                     value="{{ $product->productdeliver }}">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.enapproductdeliver') }}</label>
                             <div class="col-md-10">
@@ -231,7 +231,7 @@
                                     id="example-text-input" type="text" name="enproductdeliver"
                                     value="{{ $product->enproductdeliver }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
 

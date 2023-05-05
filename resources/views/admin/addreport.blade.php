@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.adminaddreportstabletitle') }} (
                                 {{ __('messages.english') }} )</label>
@@ -35,7 +35,7 @@
                                 <input value="{{ old('titleen') }}" name="titleen" class="form-control" type="text"
                                     id="example-text-input">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">{{ __('messages.adminaddreportstablestatus') }}</label>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.adminaddreportstabledate') }} (
                                 {{ __('messages.english') }} )</label>
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
 
 
@@ -92,7 +92,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.adminaddreportstabledesc') }}
                                 ( {{ __('messages.english') }} )</label>
@@ -101,7 +101,7 @@
                                     {{ old('descen') }}
                                 </textarea>
                             </div>
-                        </div>
+                        </div> --}}
                         <br>
 
                         <div class="form-group row">

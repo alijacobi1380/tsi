@@ -25,14 +25,14 @@
                         </div>
 
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="example-text-input"
                                 class="col-md-2 col-form-label">{{ __('messages.adnotiftabletitle') }} (
                                 {{ __('messages.english') }} )</label>
                             <div class="col-md-10">
                                 <input class="form-control" name="titleen" type="text" id="example-text-input">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <button type="submit"
                             class="btn col-12 btn-info waves-effect waves-light">{{ __('messages.adaddnotifbtnform') }}</button>

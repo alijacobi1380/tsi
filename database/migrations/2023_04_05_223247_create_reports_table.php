@@ -17,11 +17,11 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->integer('serviceid');
             $table->text('date');
-            $table->text('dateen');
+            $table->text('dateen')->nullable();
             $table->text('title');
-            $table->text('titleen');
+            $table->text('titleen')->nullable();
             $table->text('desc');
-            $table->text('descen');
+            $table->text('descen')->nullable();
             $table->integer('status')->default(0);
             $table->string('file');
             $table->timestamps();

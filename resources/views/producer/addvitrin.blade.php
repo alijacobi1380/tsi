@@ -87,7 +87,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
+                                                    {{-- <div class="form-group row">
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.vtcompanynameen') }}</label>
                                                         <div class="col-md-10">
@@ -95,7 +95,7 @@
                                                                 class="form-control" value="{{ $vitrin->brandname }}"
                                                                 name="brandnameen" type="text" id="example-text-input">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="form-group row">
                                                         <label for="example-text-input"
@@ -116,7 +116,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
+                                                    {{-- <div class="form-group row">
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.vtdescen') }}</label>
                                                         <div class="col-md-10">
@@ -124,7 +124,7 @@
                                                                 class="form-control" value="{{ $vitrin->descen }}"
                                                                 name="descen" type="text" id="example-text-input">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
 
                                                     <div class="form-group row">
@@ -201,7 +201,7 @@
                                 <p class="mb-0">
                                     <br>
 
-                                <h4>{{ __('messages.farsi') }}</h4>
+                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
                                 <br>
 
                                 <div class="form-group row">
@@ -282,7 +282,7 @@
                                 </div>
                                 <br><br>
 
-                                <h4>{{ __('messages.english') }}</h4>
+                                {{-- <h4>{{ __('messages.english') }}</h4>
                                 <br>
 
                                 <div class="form-group row">
@@ -360,7 +360,7 @@
                                         <input class="form-control" name="vtprp5en" value="{{ $vitrin->prop5en }}"
                                             type="text" id="example-text-input">
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 </p>
@@ -369,8 +369,8 @@
                                 <p class="mb-0">
                                     <br>
 
-                                <h4>{{ __('messages.farsi') }}</h4>
-                                <br>
+                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
+                                {{-- <br> --}}
 
                                 <div class="form-group row">
                                     <label class="col-md-2 col-form-label">{{ __('messages.vtcert1') }}</label>
@@ -465,7 +465,7 @@
                                 </div>
 
                                 <br>
-                                <h4>{{ __('messages.english') }}</h4>
+                                {{-- <h4>{{ __('messages.english') }}</h4>
                                 <br>
 
                                 <div class="form-group row">
@@ -557,7 +557,7 @@
                                         {{ $vitrin->aboutusen }}
                                     </textarea>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 </p>
@@ -591,7 +591,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
+                                                    {{-- <div class="form-group row">
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.vtcompanynameen') }}</label>
                                                         <div class="col-md-10">
@@ -600,7 +600,7 @@
                                                                 name="brandnameen" type="text"
                                                                 id="example-text-input">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
 
                                                     <div class="form-group row">
@@ -622,7 +622,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group row">
+                                                    {{-- <div class="form-group row">
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.vtdescen') }}</label>
                                                         <div class="col-md-10">
@@ -630,7 +630,7 @@
                                                                 class="form-control" value="{{ old('descen') }}"
                                                                 name="descen" type="text" id="example-text-input">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
 
                                                     <div class="form-group row">
@@ -691,8 +691,8 @@
                                 <p class="mb-0">
                                     <br>
 
-                                <h4>{{ __('messages.farsi') }}</h4>
-                                <br>
+                                {{-- <h4>{{ __('messages.farsi') }}</h4>
+                                <br> --}}
 
                                 <div class="form-group row">
                                     <label for="example-text-input"
@@ -772,7 +772,7 @@
                                 </div>
                                 <br><br>
 
-                                <h4>{{ __('messages.english') }}</h4>
+                                {{-- <h4>{{ __('messages.english') }}</h4>
                                 <br>
 
                                 <div class="form-group row">
@@ -850,7 +850,7 @@
                                         <input class="form-control" name="vtprp5en" value="{{ old('vtprp5en') }}"
                                             type="text" id="example-text-input">
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 </p>
@@ -934,7 +934,7 @@
                                 </div>
 
                                 <br>
-                                <h4>{{ __('messages.english') }}</h4>
+                                {{-- <h4>{{ __('messages.english') }}</h4>
                                 <br>
 
                                 <div class="form-group row">
@@ -1006,7 +1006,7 @@
                                         {{ old('aboutusen') }}
                                     </textarea>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 </p>
