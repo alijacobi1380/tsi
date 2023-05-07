@@ -19,14 +19,14 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/changelang/{id}', function ($id) {
-    if ($id == 1) {
-        $_SESSION['lang'] = 'fa';
-    } elseif ($id == 2) {
-        $_SESSION['lang'] = 'en';
-    }
-    return back();
-})->name('changelang');
+// Route::get('/changelang/{id}', function ($id) {
+//     if ($id == 1) {
+//         $_SESSION['lang'] = 'fa';
+//     } elseif ($id == 2) {
+//         $_SESSION['lang'] = 'en';
+//     }
+//     return back();
+// })->name('changelang');
 
 Auth::routes();
 
@@ -65,6 +65,10 @@ Route::get('/admin/addreport/{id}', 'App\Http\Controllers\AdminController@addrep
 Route::post('/admin/addserviceticketcheck/{id}', 'App\Http\Controllers\AdminController@addserviceticketcheck')->name('admin.addserviceticketcheck')->middleware('Admin');
 Route::post('/admin/addreportcheck/{id}', 'App\Http\Controllers\AdminController@addreportcheck')->name('admin.addreportcheck')->middleware('Admin');
 Route::get('/admin/deletereport/{id}', 'App\Http\Controllers\AdminController@deletereport')->name('admin.deletereport')->middleware('Admin');
+Route::get('/admin/categorys', 'App\Http\Controllers\AdminController@categorys')->name('admin.categorys')->middleware('Admin');
+Route::get('/admin/addcategory', 'App\Http\Controllers\AdminController@addcategory')->name('admin.addcategory')->middleware('Admin');
+Route::post('/admin/addcategorycheck', 'App\Http\Controllers\AdminController@addcategorycheck')->name('admin.addcategorycheck')->middleware('Admin');
+Route::get('/admin/deletecategory/{id}', 'App\Http\Controllers\AdminController@deletecategory')->name('admin.deletecategory')->middleware('Admin');
 
 // Route::post('/admin/addserviceprice/{id}', 'App\Http\Controllers\AdminController@addserviceprice')->name('admin.addserviceprice')->middleware('Admin');
 

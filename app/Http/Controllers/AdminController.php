@@ -180,17 +180,17 @@ class AdminController extends Controller
     {
         $message = [
             'title.required' => __('messages.adaddnofiffarsierror'),
-            'titleen.required' => __('messages.adaddnofifenglisherror'),
+            // 'titleen.required' => __('messages.adaddnofifenglisherror'),
         ];
         $val = $request->validate([
             'title' => 'required',
-            'titleen' => 'required',
+            // 'titleen' => 'required',
         ], $message);
 
 
         DB::table('notfications')->insert([
             'title' => $request->title,
-            'titleen' => $request->titleen,
+            // 'titleen' => $request->titleen,
         ]);
 
         return redirect()->back()->with('message', __('messages.adnotifadded'));
@@ -710,19 +710,19 @@ class AdminController extends Controller
 
         $message = [
             'title.required' => __('messages.addreporttitleerror'),
-            'titleen.required' => __('messages.addreporttitleenerror'),
+            // 'titleen.required' => __('messages.addreporttitleenerror'),
             'desc.required' => __('messages.addreportdescerror'),
-            'descen.required' => __('messages.addreportdescenerror'),
+            // 'descen.required' => __('messages.addreportdescenerror'),
             'date.required' => __('messages.addreportdateerror'),
-            'dateen.required' => __('messages.addreportdateenerror'),
+            // 'dateen.required' => __('messages.addreportdateenerror'),
         ];
         $val = $request->validate([
             'title' => 'required',
-            'titleen' => 'required',
+            // 'titleen' => 'required',
             'desc' => 'required',
-            'descen' => 'required',
+            // 'descen' => 'required',
             'date' => 'required',
-            'dateen' => 'required',
+            // 'dateen' => 'required',
         ], $message);
 
 
@@ -771,5 +771,67 @@ class AdminController extends Controller
         }
         DB::table('reports')->where('id', '=', $id)->delete();
         return back();
+    }
+
+    public function addcategory()
+    {
+        $categorys = DB::table('categorys')->where('subcat', '=', 0)->get();
+        return view('admin.addcategory', compact('categorys'));
+    }
+
+    public function categorys()
+    {
+        $categorys = DB::table('categorys')->get();
+        return view('admin.categorys', compact('categorys'));
+    }
+
+    public function deletecategory($id)
+    {
+        $category = DB::table('categorys')->where('id', '=', $id)->first();
+        if (file_exists(public_path('categorys/' . $category->image))) {
+            unlink('categorys/' . $category->image);
+        }
+        DB::table('categorys')->where('id', '=', $id)->delete();
+        return back();
+    }
+
+    public function addcategorycheck(Request $request)
+    {
+
+        $message = [
+            'title.required' => __('messages.addcategorytitleerror'),
+            'icon.required' => __('messages.addcategoryiconerror'),
+        ];
+        $val = $request->validate([
+            'title' => 'required',
+            'icon' => 'required',
+        ], $message);
+
+
+        if ($request->file('file')) {
+            $filename = sha1(time());
+            $file = $request->file('file');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('categorys', $filename . "." . $extension);
+
+
+            DB::table('categorys')->insert([
+                'title' => $request->title,
+                'subcat' => $request->subcat,
+                'icon' => $request->icon,
+                'image' => $filename . "." . $extension,
+            ]);
+        } else {
+
+            DB::table('categorys')->insert([
+                'title' => $request->title,
+                'subcat' => $request->subcat,
+                'icon' => $request->icon,
+            ]);
+        }
+
+
+
+        return redirect()->back()->with('message', __('messages.categoryaddedmessage'));
     }
 }

@@ -54,7 +54,7 @@
                     <div class="container-fluid">
                         <div class="float-right">
 
-                            <div class="dropdown d-inline-block d-lg-none ml-2">
+                            {{-- <div class="dropdown d-inline-block d-lg-none ml-2">
                                 <button type="button" class="btn header-item waves-effect" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <img class=""
@@ -75,9 +75,9 @@
                                         </span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="dropdown d-none d-sm-inline-block">
+                            {{-- <div class="dropdown d-none d-sm-inline-block">
                                 <button type="button" class="btn header-item waves-effect" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <img class=""
@@ -98,7 +98,7 @@
                                         </span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="dropdown d-none d-lg-inline-block ml-1">
                                 <button type="button" class="btn header-item noti-icon waves-effect"
@@ -323,6 +323,12 @@
                                 <a href="{{ route('admin.users') }}" class=" waves-effect">
                                     <i class="fas fa-users"></i>
                                     <span>{{ __('messages.adsidebarusers') }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.categorys') }}" class=" waves-effect">
+                                    <i class="mdi mdi-layers-triple"></i>
+                                    <span>{{ __('messages.sidebarcategory') }}</span>
                                 </a>
                             </li>
                             <li>

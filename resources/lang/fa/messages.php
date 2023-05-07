@@ -653,6 +653,20 @@ return [
     'addreportdateenerror' => 'لطفا تاریخ ( انگلیسی ) را وارد نمایید',
     'addreportok' => 'گزارش با موفقیت ثبت شد',
     'servicestatusok' => 'سرویس شما فعال است .',
+    'addcategorybtnform' => 'ثبت دسته بندی',
+    'addcategorypagetitle' => 'افزودن دسته بندی',
+    'sidebarcategory' => 'دسته بندی ها',
+    'categorytitle' => 'نام دسته بندی',
+    'categorysubcat' => 'زیر دسته',
+    'categorymain' => 'دسته بندی اصلی',
+    'addcategoryicon' => 'آیکون دسته بندی',
+    'addcategoryiconplaceholder' => 'لطفا فقط نام ایکون مورد نظر را وارد نمایید',
+    'iconslist' => 'نمایش لیست آیکون ها',
+    'addcategoryimg' => 'تصویر دسته بندی',
+    'addcategorytitleerror' => 'لطفا نام دسته بندی را وارد نمایید',
+    'addcategoryiconerror' => 'لطفا آیکون دسته بندی را وارد نمایید',
+    'categoryaddedmessage' => 'دسته بندی با موفقیت ثبت شد',
+    'categorytableerror' => 'فاقد تصویر',
 
     // end admin panel
 ];

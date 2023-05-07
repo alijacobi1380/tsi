@@ -215,8 +215,9 @@ class ProducerController extends Controller
     {
         $serviceid = $id;
         $order = DB::table('orders')->where('userid', '=', Auth::user()->id)->where('serviceid', '=', $serviceid)->orderBy('id', 'DESC')->first();
-        $tanwsers = DB::table('servicetickets')->where('sid', '=', $order->id)->orderBy('id', 'DESC')->get();
+        $tanwsers = "";
         if ($order != null) {
+            $tanwsers = DB::table('servicetickets')->where('sid', '=', $order->id)->orderBy('id', 'DESC')->get();
             $factor = DB::table('factors')->where('orderid', '=', $order->id)->where('serviceid', '=', $serviceid)->first();
         } else {
             $factor = null;
