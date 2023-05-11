@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\App;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 // Route::get('/changelang/{id}', function ($id) {
 //     if ($id == 1) {
 //         $_SESSION['lang'] = 'fa';
@@ -28,7 +24,21 @@ Route::get('/', function () {
 //     return back();
 // })->name('changelang');
 
+
+
 Auth::routes();
+
+Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
+Route::get('/product/{id}/{title}', 'App\Http\Controllers\MainController@showproduct')->name('showproduct');
+Route::get('/user/{id}/{name}', 'App\Http\Controllers\MainController@showuser')->name('showuser');
+Route::get('/services', 'App\Http\Controllers\MainController@services')->name('services');
+Route::get('/terms', 'App\Http\Controllers\MainController@terms')->name('terms');
+Route::get('/aboutus', 'App\Http\Controllers\MainController@aboutus')->name('aboutus');
+Route::get('/contactus', 'App\Http\Controllers\MainController@contactus')->name('contactus');
+Route::get('/showvitrin/{id}', 'App\Http\Controllers\MainController@showvitrin')->name('showvitrin');
+Route::get('/products', 'App\Http\Controllers\MainController@products')->name('products');
+Route::get('/products/category/{id}', 'App\Http\Controllers\MainController@productscategory')->name('productscategory');
+Route::get('/products/user/{id}', 'App\Http\Controllers\MainController@productsuser')->name('productsuser');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 

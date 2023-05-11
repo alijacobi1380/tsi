@@ -29,6 +29,7 @@ class CreateVitrinsTable extends Migration
             $table->string('descen')->nullable();
             $table->integer('size')->default(1);
             $table->text('logo')->nullable();
+            $table->text('catalog')->nullable();
             $table->text('baner')->nullable();
             $table->string('country')->nullable();
             $table->string('countryen')->nullable();

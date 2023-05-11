@@ -494,7 +494,7 @@ class ProducerController extends Controller
             $vt = DB::table('vitrins')->where('userid', '=', Auth::user()->id)->first();
 
             if ($request->file('logo')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->logo))) {
+                if (file_exists(url('vitrinimg/' . $vt->logo))) {
                     unlink('vitrinimg/' . $vt->logo);
                 }
                 $filename = sha1(time() + $random++);
@@ -504,9 +504,20 @@ class ProducerController extends Controller
                 $logo = $filename . '.' . $extension;
                 $arr['logo'] = $logo;
             }
+            if ($request->file('catalog')) {
+                if (file_exists(url('vitrinimg/' . $vt->catalog))) {
+                    unlink('vitrinimg/' . $vt->catalog);
+                }
+                $filename = sha1(time() + $random++);
+                $file = $request->file('catalog');
+                $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('vitrinimg', $filename . "." . $extension);
+                $catalog = $filename . '.' . $extension;
+                $arr['catalog'] = $catalog;
+            }
 
             if ($request->file('baner')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->baner))) {
+                if (file_exists(url('vitrinimg/' . $vt->baner))) {
                     unlink('vitrinimg/' . $vt->baner);
                 }
                 $filename = sha1(time() + $random++);
@@ -518,7 +529,7 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert1')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert1))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert1))) {
                     unlink('vitrinimg/' . $vt->cert1);
                 }
                 $filename = sha1(time() + $random++);
@@ -530,7 +541,7 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert2')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert2))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert2))) {
                     unlink('vitrinimg/' . $vt->cert2);
                 }
                 $filename = sha1(time() + $random++);
@@ -543,7 +554,7 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert3')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert3))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert3))) {
                     unlink('vitrinimg/' . $vt->cert3);
                 }
                 $filename = sha1(time() + $random++);
@@ -556,7 +567,7 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert4')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert4))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert4))) {
                     unlink('vitrinimg/' . $vt->cert4);
                 }
                 $filename = sha1(time() + $random++);
@@ -567,7 +578,7 @@ class ProducerController extends Controller
                 $arr['cert4'] = $vtcert4;
             }
             if ($request->file('vtcert5')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert5))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert5))) {
                     unlink('vitrinimg/' . $vt->cert5);
                 }
                 $filename = sha1(time() + $random++);
@@ -580,7 +591,7 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert1en')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert1en))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert1en))) {
                     unlink('vitrinimg/' . $vt->cert1en);
                 }
                 $filename = sha1(time() + $random++);
@@ -592,7 +603,7 @@ class ProducerController extends Controller
             }
 
             if ($request->file('vtcert2en')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert2en))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert2en))) {
                     unlink('vitrinimg/' . $vt->cert2en);
                 }
                 $filename = sha1(time() + $random++);
@@ -605,7 +616,7 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert3en')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert3en))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert3en))) {
                     unlink('vitrinimg/' . $vt->cert3en);
                 }
                 $filename = sha1(time() + $random++);
@@ -618,7 +629,7 @@ class ProducerController extends Controller
 
 
             if ($request->file('vtcert4en')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert4en))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert4en))) {
                     unlink('vitrinimg/' . $vt->cert4en);
                 }
                 $filename = sha1(time() + $random++);
@@ -629,7 +640,7 @@ class ProducerController extends Controller
                 $arr['cert4en'] = $vtcert4en;
             }
             if ($request->file('vtcert5en')) {
-                if (file_exists(public_path('vitrinimg/' . $vt->cert5en))) {
+                if (file_exists(url('vitrinimg/' . $vt->cert5en))) {
                     unlink('vitrinimg/' . $vt->cert5en);
                 }
                 $filename = sha1(time() + $random++);
@@ -946,7 +957,7 @@ class ProducerController extends Controller
 
         $pr = DB::table('products')->where('id', '=', $id)->first();
         if ($request->file('productimage')) {
-            if (file_exists(public_path('productimages/' . $this->$pr->image))) {
+            if (file_exists(url('productimages/' . $this->$pr->image))) {
                 unlink('productimages/' . $this->$pr->image);
             }
 

@@ -101,8 +101,7 @@
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.phonenumber') }}</label>
                                                         <div class="col-md-10">
-                                                            <input
-                                                                class="form-control" value="{{ $vitrin->phonenumber }}"
+                                                            <input class="form-control" value="{{ $vitrin->phonenumber }}"
                                                                 name="phonenumber" type="number" id="example-text-input">
                                                         </div>
                                                     </div>
@@ -148,6 +147,25 @@
                                                         </div>
                                                     </div>
 
+
+                                                    <div class="form-group row">
+                                                        <label
+                                                            class="col-md-2 col-form-label">{{ __('messages.vtcatalog') }}</label>
+                                                        <div class="col-md-10">
+                                                            <div class="custom-file">
+                                                                <input value="{{ old('catalog') }}" name="catalog"
+                                                                    type="file" class="custom-file-input"
+                                                                    id="customFile">
+                                                                <label class="custom-file-label"
+                                                                    for="customFile">{{ __('messages.vtselectfile') }}</label>
+                                                            </div>
+                                                            @if ($vitrin->catalog)
+                                                                <a target="_blank"
+                                                                    href="{{ url('vitrinimg') }}/{{ $vitrin->catalog }}"><i
+                                                                        class="bx bx-file-blank"></i></a>
+                                                            @endif
+                                                        </div>
+                                                    </div>
 
                                                     <div class="form-group row">
                                                         <label
@@ -201,8 +219,8 @@
                                 <p class="mb-0">
                                     <br>
 
-                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
-                                <br>
+                                    {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
+                                    <br>
 
                                 <div class="form-group row">
                                     <label for="example-text-input"
@@ -369,8 +387,8 @@
                                 <p class="mb-0">
                                     <br>
 
-                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
-                                {{-- <br> --}}
+                                    {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
+                                    {{-- <br> --}}
 
                                 <div class="form-group row">
                                     <label class="col-md-2 col-form-label">{{ __('messages.vtcert1') }}</label>
@@ -607,9 +625,8 @@
                                                         <label for="example-text-input"
                                                             class="col-md-2 col-form-label">{{ __('messages.phonenumber') }}</label>
                                                         <div class="col-md-10">
-                                                            <input
-                                                                class="form-control"
-                                                                name="phonenumber" type="number" id="example-text-input">
+                                                            <input class="form-control" name="phonenumber" type="number"
+                                                                id="example-text-input">
                                                         </div>
                                                     </div>
 
@@ -691,7 +708,7 @@
                                 <p class="mb-0">
                                     <br>
 
-                                {{-- <h4>{{ __('messages.farsi') }}</h4>
+                                    {{-- <h4>{{ __('messages.farsi') }}</h4>
                                 <br> --}}
 
                                 <div class="form-group row">

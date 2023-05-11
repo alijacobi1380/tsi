@@ -126,7 +126,7 @@ class AdminController extends Controller
         if ($request->file('productimage')) {
             $pr = DB::table('products')->where('id', '=', $id)->first();
 
-            if (file_exists(public_path('productimages/' . $pr->image))) {
+            if (file_exists(url('productimages/' . $pr->image))) {
                 unlink('productimages/' . $pr->image);
             }
 
@@ -282,7 +282,7 @@ class AdminController extends Controller
 
 
         if ($request->file('logo')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->logo))) {
+            if (file_exists(url('vitrinimg/' . $vt->logo))) {
                 unlink('vitrinimg/' . $vt->logo);
             }
             $filename = sha1(time() + $random++);
@@ -293,8 +293,20 @@ class AdminController extends Controller
             $arr['logo'] = $logo;
         }
 
+        if ($request->file('catalog')) {
+            if (file_exists(url('vitrinimg/' . $vt->catalog))) {
+                unlink('vitrinimg/' . $vt->catalog);
+            }
+            $filename = sha1(time() + $random++);
+            $file = $request->file('catalog');
+            $extension = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+            $file->move('vitrinimg', $filename . "." . $extension);
+            $catalog = $filename . '.' . $extension;
+            $arr['catalog'] = $catalog;
+        }
+
         if ($request->file('baner')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->baner))) {
+            if (file_exists(url('vitrinimg/' . $vt->baner))) {
                 unlink('vitrinimg/' . $vt->baner);
             }
             $filename = sha1(time() + $random++);
@@ -306,7 +318,7 @@ class AdminController extends Controller
         }
 
         if ($request->file('vtcert1')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert1))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert1))) {
                 unlink('vitrinimg/' . $vt->cert1);
             }
             $filename = sha1(time() + $random++);
@@ -318,7 +330,7 @@ class AdminController extends Controller
         }
 
         if ($request->file('vtcert2')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert2))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert2))) {
                 unlink('vitrinimg/' . $vt->cert2);
             }
             $filename = sha1(time() + $random++);
@@ -331,7 +343,7 @@ class AdminController extends Controller
 
 
         if ($request->file('vtcert3')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert3))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert3))) {
                 unlink('vitrinimg/' . $vt->cert3);
             }
             $filename = sha1(time() + $random++);
@@ -344,7 +356,7 @@ class AdminController extends Controller
 
 
         if ($request->file('vtcert4')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert4))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert4))) {
                 unlink('vitrinimg/' . $vt->cert4);
             }
             $filename = sha1(time() + $random++);
@@ -355,7 +367,7 @@ class AdminController extends Controller
             $arr['cert4'] = $vtcert4;
         }
         if ($request->file('vtcert5')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert5))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert5))) {
                 unlink('vitrinimg/' . $vt->cert5);
             }
             $filename = sha1(time() + $random++);
@@ -368,7 +380,7 @@ class AdminController extends Controller
 
 
         if ($request->file('vtcert1en')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert1en))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert1en))) {
                 unlink('vitrinimg/' . $vt->cert1en);
             }
             $filename = sha1(time() + $random++);
@@ -380,7 +392,7 @@ class AdminController extends Controller
         }
 
         if ($request->file('vtcert2en')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert2en))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert2en))) {
                 unlink('vitrinimg/' . $vt->cert2en);
             }
             $filename = sha1(time() + $random++);
@@ -393,7 +405,7 @@ class AdminController extends Controller
 
 
         if ($request->file('vtcert3en')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert3en))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert3en))) {
                 unlink('vitrinimg/' . $vt->cert3en);
             }
             $filename = sha1(time() + $random++);
@@ -406,7 +418,7 @@ class AdminController extends Controller
 
 
         if ($request->file('vtcert4en')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert4en))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert4en))) {
                 unlink('vitrinimg/' . $vt->cert4en);
             }
             $filename = sha1(time() + $random++);
@@ -417,7 +429,7 @@ class AdminController extends Controller
             $arr['cert4en'] = $vtcert4en;
         }
         if ($request->file('vtcert5en')) {
-            if (file_exists(public_path('vitrinimg/' . $vt->cert5en))) {
+            if (file_exists(url('vitrinimg/' . $vt->cert5en))) {
                 unlink('vitrinimg/' . $vt->cert5en);
             }
             $filename = sha1(time() + $random++);
@@ -512,15 +524,15 @@ class AdminController extends Controller
     public function deleteimagevitrin($file, $id)
     {
         if ($file != null && $id == 1) {
-            if (file_exists(public_path('vitrinimg/' . $file))) {
+            if (file_exists(url('vitrinimg/' . $file))) {
                 unlink('vitrinimg/' . $file);
             }
         } elseif ($file != null && $id == 2) {
-            if (file_exists(public_path('productimages/' . $file))) {
+            if (file_exists(url('productimages/' . $file))) {
                 unlink('productimages/' . $file);
             }
         } elseif ($file != null && $id == 3) {
-            if (file_exists(public_path('ticketsfile/' . $file))) {
+            if (file_exists(url('ticketsfile/' . $file))) {
                 unlink('ticketsfile/' . $file);
             }
         }
@@ -766,7 +778,7 @@ class AdminController extends Controller
     public function deletereport($id)
     {
         $report = DB::table('reports')->where('id', '=', $id)->first();
-        if (file_exists(public_path('reports/' . $report->file))) {
+        if (file_exists(url('reports/' . $report->file))) {
             unlink('reports/' . $report->file);
         }
         DB::table('reports')->where('id', '=', $id)->delete();
@@ -788,7 +800,7 @@ class AdminController extends Controller
     public function deletecategory($id)
     {
         $category = DB::table('categorys')->where('id', '=', $id)->first();
-        if (file_exists(public_path('categorys/' . $category->image))) {
+        if (file_exists(url('categorys/' . $category->image))) {
             unlink('categorys/' . $category->image);
         }
         DB::table('categorys')->where('id', '=', $id)->delete();

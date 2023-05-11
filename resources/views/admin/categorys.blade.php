@@ -8,8 +8,8 @@
 @endsection
 
 @section('content')
-    <a href="{{ route('admin.addnotif') }}" type="button"
-        class="btn btn-info waves-effect waves-light">{{ __('messages.adaddnotifbtn') }}</a>
+    <a href="{{ route('admin.addcategory') }}" type="button"
+        class="btn btn-info waves-effect waves-light">{{ __('messages.addcategorypagetitle') }}</a>
     <br><br>
     <div class="row">
         <div class="col-lg-12">
