@@ -44,6 +44,8 @@ Route::get('/supplier/{id}', 'App\Http\Controllers\MainController@suppliercat')-
 Route::post('/searchproduct', 'App\Http\Controllers\MainController@searchproduct')->name('searchproduct');
 Route::get('/register', 'App\Http\Controllers\MainController@register')->name('register');
 Route::post('/registercheck', 'App\Http\Controllers\MainController@registercheck')->name('registercheck');
+Route::get('/login', 'App\Http\Controllers\MainController@login')->name('login');
+Route::post('/logincheck', 'App\Http\Controllers\MainController@logincheck')->name('logincheck');
 
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');

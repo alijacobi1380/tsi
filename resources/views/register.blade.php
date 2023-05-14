@@ -30,8 +30,8 @@
                         <div class="auth-forms">
                             <div class="auth-forms-item">
                                 <div class="auth-logo d-lg-none d-block">
-                                    <a href="index.html"><img src="img/Tsi/LOGO-TSI.png" class="img-fluid"
-                                            alt=""></a>
+                                    <a href="{{ route('index') }}"><img src="{{ url('img/Tsi/LOGO-TSI.png') }}"
+                                            class="img-fluid" alt=""></a>
                                 </div>
                                 <div class="auth-title">
                                     <h3>ثبت نام کنید</h3>
@@ -83,7 +83,7 @@
                                                 </select>
                                             </div>
                                         </div> --}}
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <div class="input-group text-center">
                                                 <div class="form-check form-switch form-check-reverse py-2">
                                                     <input class="form-check-input" type="checkbox"
@@ -93,7 +93,21 @@
                                                             مطالعه کرده و می پذیرم . </a></label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
+
+                                        @if ($errors->any())
+                                            @foreach ($errors->all() as $error)
+                                                <div style="text-align: center" class="alert alert-danger col-12"
+                                                    role="alert">{{ $error }}
+                                                </div>
+                                            @endforeach
+                                        @elseif(session()->has('message'))
+                                            <div style="text-align: center" class="alert alert-danger col-12"
+                                                role="alert">
+                                                {{ session()->get('message') }}
+                                            </div>
+                                        @endif
+
                                         <div
                                             class="d-flex justify-content-center flex-column align-items-center flex-wrap">
                                             <button type="submit" class="btn-login w-25 waves-effect waves-light"><i

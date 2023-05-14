@@ -98,11 +98,12 @@ class MainController extends Controller
     {
         $message = [
             'email.required' => 'لطفا ایمیل را خود را وارد نمایید',
+            'email.unique' => 'این ایمیل قبلا استفاده شده است',
             'password.required' => 'لطفا رمز عبور را خود را وارد نمایید',
             // 'titleen.required' => __('messages.adaddnofifenglisherror'),
         ];
         $val = $request->validate([
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password' => 'required',
             // 'titleen' => 'required',
         ], $message);
@@ -117,6 +118,35 @@ class MainController extends Controller
 
         Auth::login($user);
         return redirect()->route('home');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function logincheck(Request $request)
+    {
+        $message = [
+            'email.required' => 'لطفا ایمیل را خود را وارد نمایید',
+            'password.required' => 'لطفا رمز عبور را خود را وارد نمایید',
+            // 'titleen.required' => __('messages.adaddnofifenglisherror'),
+        ];
+        $val = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+            // 'titleen' => 'required',
+        ], $message);
+
+
+
+        $user = DB::table('users')->where('email', '=', $request->email)->first();
+        if (isset($user) && Hash::check($request->password, $user->password)) {
+            Auth::loginUsingId($user->id);
+            return redirect()->route('home');
+        } else {
+            return redirect()->back()->with('message', 'چنین کاربری یافت نشد');
+        }
     }
 
     public function products()

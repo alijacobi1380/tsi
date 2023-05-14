@@ -75,11 +75,13 @@
                                     </form>
                                     @if ($errors->any())
                                         @foreach ($errors->all() as $error)
-                                            <div class="alert alert-danger col-12" role="alert">{{ $error }}
+                                            <div style="text-align: center" class="alert alert-danger col-12"
+                                                role="alert">{{ $error }}
                                             </div>
                                         @endforeach
                                     @elseif(session()->has('message'))
-                                        <div class="alert alert-success col-12" role="alert">
+                                        <div style="text-align: center" class="alert alert-danger col-12"
+                                            role="alert">
                                             {{ session()->get('message') }}
                                         </div>
                                     @endif
