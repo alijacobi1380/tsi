@@ -25,7 +25,9 @@ class MainController extends Controller
     {
         $indexcategorys = DB::table('categorys')->where('subcat', '=', 0)->limit(12)->get();
         $lastproducts = DB::table('products')->where('publish', '=', 2)->orderBy('id', 'DESC')->limit(9)->get();
-        return view('index', compact('indexcategorys', 'lastproducts'));
+        $slidercateogrys = DB::table('categorys')->where('subcat', '=', 0)->orderBy('id', 'DESC')->limit(5)->get();
+        $products = DB::table('products')->where('publish', '=', 2)->orderBy('id', 'DESC')->get();
+        return view('index', compact('indexcategorys', 'lastproducts', 'slidercateogrys', 'products'));
     }
 
     public function showproduct($id)

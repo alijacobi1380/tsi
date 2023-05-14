@@ -21,8 +21,8 @@
                                         alt=""></a>
                             </div>
                             <!-- <div class="swiper-slide rounded-circle">
-                                                                                                    <a href=""><img src="img/Tsi/amazon1.jpg" class="img-fluid" alt=""></a>
-                                                                                                </div> -->
+                                                                                                                                                            <a href=""><img src="img/Tsi/amazon1.jpg" class="img-fluid" alt=""></a>
+                                                                                                                                                        </div> -->
                         </div>
                         <div class="swiper-button-next d-none d-lg-flex"></div>
                         <div class="swiper-button-prev d-none d-lg-flex"></div>
@@ -42,7 +42,8 @@
                         <h6 class="slider-title ash-text2">سرویس های ویژه </h6>
                     </div>
                     <div class="pbt-header-link">
-                        <a href="category.html" class="fromCenter border-animate  px-md-5 px-4 ash-fs ash-text3 "> بیشتر
+                        <a href="{{ route('services') }}" class="fromCenter border-animate  px-md-5 px-4 ash-fs ash-text3 ">
+                            بیشتر
                             +</a>
                     </div>
                 </div>
@@ -50,49 +51,56 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-4.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-4.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">ویترین بین الملل</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-5.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-5.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">بازاریاب بین الملل</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-6.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-6.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">برندینگ دیجیتال</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-3.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-3.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">حمل بار بین الملل</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-9.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-9.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">تدوین استراتژی بازار</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-10.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-10.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text4-s">توسعه سامانه و نرم افزار</h6>
                             </a>
                         </div>
                         <div class="swiper-slide partner-item ash-border">
                             <a href="#">
-                                <img src="img/Tsi/Service-Icons/service-Tsi-11.png" class="img-fluid" alt="">
+                                <img src="{{ url('img/Tsi/Service-Icons/service-Tsi-11.png') }}" class="img-fluid"
+                                    alt="">
                                 <h6 class="ash-text2">زنجیره اصالت</h6>
                             </a>
                         </div>
                     </div>
                     <!-- <div class="swiper-button-next sb2" style="top: 36%;"></div>
-                                                                                        <div class="swiper-button-prev sb2" style="top: 36%;"></div> -->
+                                                                                                                                                <div class="swiper-button-prev sb2" style="top: 36%;"></div> -->
                 </div>
             </div>
         </div>
@@ -144,468 +152,356 @@
             </div>
         </div>
     </div>
-    <!-- end banner-product -->
-    <!-- <div class="container my-4">
-                                                                                <div class="products-table">
-                                                                                    <div class="row">
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-4 col-lg-3">
-                                                                                            <div class="product-box-item">
-                                                                                                <div class="product-box-item-img">
-                                                                                                    <a href="">
-                                                                                                        <img src="img/product/product-image3.jpg" alt="" class="img-fluid one-image">
-                                                                                                        <img src="img/product/product-image4.jpg" alt="" class="img-fluid two-image">
-                                                                                                    </a>
-                                                                                                    <div class="product-box-item-hover">
-                                                                                                        <div class="product-box-item-hover-btn">
-                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                    class="bi bi-eye fs-3"></i></span>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <a href="product.html">
-                                                                                                    <div class="product-box-item-desc">
-                                                                                                        <div class="product-box-item-title">
-                                                                                                            <h6>
-                                                                        محصولات الکترونیکی</h6>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div> -->
 
-    {{-- <div class="container-fluid">
+    <div class="container-fluid">
         <div class="offer my-4">
             <div class="row">
                 <div class="col-lg-8 col-xxl-9">
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper"
                         id="offerItem">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="offer-item">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="offer-discount">
-                                            </div>
-                                            <div class="offer-img">
-                                                <img src="img/Products/loostr.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="offer-content">
-                                                <div class="offer-desc">
-                                                    <div class="se-title">
-                                                        <h5>پرچمداری از صنایع روشنایی
-                                                        </h5>
-                                                        <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
+
+                            @php
+                                $st = false;
+                                
+                            @endphp
+
+                            @foreach ($products as $prd)
+                                @if ($st == false && $prd->categoryid == $slidercateogrys[0]->id)
+                                    @php
+                                        $st = true;
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div class="offer-item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="offer-discount">
+                                                    </div>
+                                                    <div class="offer-img">
+                                                        <img src="{{ url('productimages') }}/{{ $prd->image }}"
+                                                            alt="{{ $prd->title }}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="offer-content">
+                                                        <div class="offer-desc">
+                                                            <div class="se-title">
+                                                                <h5>{{ $prd->title }}
+                                                                </h5>
+                                                                {{-- <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
                                                             4458 اسپشیال
-                                                        </h6>
-                                                    </div>
-                                                    <div class="se-desc">
-                                                        <h6 class="text-success">فروشنده : تولیدی لوستر راه شب</h6>
-                                                        <h6>ویژگی محصول:</h6>
-                                                        <ul>
-                                                            <li>
-                                                                <span class="title">حداقل تعداد سفارش :</span>
-                                                                <span class="desc">50 عدد</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">زمان شیپینگ :</span>
-                                                                <span class="desc">16 روز کاری</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">ضمانت نامه :</span>
-                                                                <span class="desc">سرویس آزاد ایران صنعت</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                        </h6> --}}
+                                                            </div>
+                                                            <div class="se-desc">
+                                                                <h6 class="text-success">فروشنده : {{ $prd->username }}
+                                                                </h6>
+                                                                <h6>ویژگی محصول:</h6>
+                                                                <ul>
+                                                                    <li>
+                                                                        <span class="title">رنگ :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productcolor }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">وزن :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productvazn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">جنس :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productjens }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
 
-                                                <div class="offer-btn">
-                                                    <a href="product.html"><i class="bi bi-box-fill px-3"></i>ارتباط با
-                                                        تامین کننده</i></a>
+                                                        <div class="offer-btn">
+                                                            <a href="{{ route('showvitrin', ['id' => $prd->userid]) }}"><i
+                                                                    class="bi bi-box-fill px-3"></i>ارتباط با
+                                                                تامین کننده</i></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
 
-                            <div class="swiper-slide">
-                                <div class="offer-item">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="offer-discount">
-                                            </div>
-                                            <div class="offer-img">
-                                                <img src="img/Products/furniture.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="offer-content">
-                                                <div class="offer-desc">
-                                                    <div class="se-title">
-                                                        <h5>پرچمداری از صنایع چوبی
-                                                        </h5>
-                                                        <h6 class="text-muted">مبل چستر طراحی تاکید انگلند - رویه مخمل
-                                                        </h6>
+
+                            @php
+                                $st = false;
+                                
+                            @endphp
+
+                            @foreach ($products as $prd)
+                                @if ($st == false && $prd->categoryid == $slidercateogrys[1]->id)
+                                    @php
+                                        $st = true;
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div class="offer-item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="offer-discount">
                                                     </div>
-                                                    <div class="se-desc">
-                                                        <h6 class="text-success">فروشنده : مبل چستر پروداکشن</h6>
-                                                        <h6>ویژگی محصول:</h6>
-                                                        <ul>
-                                                            <li>
-                                                                <span class="title">حداقل تعداد سفارش :</span>
-                                                                <span class="desc">19 عدد</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">زمان شیپینگ :</span>
-                                                                <span class="desc">5 روز کاری</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">ضمانت نامه :</span>
-                                                                <span class="desc">سرویس طلایی بیمه اتحادیه اروپا </span>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="offer-img">
+                                                        <img src="{{ url('productimages') }}/{{ $prd->image }}"
+                                                            alt="{{ $prd->title }}" class="img-fluid">
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="offer-content">
+                                                        <div class="offer-desc">
+                                                            <div class="se-title">
+                                                                <h5>{{ $prd->title }}
+                                                                </h5>
+                                                                {{-- <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
+                                                            4458 اسپشیال
+                                                        </h6> --}}
+                                                            </div>
+                                                            <div class="se-desc">
+                                                                <h6 class="text-success">فروشنده : {{ $prd->username }}
+                                                                </h6>
+                                                                <h6>ویژگی محصول:</h6>
+                                                                <ul>
+                                                                    <li>
+                                                                        <span class="title">رنگ :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productcolor }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">وزن :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productvazn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">جنس :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productjens }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
 
-                                                <div class="offer-btn">
-                                                    <a href="product.html"><i class="bi bi-box-fill px-3"></i>ارتباط با
-                                                        تامین کننده</i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="offer-item">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="offer-discount">
-                                            </div>
-                                            <div class="offer-img">
-                                                <img src="img/Products/handmade.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="offer-content">
-                                                <div class="offer-desc">
-                                                    <div class="se-title">
-                                                        <h5>پرچمداری از صنایع دستی و هنری
-                                                        </h5>
-                                                        <h6 class="text-muted">ست منبت کاری شده طلاکوب - استاد معیریان
-                                                        </h6>
+                                                        <div class="offer-btn">
+                                                            <a href="{{ route('showvitrin', ['id' => $prd->userid]) }}"><i
+                                                                    class="bi bi-box-fill px-3"></i>ارتباط با
+                                                                تامین کننده</i></a>
+                                                        </div>
                                                     </div>
-                                                    <div class="se-desc">
-                                                        <h6 class="text-success">فروشنده : گالری معیریان</h6>
-                                                        <h6>ویژگی محصول:</h6>
-                                                        <ul>
-                                                            <li>
-                                                                <span class="title">حداقل تعداد سفارش :</span>
-                                                                <span class="desc">5 عدد</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">زمان شیپینگ :</span>
-                                                                <span class="desc">23 روز کاری</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">ضمانت نامه :</span>
-                                                                <span class="desc">سرویس آزاد ایران آرت</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="offer-btn">
-                                                    <a href="product.html"><i class="bi bi-box-fill px-3"></i>ارتباط با
-                                                        تامین کننده</i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
 
-                            <div class="swiper-slide">
-                                <div class="offer-item">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="offer-discount">
-                                            </div>
-                                            <div class="offer-img">
-                                                <img src="img/Products/nuts.webp" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="offer-content">
-                                                <div class="offer-desc">
-                                                    <div class="se-title">
-                                                        <h5>پرچمداری از کشاورزی و خشکبار
-                                                        </h5>
-                                                        <h6 class="text-muted">پکیج محصولات درجه 1 صادراتی مغز خشکبار ایران
-                                                        </h6>
+                            @php
+                                $st = false;
+                                
+                            @endphp
+
+                            @foreach ($products as $prd)
+                                @if ($st == false && $prd->categoryid == $slidercateogrys[2]->id)
+                                    @php
+                                        $st = true;
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div class="offer-item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="offer-discount">
                                                     </div>
-                                                    <div class="se-desc">
-                                                        <h6 class="text-success">فروشنده : کارخانه آجیل و خشکبار نادری</h6>
-                                                        <h6>ویژگی محصول:</h6>
-                                                        <ul>
-                                                            <li>
-                                                                <span class="title">حداقل تعداد سفارش :</span>
-                                                                <span class="desc">2 تن</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">زمان شیپینگ :</span>
-                                                                <span class="desc">23 روز کاری</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">ضمانت نامه :</span>
-                                                                <span class="desc">سرویس آزاد ایران صنعت</span>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="offer-img">
+                                                        <img src="{{ url('productimages') }}/{{ $prd->image }}"
+                                                            alt="{{ $prd->title }}" class="img-fluid">
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="offer-content">
+                                                        <div class="offer-desc">
+                                                            <div class="se-title">
+                                                                <h5>{{ $prd->title }}
+                                                                </h5>
+                                                                {{-- <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
+                                                            4458 اسپشیال
+                                                        </h6> --}}
+                                                            </div>
+                                                            <div class="se-desc">
+                                                                <h6 class="text-success">فروشنده : {{ $prd->username }}
+                                                                </h6>
+                                                                <h6>ویژگی محصول:</h6>
+                                                                <ul>
+                                                                    <li>
+                                                                        <span class="title">رنگ :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productcolor }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">وزن :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productvazn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">جنس :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productjens }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
 
-                                                <div class="offer-btn">
-                                                    <a href="product.html"><i class="bi bi-box-fill px-3"></i>ارتباط با
-                                                        تامین کننده</i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="offer-item">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="offer-discount">
-                                            </div>
-                                            <div class="offer-img">
-                                                <img src="img/Products/barcelete.webp" alt=""
-                                                    class="img-fluid W-100">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="offer-content">
-                                                <div class="offer-desc">
-                                                    <div class="se-title">
-                                                        <h5>پرچمداری از صنایع دانش بنیان
-                                                        </h5>
-                                                        <h6 class="text-muted">دستبند و انگشتر هوشمند توییتی دانگل مکس
-                                                            8954XCV
-                                                        </h6>
+                                                        <div class="offer-btn">
+                                                            <a href="{{ route('showvitrin', ['id' => $prd->userid]) }}"><i
+                                                                    class="bi bi-box-fill px-3"></i>ارتباط با
+                                                                تامین کننده</i></a>
+                                                        </div>
                                                     </div>
-                                                    <div class="se-desc">
-                                                        <h6 class="text-success">فروشنده : استارت آپ جوانان آینده </h6>
-                                                        <h6>ویژگی محصول:</h6>
-                                                        <ul>
-                                                            <li>
-                                                                <span class="title">حداقل تعداد سفارش :</span>
-                                                                <span class="desc">1200 عدد</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">زمان شیپینگ :</span>
-                                                                <span class="desc">30 روز کاری</span>
-                                                            </li>
-                                                            <li>
-                                                                <span class="title">ضمانت نامه :</span>
-                                                                <span class="desc">سرویس آزاد ایران پیما</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="offer-btn">
-                                                    <a href="product.html"><i class="bi bi-box-fill px-3"></i>ارتباط با
-                                                        تامین کننده</i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
+
+                            @php
+                                $st = false;
+                                
+                            @endphp
+
+                            @foreach ($products as $prd)
+                                @if ($st == false && $prd->categoryid == $slidercateogrys[3]->id)
+                                    @php
+                                        $st = true;
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div class="offer-item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="offer-discount">
+                                                    </div>
+                                                    <div class="offer-img">
+                                                        <img src="{{ url('productimages') }}/{{ $prd->image }}"
+                                                            alt="{{ $prd->title }}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="offer-content">
+                                                        <div class="offer-desc">
+                                                            <div class="se-title">
+                                                                <h5>{{ $prd->title }}
+                                                                </h5>
+                                                                {{-- <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
+                                                            4458 اسپشیال
+                                                        </h6> --}}
+                                                            </div>
+                                                            <div class="se-desc">
+                                                                <h6 class="text-success">فروشنده : {{ $prd->username }}
+                                                                </h6>
+                                                                <h6>ویژگی محصول:</h6>
+                                                                <ul>
+                                                                    <li>
+                                                                        <span class="title">رنگ :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productcolor }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">وزن :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productvazn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">جنس :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productjens }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="offer-btn">
+                                                            <a href="{{ route('showvitrin', ['id' => $prd->userid]) }}"><i
+                                                                    class="bi bi-box-fill px-3"></i>ارتباط با
+                                                                تامین کننده</i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+
+
+                            @php
+                                $st = false;
+                                
+                            @endphp
+
+                            @foreach ($products as $prd)
+                                @if ($st == false && $prd->categoryid == $slidercateogrys[4]->id)
+                                    @php
+                                        $st = true;
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div class="offer-item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="offer-discount">
+                                                    </div>
+                                                    <div class="offer-img">
+                                                        <img src="{{ url('productimages') }}/{{ $prd->image }}"
+                                                            alt="{{ $prd->title }}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="offer-content">
+                                                        <div class="offer-desc">
+                                                            <div class="se-title">
+                                                                <h5>{{ $prd->title }}
+                                                                </h5>
+                                                                {{-- <h6 class="text-muted">لوستر حاله ای پذیرایی - بدنه طلا - دیزاین
+                                                            4458 اسپشیال
+                                                        </h6> --}}
+                                                            </div>
+                                                            <div class="se-desc">
+                                                                <h6 class="text-success">فروشنده : {{ $prd->username }}
+                                                                </h6>
+                                                                <h6>ویژگی محصول:</h6>
+                                                                <ul>
+                                                                    <li>
+                                                                        <span class="title">رنگ :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productcolor }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">وزن :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productvazn }}</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="title">جنس :</span>
+                                                                        <span
+                                                                            class="desc">{{ $prd->productjens }}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="offer-btn">
+                                                            <a href="{{ route('showvitrin', ['id' => $prd->userid]) }}"><i
+                                                                    class="bi bi-box-fill px-3"></i>ارتباط با
+                                                                تامین کننده</i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
 
                         </div>
                         <div class="swiper-pagination d-lg-none d-block"></div>
@@ -616,10 +512,10 @@
                         <div thumbsSlider="" class="swiper" id="offerItemLink">
                             <div class="swiper-wrapper">
 
-                                @foreach ($slidercateogrys as $slp)
+                                @foreach ($slidercateogrys as $slc)
                                     <div class="swiper-slide">
                                         <div class="offer-item-link-item shadow-sm">
-                                            <h6>{{ $slp->title }}</h6>
+                                            <h6>{{ $slc->title }}</h6>
                                         </div>
                                     </div>
                                 @endforeach
@@ -631,8 +527,9 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-    <!-- end offers  -->
+    </div>
+
+
 
     <div class="main-category py-4">
         <div class="container-fluid">
@@ -1284,231 +1181,231 @@
     <!-- end banner -->
 
     <!-- <div class="product-box mb-4">
-                                                                            <div class="container-fluid">
-                                                                                <div class="row">
-                                                                                    <div class="col-12">
-                                                                                        <div class="product-box-title">
-                                                                                            <h2 class="slider-title fs-3">همکاران ما</h2>
-                                                                                            <a href="category.html">مشاهده همه <i class="bi bi-chevron-left"></i></a>
-                                                                                        </div>
-                                                                                        <div class="swiper product-box-items  prodcut-box-one-slider">
-                                                                                            <div class="swiper-wrapper">
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/dadgostari.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/dadgostari.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                        دادگستری ایران<br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/dinairan.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/dinairan.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                         سازمان آمار نیروی انسانی<br><i>  31 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/irrenter.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/irrenter.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                       ایران رنت سنتر<br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/iranzamn.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/iranzamn.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                        بانک ایران زمین<br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/Polymertechmart-Logo.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/Polymertechmart-Logo.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                         پژوهشگاه پلیمرایران<br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/pars.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/pars.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                        پتروشیمی ایران<br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item">
-                                                                                                        <div class="product-box-item-img">
-                                                                                                            <a href="">
-                                                                                                                <img src="img/Corporate/Quran-2.png" alt="" class="img-fluid one-image w-50">
-                                                                                                                <img src="img/Corporate/Quran-2.png" alt="" class="img-fluid two-image w-100 p-5">
-                                                                                                            </a>
-                                                                                                            <div class="product-box-item-hover">
-                                                                                                                <div class="product-box-item-hover-btn">
-                                                                                                                    <span class="see-more hint--right" data-hint="مشاهده سریع"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#productModal"><i
-                                                                                                                            class="bi bi-eye"></i></span>
-                                                                                                                    <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
-                                                                                                                            class="bi bi-heart"></i></span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <a href="product.html">
-                                                                                                            <div class="product-box-item-desc">
-                                                                                                                <div class="product-box-item-title">
-                                                                                                                    <h6>
-                                                                                                                        انجمن های مذهبی <br><i>  25 سال تجربه  </i>
-                                                                                                                    </h6>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                
+                                                                                                                                    <div class="container-fluid">
+                                                                                                                                        <div class="row">
+                                                                                                                                            <div class="col-12">
+                                                                                                                                                <div class="product-box-title">
+                                                                                                                                                    <h2 class="slider-title fs-3">همکاران ما</h2>
+                                                                                                                                                    <a href="category.html">مشاهده همه <i class="bi bi-chevron-left"></i></a>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="swiper product-box-items  prodcut-box-one-slider">
+                                                                                                                                                    <div class="swiper-wrapper">
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/dadgostari.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/dadgostari.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                دادگستری ایران<br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/dinairan.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/dinairan.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                 سازمان آمار نیروی انسانی<br><i>  31 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/irrenter.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/irrenter.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                               ایران رنت سنتر<br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/iranzamn.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/iranzamn.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                بانک ایران زمین<br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/Polymertechmart-Logo.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/Polymertechmart-Logo.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                 پژوهشگاه پلیمرایران<br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/pars.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/pars.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                پتروشیمی ایران<br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item">
+                                                                                                                                                                <div class="product-box-item-img">
+                                                                                                                                                                    <a href="">
+                                                                                                                                                                        <img src="img/Corporate/Quran-2.png" alt="" class="img-fluid one-image w-50">
+                                                                                                                                                                        <img src="img/Corporate/Quran-2.png" alt="" class="img-fluid two-image w-100 p-5">
+                                                                                                                                                                    </a>
+                                                                                                                                                                    <div class="product-box-item-hover">
+                                                                                                                                                                        <div class="product-box-item-hover-btn">
+                                                                                                                                                                            <span class="see-more hint--right" data-hint="مشاهده سریع"
+                                                                                                                                                                                data-bs-toggle="modal" data-bs-target="#productModal"><i
+                                                                                                                                                                                    class="bi bi-eye"></i></span>
+                                                                                                                                                                            <span class="favorite hint--right" data-hint="افزودن به برگزیده ها"><i
+                                                                                                                                                                                    class="bi bi-heart"></i></span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                <a href="product.html">
+                                                                                                                                                                    <div class="product-box-item-desc">
+                                                                                                                                                                        <div class="product-box-item-title">
+                                                                                                                                                                            <h6>
+                                                                                                                                                                                انجمن های مذهبی <br><i>  25 سال تجربه  </i>
+                                                                                                                                                                            </h6>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </a>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        
 
-                                                                                                <div class="swiper-slide">
-                                                                                                    <div class="product-box-item see-more-item">
-                                                                                                        <div class="see-all">
-                                                                                                            <a href="category.html">
-                                                                                                                <i class="bi bi-arrow-left-circle"></i>
-                                                                                                                <p>مشاهده همه</p>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="swiper-button-next"></div>
-                                                                                            <div class="swiper-button-prev"></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> -->
+                                                                                                                                                        <div class="swiper-slide">
+                                                                                                                                                            <div class="product-box-item see-more-item">
+                                                                                                                                                                <div class="see-all">
+                                                                                                                                                                    <a href="category.html">
+                                                                                                                                                                        <i class="bi bi-arrow-left-circle"></i>
+                                                                                                                                                                        <p>مشاهده همه</p>
+                                                                                                                                                                    </a>
+                                                                                                                                                                </div>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div class="swiper-button-next"></div>
+                                                                                                                                                    <div class="swiper-button-prev"></div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div> -->
     <!-- end product box -->
 
     <div class="partner">
