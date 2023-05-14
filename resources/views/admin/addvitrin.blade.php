@@ -65,21 +65,24 @@
                                                     </div>
 
                                                     <div class="custom-control custom-checkbox col-3">
-                                                        <input @if ($vitrin->konsers == 1) checked="" @endif value="1" name="konsers" type="checkbox"
+                                                        <input @if ($vitrin->konsers == 1) checked="" @endif
+                                                            value="1" name="konsers" type="checkbox"
                                                             class="custom-control-input" id="customCheck2">
                                                         <label class="custom-control-label"
                                                             for="customCheck2">{{ __('messages.adeditvtkonsers') }}</label>
                                                     </div>
 
                                                     <div class="custom-control custom-checkbox col-3">
-                                                        <input @if ($vitrin->taeed == 1) checked="" @endif value="1" name="taeed" type="checkbox"
+                                                        <input @if ($vitrin->taeed == 1) checked="" @endif
+                                                            value="1" name="taeed" type="checkbox"
                                                             class="custom-control-input" id="customCheck3">
                                                         <label class="custom-control-label"
                                                             for="customCheck3">{{ __('messages.adeditvtaccepted') }}</label>
                                                     </div>
 
                                                     <div class="custom-control custom-checkbox col-3">
-                                                        <input @if ($vitrin->esalat == 1) checked="" @endif value="1" name="esalat" type="checkbox"
+                                                        <input @if ($vitrin->esalat == 1) checked="" @endif
+                                                            value="1" name="esalat" type="checkbox"
                                                             class="custom-control-input" id="customCheck4">
                                                         <label class="custom-control-label"
                                                             for="customCheck4">{{ __('messages.adeditvtesalat') }}</label>
@@ -127,6 +130,22 @@
                                                             name="descen" type="text" id="example-text-input">
                                                     </div>
                                                 </div> --}}
+
+
+                                                <div class="form-group row">
+                                                    <label
+                                                        class="col-md-2 col-form-label">{{ __('messages.vtcat') }}</label>
+                                                    <div class="col-md-10">
+                                                        <select name="productcat" class="form-control">
+                                                            <option value="0">مشخص نشده</option>
+                                                            @foreach ($categorys as $category)
+                                                                <option value="{{ $category->id }}"
+                                                                    @if ($category->id == $vitrin->productcat) selected="selected" @endif>
+                                                                    {{ $category->title }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
 
 
                                                 <div class="form-group row">
@@ -201,8 +220,8 @@
                             <p class="mb-0">
                                 <br>
 
-                            {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
-                            <br>
+                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
+                                <br>
 
                             <div class="form-group row">
                                 <label for="example-text-input"
@@ -369,8 +388,8 @@
                             <p class="mb-0">
                                 <br>
 
-                            {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
-                            <br>
+                                {{-- <h4>{{ __('messages.farsi') }}</h4> --}}
+                                <br>
 
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label">{{ __('messages.vtcert1') }}</label>

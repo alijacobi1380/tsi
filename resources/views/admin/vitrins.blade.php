@@ -49,8 +49,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($vitrins as $vitrin)
                                 <tr>
-                                    @foreach ($vitrins as $vitrin)
                                         <th>
                                             {{ $vitrin->id }}
                                         </th>
@@ -87,8 +87,8 @@
                                             <a
                                                 href="{{ route('admin.editvitrin', ['id' => $vitrin->id]) }}">{{ __('messages.advtedit') }}</a>
                                         </th>
+                                    </tr>
                                     @endforeach
-                                </tr>
                             </tbody>
                         </table>
                     </div>

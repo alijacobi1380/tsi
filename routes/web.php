@@ -39,6 +39,12 @@ Route::get('/showvitrin/{id}', 'App\Http\Controllers\MainController@showvitrin')
 Route::get('/products', 'App\Http\Controllers\MainController@products')->name('products');
 Route::get('/products/category/{id}', 'App\Http\Controllers\MainController@productscategory')->name('productscategory');
 Route::get('/products/user/{id}', 'App\Http\Controllers\MainController@productsuser')->name('productsuser');
+Route::get('/supplier', 'App\Http\Controllers\MainController@supplier')->name('supplier');
+Route::get('/supplier/{id}', 'App\Http\Controllers\MainController@suppliercat')->name('suppliercat');
+Route::post('/searchproduct', 'App\Http\Controllers\MainController@searchproduct')->name('searchproduct');
+Route::get('/register', 'App\Http\Controllers\MainController@register')->name('register');
+Route::post('/registercheck', 'App\Http\Controllers\MainController@registercheck')->name('registercheck');
+
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 

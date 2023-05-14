@@ -77,7 +77,7 @@
                                             <span>یا</span>
                                         </div>
                                         <div class="register-link">
-                                            <a href="register.html"
+                                            <a href="{{route('register')}}"
                                                 class="btn btn-outline-secondary waves-effect waves-light">ثبت نام <i
                                                     class="bi bi-person-plus ms-1"></i></a>
                                         </div>

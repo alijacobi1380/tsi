@@ -224,13 +224,16 @@ class AdminController extends Controller
     public function editvitrin($id)
     {
         $vitrin = DB::table('vitrins')->where('id', '=', $id)->first();
-        return view('admin.addvitrin', compact('vitrin'));
+        $categorys = DB::table('categorys')->where('subcat', '=', 0)->get();
+        return view('admin.addvitrin', compact('vitrin', 'categorys'));
     }
 
     public function editvitrincheck($id, Request $request)
     {
 
         $arr = [
+            'productcat' => $request->productcat,
+            'productcaten' => $request->productcaten,
             'brandname' => $request->brandname,
             'brandnameen' => $request->brandnameen,
             'desc' => $request->desc,

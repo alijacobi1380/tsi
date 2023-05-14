@@ -58,9 +58,10 @@
                 </div>
                 <div class="col-lg-6 text-center d-lg-block order-lg-2 order-3">
                     <div class="top-menu-search ">
-                        <form action="" method="get">
+                        <form action="{{ route('searchproduct') }}" method="POST">
+                            @csrf
                             <div class="input-group">
-                                <input name="txt" type="text" class="search-txt h-25 rounded"
+                                <input name="name" type="text" class="search-txt h-25 rounded"
                                     placeholder="نام محصول مورد نظر خود را وارد کنید">
                                 <button type="submit" class="search-btn  input-group-text rounded-pill">
                                     <i class="bi bi-search"></i>
@@ -140,7 +141,8 @@
 
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="{{route('services')}}" class="nav-link border-animate fromCenter">
+                            <li class="nav-item"><a href="{{ route('services') }}"
+                                    class="nav-link border-animate fromCenter">
                                     خدمات<i class="bi bi-bookmark-check-fill fs-6 "></i></a>
                                 <!-- <ul class="level-one">
                                     <li><a href="">منو شماره 1</a></li>
@@ -248,10 +250,12 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-12">
                             <ul class="nav  header-contact-right">
-                                <li class="nav-item ash-black"><a href="index.html" class="nav-link font-14"><i
-                                            class="bi bi-archive-fill mx-1"></i>کالاها و محصولات</a></li>
-                                <li class="nav-item ash-black"><a href="supplier.html" class="nav-link font-14"><i
-                                            class="bi bi-boxes mx-1"></i>تامین کنندگان</a></li>
+                                <li class="nav-item ash-black"><a href="{{ route('products') }}"
+                                        class="nav-link font-14"><i class="bi bi-archive-fill mx-1"></i>کالاها و
+                                        محصولات</a></li>
+                                <li class="nav-item ash-black"><a href="{{ route('supplier') }}"
+                                        class="nav-link font-14"><i class="bi bi-boxes mx-1"></i>تامین کنندگان</a>
+                                </li>
                                 {{-- <li class="nav-item ash-black"><a href="merchant.html" class="nav-link font-14"><i
                                             class="bi bi-people-fill mx-1"></i>بازرگانان</a></li> --}}
                                 <!-- <li class="nav-item"><a href="" class="nav-link font-14">درباره ما</a></li> -->
